@@ -1,0 +1,56 @@
+
+{
+    "inspiration": [
+       
+        {
+            "id": 101,
+            "collection_name": "inspiration for the coffee lover",
+            "cover_image": "kitchen-cloth",
+            "description": "Some mornings we all need a boost, and we believe in elevating the modest moments that make up our everyday lives. That’s why we have assembled a range of products created to inspire the Coffee Lover, from brewing, storage, and prep accessories like Kitchen Cloths, to Borosilicate Mugs and George Sowden's Tins.",
+            "products": [
+                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue",
+                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue"
+            ]
+        },
+        {
+            "id": 102,
+            "collection_name": "playful glassware",
+            "cover_image": "glass-spoons",
+            "description": "HAY’s colourful new glassware features Borosilicate glass, which provides thermal insulation for hot drinks, as well as multi-hued clear and opaque glass for a touch of playful design. Mix up the colours and materials for a carefree look.",
+            "products": [
+                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue",
+                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue"
+            ]
+        },
+        {
+            "id": 103,
+            "collection_name": "back to work",
+            "cover_image": "table2",
+            "description": "Having an organised desk space is essential. Finding the balance between utility and aesthetics is key to creating a work environment that feels both productive and inviting.From writing tools such as our Golden Bullet pens to playful desktop storage such as our Colour Crates, our office items make going back to work or school not only easier, but more fun too.",
+            "products": [
+                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue",
+                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue"
+            ]
+        },
+        {
+            "id": 104,
+            "collection_name": "the candlelight collection",
+            "cover_image": "candles",
+            "description": "From bright colours to playful patterns to scented votives, there’s a HAY candle for every need and aesthetic. Find the candleholders that add something special to your space as you dot cosy candlelight around the home. ",
+            "products": [
+                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue",
+                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue"
+            ]
+        },
+        {
+            "id": 105,
+            "collection_name": "on-the-go basics",
+            "cover_image": "candy-stripe",
+            "description": "Made in a strong and durable material with 80% recycled plastic, the Candy Striped series is a collection of colourful and practical bags for carrying shopping and other everyday items. Available in different designs that vary from a small, hand-held bag to a super-sized shopper.",
+            "products": [
+                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue",
+                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue"
+            ]
+        }
+    ]
+}
