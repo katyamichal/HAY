@@ -44,16 +44,16 @@ class PopularProductCVCell: UICollectionViewCell {
         return label
     }()
     
-    private let detailLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Detail"
-        label.textColor = .label
-        label.numberOfLines = 0
-        label.font = UIFont.boldSystemFont(ofSize: 13)
-        return label
-    }()
-    
+//    private let detailLabel: UILabel = {
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.text = "Detail"
+//        label.textColor = .label
+//        label.numberOfLines = 0
+//        label.font = UIFont.boldSystemFont(ofSize: 13)
+//        return label
+//    }()
+//    
     private let pricelLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +101,7 @@ extension PopularProductCVCell {
           contentView.addSubview(verticalStackView)
           contentView.addSubview(likeButton)
           verticalStackView.addArrangedSubview(nameLabel)
-          verticalStackView.addArrangedSubview(detailLabel)
+       //   verticalStackView.addArrangedSubview(detailLabel)
           verticalStackView.addArrangedSubview(pricelLabel)
       }
     

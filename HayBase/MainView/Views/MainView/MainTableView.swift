@@ -9,8 +9,8 @@ import UIKit
 
 
 enum ProductSection: CaseIterable {
-   // case scroll
-//    case popular
+
+    case popular
     case designer
   //  case inspiration
 
@@ -47,19 +47,10 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
 
         tableHeader.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: Layout.height / 1.75)
         self.tableHeaderView = tableHeader
+
         
-  
-        //tableHeader.viewModel = viewModel
-        
-        
-//        viewModel?.onInspirationFeed = { inspirationFeed in
-//            tableHeader.inspirationFeed = inspirationFeed
-//        }
-       // self.register(HeaderCell.self)
-       // self.register(ProductCell.self)
-       // self.register(PopularProductTVCell.self)
+        self.register(PopularProductTVCell.self)
         self.register(DesignerCollaborationCell.self)
-     //   self.register(InsipationTableCell.self)
     }
     
     required init?(coder: NSCoder) {
@@ -82,8 +73,8 @@ extension MainTableView: UITableViewDataSource {
         switch section {
         //case .scroll:
      //       return 1
-//        case .popular:
-//            return 1
+        case .popular:
+            return 1
 //
         case .designer:
             return 1
@@ -102,11 +93,11 @@ extension MainTableView: UITableViewDataSource {
 //            let inspiration = viewModel?.inspiration ?? []
 //            cell.update(with: inspiration)
 //            return cell
-//        case.popular:
-//            let cell = tableView.dequeue(indexPath) as PopularProductTVCell
-//            let products = viewModel?.products ?? []
-//            cell.update(products)
-//            return cell
+        case.popular:
+            let cell = tableView.dequeue(indexPath) as PopularProductTVCell
+            let products = viewModel?.popularProduct ?? []
+            cell.update(products)
+            return cell
             
         case .designer:
             let cell = tableView.dequeue(indexPath) as DesignerCollaborationCell

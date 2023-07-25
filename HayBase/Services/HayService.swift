@@ -14,9 +14,15 @@ protocol HayServiceable {
     
     func getDesigners() async -> Result<DesignerResponse, RequestProcessorError>
     
+    func getPopularProduct() async -> Result<PopularProduct, RequestProcessorError>
+    
 }
 
 struct HayService: API, HayServiceable {
+    func getPopularProduct() async -> Result<PopularProduct, RequestProcessorError> {
+        return await performRequest(endpoint: HayEndpoints.popular, responseModel: PopularProduct.self)
+    }
+    
     func getDesigners() async -> Result<DesignerResponse, RequestProcessorError> {
         return await performRequest(endpoint: HayEndpoints.designers, responseModel: DesignerResponse.self)
     }

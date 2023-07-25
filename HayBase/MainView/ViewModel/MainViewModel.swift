@@ -11,7 +11,7 @@ final class MainViewModel {
     
     var service: HayServiceable
     
-    var products: [Product] = []
+    var popularProduct: [Product] = []
     var designers: [Designer] = []
     var inspiration: [InspirationFeed] = []
 //    {
@@ -59,6 +59,17 @@ final class MainViewModel {
             switch result {
             case .success(let designerResponse):
                 self.designers = designerResponse.designers
+                isUpdated = true
+            case .failure(let error):
+                print("***Error to fetch inspitation feed: \(error.localizedDescription)")
+            }
+        }
+        
+        Task {
+            let result = await service.getPopularProduct()
+            switch result {
+            case .success(let popularProduct):
+                self.popularProduct = popularProduct.products
                 isUpdated = true
             case .failure(let error):
                 print("***Error to fetch inspitation feed: \(error.localizedDescription)")

@@ -58,6 +58,7 @@ final class PopularProductTVCell: UITableViewCell {
     
     func update(_ products: [Product]) {
         self.products = products
+        self.collectionView.reloadData()
     }
 }
 // MARK: - Setups
