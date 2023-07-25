@@ -1,4 +1,4 @@
-# HAY furniture app
+# HAY Furniture Aapp
 Архитектура - MVVM
 
 Описание
