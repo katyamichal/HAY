@@ -2,6 +2,7 @@
 
 {
     "products": [
+        "category": "popular"
         {
             "id": 211,
             "product_name": "dapper chair",
@@ -84,3 +85,133 @@
         }
     ]
 }
+
+// inspo product
+
+
+"products": [
+    {
+        "id": 211,
+        "product_name": "dapper chair",
+        "description": "Designed by Doshi Levien for HAY, the Dapper lounge chair represents the design duo's distinctive fusion of industrial design, fine craftsmanship, storytelling and technology. Originally designed for use in a London university, Dapper has an extra wide backrest for comfort and optimal elbow support for laptop work. Its structural shape is formed by two moulded oak-veneered plywood shells with powder coated steel legs. Dapper's shell comes in a variety of stained and lacquered oak veneers, fabrics and leathers, with the frame available in different variations of powder coated steel.",
+        "price": 590,
+        "image": "dapper"
+       
+
+    },
+    {
+        "id": 221,
+        "product_name": "cloche lamp",
+        "description": "Designed by Lars Beller Fjetland, Cloche Table Lamp plays with visual imbalance to create a distinct shape. It features a domed shade, an angled, powder-coated aluminium arm, and an off-centre, cast-iron base. The shade is available in different colours and finishes, creating a decorative and directional lighting solution for a variety of office and home settings.",
+        "price": 340,
+        "image": "cloche-mint"
+        
+
+    },
+    
+    {
+        "id": 231,
+        "product_name": "tray coffee table",
+        "description": "The metal Tray Table is a multi-functional piece of furniture that can easily be adapted to fit your needs. When the tray top is in place, it can be used as a bedside table or coffee table, and when the tray top is removed, it becomes a regular tray that can be used to carry items.",
+        "price": 340,
+        "image": "tray"
+    
+  
+    },
+    {
+        "id": 241,
+        "product_name": "cabinet",
+        "description": "As its name suggests, the 2-in-1 Serving Set is both multifunctional and decorative. Crafted in coloured borosilicate glass, the container is accompanied by an extra part that can be used both as a saucer underneath and a lid on top. Durable and heat-resistant, it is suitable for serving hot or cold food, storing or displaying small items.",
+        "price": 1799,
+        "image": "cabinet-yellow"
+        
+    },
+    {
+        "id": 251,
+        "product_name": "dorso chair",
+        "description": "Inspired by the shifting curves of a human torso in motion, GamFratesi's Dorso chair combines a rounded exterior with a rotating base, creating a relaxing and functional lounge chair. Dorso's compact dimensions, swivel mechanism, and high level of comfort make it suitable for many different contexts, ranging from conferences, lounges, and waiting areas in public environments to homes and other private settings.",
+        "price": 1499,
+        "image": "dorso"
+
+
+    },
+    {
+        "id": 261,
+        "product_name": "quilton sofa",
+        "description": "Described by the designers as a ‘quilted landscape sofa system’, Quilton serves as a central platform for living, working, socializing and relaxing. Offering a wide assortment of different modules, Doshi Levien’s multi-functional sofa provides the flexibility of a modular system with generous dimensions and sculpted forms. Its numerous upholstery choices include mono, duo, or with a black contrasting platform, with the finely-detailed quilted upholstery encapsulating the softness and volume of the foam and wadding seats and creating exceptional comfort. Quilton takes sofa design to a new level of versatility that makes it suitable for a wide range of domestic and public spaces. Explore selected Quilton Contrast combinations below.",
+        "price": 4300,
+        "image": "quilton"
+
+    },
+    
+    {
+        "id": 271,
+        "product_name": "hay storage",
+        "description": "HAY Colour Crate Mix is a series of colourful storage boxes with a distinctive, perforated design. Made from 100% recycled post-consumer plastic waste in a variety of different colour-blocked designs and sizes, the crates can be stacked on top of one another in different size combinations. The multifunctional crates are suitable for storing and organising a wide range of items on shelves, tables or inside cupboards.",
+        "price": 15,
+        "image": "storage-blue"
+  
+    },
+    {
+        "id": 281,
+        "product_name": "hay bag",
+        "description": "Made in a strong and durable material with 80% recycled plastic, the Candy Striped series is a collection of colourful and practical bags for carrying shopping and other everyday items. Available in different designs that vary from a small, hand-held bag to a super-sized shopper.",
+        "price": 9,
+        "image": "candy-bag"
+ 
+        
+    },
+    {
+        "id": 291,
+        "product_name": "mug-set of 2",
+        "description": "Crafted in durable borosilicate glass, the Borosilicate Mug has a functional design in beautiful jade colours. Featuring a straight body and a round, symmetrical handle, it is an elegant upgrade to your everyday kitchen essentials. It comes in a pack of two and is available in different colours.",
+        "price": 55,
+        "image": "borosilicate-mug"
+        
+        
+    }
+]
+
+
+
+
+{
+    "inspiration": [
+        {
+            "id": 101,
+            "collection_name": "inspiration for the coffee lover",
+            "cover_image": "kitchen-cloth",
+            "description": "Some mornings we all need a boost, and we believe in elevating the modest moments that make up our everyday lives. That’s why we have assembled a range of products created to inspire the Coffee Lover, from brewing, storage, and prep accessories like Kitchen Cloths, to Borosilicate Mugs and George Sowden's Tins.",
+            "images": ["borosilocate", "juicer", "kettle2", "mug_french-press-brewer", "mug-pillow", "tin-coffee", "travel-cup"],
+            
+            "products": [
+                {
+                    "id": 111,
+                    "product_name": "sowden kettle",
+                    "description": "The Sowden Kettle shares the same distinctive family of colour combinations as the rest of George Sowden's collection, making a statement in any kitchen. Designed to be durable in plastic and stainless steel, the Kettle is easy to clean and features a generously proportioned handle and easy-to-pour spout. Contains max. 1.5 litres of water. Available in different colour options.",
+                    "price": 590,
+                    "image": "kettle"
+                },
+                
+                {
+                    "id": 121,
+                    "product_name": "french press brewer-clear",
+                    "description": "HAY's French Press Brewer is a colourful update of the classic kitchen essential. Made in durable borosilicate glass with a contrasting lid and knob, it adds a decorative twist when serving tea and coffee. Available in different colours.",
+                    "price": 390,
+                    "image": "french-press"
+                },
+                
+                
+                {
+                    "id": 131,
+                    "product_name": "mug-set of 2",
+                    "description": "Crafted in durable borosilicate glass, the Borosilicate Mug has a functional design in beautiful jade colours. Featuring a straight body and a round, symmetrical handle, it is an elegant upgrade to your everyday kitchen essentials. It comes in a pack of two and is available in different colours.",
+                    "price": 90,
+                    "image": "borosilicate-mug-set-of-2"
+                }
+                
+            ]
+        }
+    ]
+}
+

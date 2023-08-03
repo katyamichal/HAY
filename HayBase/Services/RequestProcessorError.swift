@@ -2,7 +2,7 @@
 //  RequestProcessorError.swift
 //  HayBase
 //
-//  Created by Catarina Polakowsky on 24.07.2023.
+//  Created by Katya Michal on 24.07.2023.
 //
 
 import Foundation

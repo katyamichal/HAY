@@ -2,12 +2,14 @@
 //  HayEndpoins.swift
 //  HayBase
 //
-//  Created by Catarina Polakowsky on 16.07.2023.
+//  Created by Katya Michal on 16.07.2023.
 //
 //
 //1. https://apingweb.com/api/rest/81ec7c49d78c2e9eafef2c5ebe47085627/inspiration
+//1.1 https://apingweb.com/api/rest/057759bc7db4674e59b2fae9ac99f45015/inspo
 //
 //2. https://apingweb.com/api/rest/2d9f824a29df805842530a73726afe9321/designers
+//2.1 https://apingweb.com/api/rest/565a31eb949c0deccbbf3a48e347484c2/designers
 
 // 3. https://apingweb.com/api/rest/3150fa727c18fe065bfdf3d8a272dd3c6/popular
 
@@ -33,9 +35,9 @@ extension HayEndpoints: Endpoint {
     var path: String {
         switch self {
         case .inspiration:
-            return "/api/rest/81ec7c49d78c2e9eafef2c5ebe47085627/inspiration"
+            return "/api/rest/057759bc7db4674e59b2fae9ac99f45015/inspo"
         case .designers:
-            return "/api/rest/2d9f824a29df805842530a73726afe9321/designers"
+            return "/api/rest/565a31eb949c0deccbbf3a48e347484c2/designers"
             
         case .popular:
             return "/api/rest/3150fa727c18fe065bfdf3d8a272dd3c6/popular"

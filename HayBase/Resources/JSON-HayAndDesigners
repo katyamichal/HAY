@@ -7,7 +7,7 @@
             "collection_name": "the sobremesa collection",
             "description": "Laila Gohar is a conceptual artist and chef who works with food as her artistic medium. She creates immersive experiences that blur the line between performance and dining. Gohar was born in Egypt, where she grew up in a large family of passionate cooks and hosts. She is now based in New York City where she works internationally, and is known for her high profile collaborations across art, design and fashion. Laila also writes a monthly column called How to Host It for FT’s How to Spend It magazine. For HAY, Laila Gohar has designed the Sobremesa Collection – a series of tableware and kitchen accessories designed to celebrate the joy of hosting.",
             "designer_image": "laila_gohar_portrait",
-            "collection_images": ["lgc_image1", "lgc_image2", "lgc_image3", "lgc_image4", "lgc_image5"],
+            "collection_images": ["lgc", "lgc2", "lgc3", "lgc4", "lgc5", "lgc6"],
             "products": [
                 {
                     "id": 711,
@@ -82,6 +82,79 @@
                     "price": 105,
                     "image": "apron"
                     
+                }
+            ]
+        },
+        
+        
+        {
+            "id": 901,
+            "designer_name": "shane schneck",
+            "collection_name": "",
+            "description": "Shane Schneck is an American designer based in Sweden, where he founded his Office for Design studio in Stockholm in 2010. International in his attitude and outlook, he previously lived and worked in Milan with the Piero Lissoni studio. His work has received international recognition, winning Red Dot, iF and Wallpaper design awards. His design ethos is to create simple yet innovative products that challenge industry standards. His products often contain an element of surprise, or are somehow playful or bold in their conception. Perhaps in their colour, form or use of materials. For HAY, Schneck has designed Cap, Analog, Tool Box, Dish Drainer, Watering Can, Porter, Bowler, Butler, Bernard and Tamoto Bed.",
+            "designer_image": "shane-schneck",
+            "collection_images": ["ssc", "ssc2", "ssc3", "ssc4", "ssc5"],
+            "products": [
+                {
+                    "id": 911,
+                    "product_name": "bernard chair",
+                    "description": "With the objective of creating a new and affordable design classic with a modern appeal to last future generations, Shane Schneck's Bernard explores the easy-chair genre within a contemporary context. The juxtaposition of a solid-wood frame with a visually light cover creates a unique relationship between the two components, resulting in a comfortable and durable chair with a distinctive design language. The frame is crafted in solid oak or beech with different finishes, and the slip-on cover is available in leather or industrial-strength marine canvas.",
+                    "price": 990,
+                    "image": "bernard"
+
+                },
+                {
+                    "id": 922,
+                    "product_name": "tamoto bed",
+                    "description": "Developed for HAY by Shane Schneck, Tamoto Bed is designed with multifunctionality in mind, which makes it easy and intuitive to integrate into a modern lifestyle. Tamoto is influenced by the draping quality of kimono sleeves, which inspired Shane's innovative use of folding fabric over the bed's frame. The soft, draped headboard is counterbalanced by the generously dimensioned steel tubing frame, creating a contemporary and comfortable bed-sofa hybrid that is not intended exclusively for sleeping, but also as a foundation for reading, working, or watching TV and other activities. With a flat-packed, easy-to-assemble design, removable headboard cover and recyclable materials, functionality has been factored in every step of the design process.",
+                    "price": 2840,
+                    "image": "tamoto-bed"
+          
+                },
+                
+                {
+                    "id": 931,
+                    "product_name": "bowler table",
+                    "description": "Shane Schneck's Bowler Table is a compact side table that is ideal for small spaces. The single tube that extends upwards creates a defined profile, which doubles as a functional handle too. The stem, handle and tray are made in powder coated steel, with a solid granite base that provides stability, yet it is still lightweight enough to move around. Bowler comes flat packed and is easy to assemble, making it suitable for all kinds of domestic and corporate environments.",
+                    "price": 1040,
+                    "image": "bowler-table"
+              
+                },
+                
+                {
+                    "id": 841,
+                    "product_name": "porters",
+                    "description": "Porter is an ingenious wooden kitchen roll holder that allows you to put kitchen roll on a straight rod and lock it in place by twisting the top of the rod, which also doubles as a handle. Available in oiled oak and black in two wood variants – oak made from leftover wood production or ash.",
+                    "price": 220,
+                    "image": "porter"
+                    
+                },
+                
+                {
+                    "id": 951,
+                    "product_name": "cap slim-gold",
+                    "description": "With its slim, elegant form and smooth touch, the Cap bottle opener turns a simple everyday task into a pleasure. The two versions are made of durable zinc alloy, with the thinner one coated in gold and the wider one in anthracite.",
+                    "price": 130,
+                    "image": "cap"
+
+                },
+                
+                {
+                    "id": 961,
+                    "product_name": "tool box",
+                    "description": "The handy and practical plastic toolbox is designed by Shane Schneck with extra compartments at the sides and top of the handle to optimise storage space.",
+                    "price": 140,
+                    "image": "tool-box"
+          
+                },
+                
+                {
+                    "id": 971,
+                    "product_name": "butler",
+                    "description": "Sometimes we all need an extra hand around the house. Enter the Butler, a versatile new step-ladder designed by Shane Schneck for HAY, whose clever design and thoughtful features make it an ideal household tool for numerous contexts. Crafted in solid oak with contemporary detailing, its larger lower step enables it to be used a side table, stool, or even a bedside bench.",
+                    "price": 730,
+                    "image": "butler"
+              
                 }
             ]
         }

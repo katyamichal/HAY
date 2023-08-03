@@ -211,5 +211,85 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B2DFF7B5-E5AD-450D-B119-8FAAD002563F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HayBase/Modules/Main/Views/Header/Details/InspirationDetailView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48A868EE-A10C-414F-ADC3-F296BD768E78"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HayBase/Modules/Main/Views/Header/Details/Views/InspirationDetailView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "createDescriptionLayout(isWide:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0521C39D-4633-4B64-ABB4-7687F8DE3557"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HayBase/Modules/Main/MainDetailModuls/Details/Views/InspoProductCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "likeButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0521C39D-4633-4B64-ABB4-7687F8DE3557 - 8609b20e0a940c1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HayBase.InspoProductCell.likeButtonTapped() -&gt; ()"
+                  moduleName = "HayBase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catarinapolakowsky/Desktop/HayBaseP/HayBase/Modules/Main/MainDetailModuls/Details/Views/InspoProductCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "855">
+               </Location>
+               <Location
+                  uuid = "0521C39D-4633-4B64-ABB4-7687F8DE3557 - 8609b20e0a940c73"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HayBase.InspoProductCell.likeButtonTapped() -&gt; ()"
+                  moduleName = "HayBase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catarinapolakowsky/Desktop/HayBaseP/HayBase/Modules/Main/MainDetailModuls/Details/Views/InspoProductCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "855">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

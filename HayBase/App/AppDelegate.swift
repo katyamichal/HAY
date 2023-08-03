@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  HayBase
 //
-//  Created by Catarina Polakowsky on 05.07.2023.
+//  Created by Katya Michal on 05.07.2023.
 //
 
 import UIKit
@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UINavigationBar.appearance().tintColor = UIColor.black
         return true
     }
 

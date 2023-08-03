@@ -2,7 +2,7 @@
 //  HayTabBarController.swift
 //  HayBase
 //
-//  Created by Catarina Polakowsky on 15.07.2023.
+//  Created by Katya Michal on 15.07.2023.
 //
 
 import UIKit
@@ -11,10 +11,14 @@ class HayTabBarController: UITabBarController {
     
     // MARK: - Controllers for Tab Bar
   
-   
+    
+    lazy var nav1 = UINavigationController(rootViewController: mainController)
+
+//    let nav2 = UINavigationController(rootViewController: )
+//    let nav3 = UINavigationController(rootViewController: )
+//    let nav4 = UINavigationController(rootViewController: )
   
-    private let mainController: MainViewController = {
-//        let productService = ProductService()
+    private lazy var mainController: MainViewController = {
         
         let hayService = HayService()
         let mainViewModel = MainViewModel(service: hayService)
@@ -31,7 +35,12 @@ class HayTabBarController: UITabBarController {
     
     
     private let favouriteController: FavouriteViewController = {
-        let controller = FavouriteViewController()
+        
+        let favouriteService = FavouriteService()
+        
+        let favouriteViewModel = FavouriteViewModel(favouriteService: favouriteService)
+        
+        let controller = FavouriteViewController(favouriteViewModel: favouriteViewModel)
         
         let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .light)
         let image = UIImage(systemName: "suit.heart", withConfiguration: config)
@@ -40,8 +49,7 @@ class HayTabBarController: UITabBarController {
         controller.tabBarItem = tabItem
         return controller
     }()
-    
-    
+ 
     
     private let profileController: ProfileViewController = {
         let controller = ProfileViewController()
@@ -81,7 +89,7 @@ class HayTabBarController: UITabBarController {
         tabBar.tintColor = .systemBrown
         tabBar.backgroundColor = .systemBackground
         tabBar.unselectedItemTintColor = .label
-        viewControllers = [mainController, favouriteController, profileController, cartController]
+        viewControllers = [nav1, favouriteController, profileController, cartController]
     }
 
 }

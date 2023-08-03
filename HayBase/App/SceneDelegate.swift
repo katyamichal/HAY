@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  HayBase
 //
-//  Created by Catarina Polakowsky on 05.07.2023.
+//  Created by Katya Michal on 05.07.2023.
 //
 
 import UIKit

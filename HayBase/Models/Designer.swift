@@ -2,14 +2,37 @@
 //  Designer.swift
 //  HayBase
 //
-//  Created by Catarina Polakowsky on 08.07.2023.
+//  Created by Katya Michal on 08.07.2023.
 //
 
 import Foundation
 
 
+//Designer -> DesignerModel
+
+//DesignerDTO
+//DesignerDAO
+
+//Response<T>, DesignerResponse -> Designer
+
+/*
+ 
+ Order {
+ [products]
+ address
+ fulname
+ phone
+ timeline -- 2 days -> notification
+ }
+ 
+ */
+
+
+
+
 struct DesignerResponse: Codable {
     let designers: [Designer]
+    
 }
 
 struct Designer: Codable {

@@ -2,7 +2,7 @@
 //  Inspiration.swift
 //  HayBase
 //
-//  Created by Catarina Polakowsky on 11.07.2023.
+//  Created by Katya Michal on 11.07.2023.
 //
 
 import Foundation
@@ -16,11 +16,11 @@ struct InspirationFeed: Codable {
     let collectionName: String
     let coverImage: String
     let description: String
-    let products: [String]
-    // images
+    let products: [Product]
+    let images: [String]
     
     enum CodingKeys: String, CodingKey {
-        case id, description, products
+        case id, description, products, images
         case collectionName = "collection_name"
         case coverImage = "cover_image"
     }
