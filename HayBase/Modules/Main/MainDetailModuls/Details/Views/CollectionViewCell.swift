@@ -125,9 +125,9 @@ final class InspirationDetailCell: UICollectionViewCell {
             collectionNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             collectionNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             collectionNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            collectionNameLabel.bottomAnchor.constraint(equalTo: scrollView.topAnchor, constant: -10),
+          
 
-            scrollView.topAnchor.constraint(equalTo: collectionNameLabel.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: collectionNameLabel.bottomAnchor, constant: 10),
             scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: Layout.height / 2),

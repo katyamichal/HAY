@@ -37,10 +37,10 @@ final class InspirationDetailViewController: UIViewController, InspirationDetail
         detailView.delegate = self
         
         NSLayoutConstraint.activate([
-            detailView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            detailView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            detailView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-            detailView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor)
+            detailView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            detailView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            detailView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            detailView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
             
         ])
     }
