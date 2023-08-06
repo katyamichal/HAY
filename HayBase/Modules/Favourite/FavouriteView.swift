@@ -11,7 +11,7 @@ protocol FavouriteViewDelegate: AnyObject {
     func updateViewModel(with product: LocalProduct)
 }
 
-final class FavouriteView: UIView, InspoProductCellDelegate {
+final class FavouriteView: UIView, BasicProductCellDelegate {
     func updateViewModel(with product: LocalProduct) {
         delegate?.updateViewModel(with: product)
     }
@@ -43,7 +43,7 @@ final class FavouriteView: UIView, InspoProductCellDelegate {
         collection.dataSource = self
 //        collection.register(FavouriteProductCell.self, forCellWithReuseIdentifier: FavouriteProductCell.cellIdentifier)
        
-       collection.register(InspoProductCell.self, forCellWithReuseIdentifier: InspoProductCell.cellIdentifier)
+       collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
         return collection
     }()
     
@@ -139,7 +139,7 @@ extension FavouriteView: UICollectionViewDataSource {
 //        cell.update(favProduct ?? nil)
 //        return cell
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InspoProductCell.cellIdentifier, for: indexPath) as? InspoProductCell else {fatalError("Error to dequeue FavouriteProductCell")}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicProductCell.cellIdentifier, for: indexPath) as? BasicProductCell else {fatalError("Error to dequeue FavouriteProductCell")}
         guard let favProduct = viewModel?.products?[indexPath.item]
         else {
             return cell

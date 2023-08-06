@@ -1,5 +1,5 @@
 //
-//  InspoProductCell.swift
+//  BasicProductCell.swift
 //  HayBase
 //
 //  Created by Katya Michal on 27.07.2023.
@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol InspoProductCellDelegate: AnyObject {
+protocol BasicProductCellDelegate: AnyObject {
     
     func updateViewModel(with product: LocalProduct)
 }
 
-class InspoProductCell: UICollectionViewCell {
+class BasicProductCell: UICollectionViewCell {
     
     
-    weak var delegate: InspoProductCellDelegate?
+    weak var delegate: BasicProductCellDelegate?
     
     var product: LocalProduct?
     
@@ -141,7 +141,7 @@ class InspoProductCell: UICollectionViewCell {
     }
 }
 
-extension InspoProductCell {
+extension BasicProductCell {
     
       private func setupViews() {
           contentView.addSubview(productImageView)

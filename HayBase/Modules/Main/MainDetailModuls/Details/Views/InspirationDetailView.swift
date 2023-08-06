@@ -16,7 +16,7 @@ protocol InspirationDetailViewDelegate: AnyObject {
     func updateViewModel(with product: LocalProduct)
 }
 
-final class InspirationDetailView: UIView, InspoProductCellDelegate {
+final class InspirationDetailView: UIView, BasicProductCellDelegate {
     
     func updateViewModel(with product: LocalProduct) {
         delegate?.updateViewModel(with: product)
@@ -50,7 +50,7 @@ final class InspirationDetailView: UIView, InspoProductCellDelegate {
         
         collection.register(InspirationDetailCell.self, forCellWithReuseIdentifier: InspirationDetailCell.cellIdentifier)
         
-        collection.register(InspoProductCell.self, forCellWithReuseIdentifier: InspoProductCell.cellIdentifier)
+        collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
    
         return collection
     }()
@@ -170,7 +170,7 @@ extension InspirationDetailView: UICollectionViewDataSource {
             
         case .product:
             
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InspoProductCell.cellIdentifier, for: indexPath) as? InspoProductCell else {fatalError("InspoProductCell did't dequeue")}
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicProductCell.cellIdentifier, for: indexPath) as? BasicProductCell else {fatalError("InspoProductCell did't dequeue")}
             
             if let products = viewModel.inspoProducts {
                 let product = products[indexPath.item]
