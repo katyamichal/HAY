@@ -8,6 +8,7 @@
 import UIKit
 
 protocol InspoProductCellDelegate: AnyObject {
+    
     func updateViewModel(with product: LocalProduct)
 }
 
@@ -48,6 +49,13 @@ class InspoProductCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        nameLabel.text = nil
+        pricelLabel.text = nil
+        productImageView.image = nil
+      //  likeButton.
     }
     
     // MARK: - Public
@@ -127,10 +135,8 @@ class InspoProductCell: UICollectionViewCell {
     @objc
     func likeButtonTapped() {
         guard var product = product else { return }
-        print("UPDATE")
         likeButtonIsTapped?.toggle()
         product.isFavourite = likeButtonIsTapped!
-        print(product.isFavourite)
         delegate?.updateViewModel(with: product)
     }
 }

@@ -7,14 +7,19 @@
 
 import UIKit
 
-final class FavouriteViewController: UIViewController {
+final class FavouriteViewController: UIViewController, FavouriteViewDelegate {
+    func updateViewModel(with product: LocalProduct) {
+        favouriteViewModel.update(with: product)
+    }
+    
   
-    
-    
+    // MARK: - ViewModel and View
+
     private let favouriteViewModel: FavouriteViewModel
     /// if viewModel has beed changed, controller sends view
     
     private var favouriteView: FavouriteView { return self.view as! FavouriteView }
+    
     
     // MARK: - Inits
 
@@ -27,16 +32,29 @@ final class FavouriteViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     // MARK: - Cycle
     
     override func loadView() {
         self.view = FavouriteView()
-        
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
+        favouriteView.delegate = self
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadProducts()
+    }
+    
+    
+    // MARK: - Methods
 
+    private func loadProducts() {
+        favouriteViewModel.loadProduct()
+        favouriteView.update(viewModel: favouriteViewModel)
+    }
 }

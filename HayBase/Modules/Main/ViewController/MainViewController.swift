@@ -8,8 +8,6 @@
 import UIKit
 
 final class MainViewController: UIViewController, InspirationTableHeaderDelegate {
-  
-    
     
     private let mainViewModel: MainViewModel
     
@@ -44,21 +42,21 @@ final class MainViewController: UIViewController, InspirationTableHeaderDelegate
         
         mainViewModel.onDidUpdatedViewModel =  {
             self.mainView.productTableView.update(self.mainViewModel)
-
+            
         }
     }
     
     // navigate to inspirationcontroller from delegate
     // MARK: - Delegate method
-
-
+    
+    
     func inspirtionView(_ header: InspirationTableHeader, didSelectInspiration feed: InspirationFeed) {
         
         //TODO: - generic  detail controller
         let inspirationDetailModel = InspoDetailViewModel(inpirationFeed: feed)
         
         let inspoDetailVC = InspirationDetailViewController(viewModel: inspirationDetailModel)
-
+        
         navigationController?.pushViewController(inspoDetailVC, animated: true)
     }
     

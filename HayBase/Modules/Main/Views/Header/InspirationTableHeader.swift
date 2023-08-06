@@ -112,7 +112,6 @@ final class InspirationTableHeader: UIView {
         guard !inspirationFeed.isEmpty else {return}
         let inspiration = inspirationFeed[pageControl.currentPage]
         delegate?.inspirtionView(self, didSelectInspiration: inspiration)
-        print("Button tapped")
     }
     
     

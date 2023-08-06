@@ -8,10 +8,12 @@
 import Foundation
 
 final class FavouriteService {
-    
-    var mockData: [LocalProduct] = []
-    
+ 
     // retrieve data from user defaults
-    // func load favProducts()
-    
+    func loadFavouriteProducts() -> [LocalProduct]? {
+        guard let products = ProductArchiver.productArchiver.retrieve() else {
+            return nil
+        }
+        return products
+    }
 }

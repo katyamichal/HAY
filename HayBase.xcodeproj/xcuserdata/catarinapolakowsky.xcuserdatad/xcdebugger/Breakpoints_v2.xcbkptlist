@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "916694CC-303E-4479-8082-052B9F107AD0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HayBase/ProductTableView.swift"
@@ -37,7 +37,7 @@
             <Locations>
                <Location
                   uuid = "916694CC-303E-4479-8082-052B9F107AD0 - 627f1e432801dd06"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HayBase.ProductTableView.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
@@ -52,7 +52,7 @@
                </Location>
                <Location
                   uuid = "916694CC-303E-4479-8082-052B9F107AD0 - 627f1e432801dd65"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HayBase.ProductTableView.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
@@ -67,7 +67,7 @@
                </Location>
                <Location
                   uuid = "916694CC-303E-4479-8082-052B9F107AD0 - 627f1e432801dd44"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HayBase.ProductTableView.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
@@ -100,7 +100,7 @@
             <Locations>
                <Location
                   uuid = "A7FEF867-CB2E-4891-85AA-7DC4E6755B89 - 627f1e432801dcab"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HayBase.ProductTableView.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
@@ -115,7 +115,7 @@
                </Location>
                <Location
                   uuid = "A7FEF867-CB2E-4891-85AA-7DC4E6755B89 - 627f1e432801dcab"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HayBase.ProductTableView.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
@@ -241,54 +241,6 @@
             endingLineNumber = "98"
             landmarkName = "createDescriptionLayout(isWide:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0521C39D-4633-4B64-ABB4-7687F8DE3557"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HayBase/Modules/Main/MainDetailModuls/Details/Views/InspoProductCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "likeButtonTapped()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0521C39D-4633-4B64-ABB4-7687F8DE3557 - 8609b20e0a940c1c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HayBase.InspoProductCell.likeButtonTapped() -&gt; ()"
-                  moduleName = "HayBase"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/catarinapolakowsky/Desktop/HayBaseP/HayBase/Modules/Main/MainDetailModuls/Details/Views/InspoProductCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "131"
-                  endingLineNumber = "131"
-                  offsetFromSymbolStart = "855">
-               </Location>
-               <Location
-                  uuid = "0521C39D-4633-4B64-ABB4-7687F8DE3557 - 8609b20e0a940c73"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HayBase.InspoProductCell.likeButtonTapped() -&gt; ()"
-                  moduleName = "HayBase"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/catarinapolakowsky/Desktop/HayBaseP/HayBase/Modules/Main/MainDetailModuls/Details/Views/InspoProductCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "855">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

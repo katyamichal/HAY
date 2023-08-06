@@ -29,7 +29,6 @@ class FavouriteProductCell: UICollectionViewCell {
     
     func update(_ product: LocalProduct?) {
         guard let product else {return}
-     
         nameLabel.text = product.productName.lowercased()
         pricelLabel.text = "\(product.price) £"
         productImageView.image = UIImage(named: product.image)
@@ -91,10 +90,9 @@ class FavouriteProductCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         let largeFont = UIFont.systemFont(ofSize: 20)
         let configuration = UIImage.SymbolConfiguration(font: largeFont)
-        let image = UIImage(systemName: "heart", withConfiguration: configuration)
-//         button.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        let image = UIImage(systemName: "heart.fill", withConfiguration: configuration)
         button.setImage(image, for: .normal)
-        button.tintColor = .systemGray2
+        button.tintColor = .black
       
         return button
     }()
