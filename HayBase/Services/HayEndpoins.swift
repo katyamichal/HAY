@@ -7,6 +7,7 @@
 //
 //1. https://apingweb.com/api/rest/81ec7c49d78c2e9eafef2c5ebe47085627/inspiration
 //1.1 https://apingweb.com/api/rest/057759bc7db4674e59b2fae9ac99f45015/inspo
+// 1.2 https://apingweb.com/api/rest/26b4c2208e962cc80d96694d9944947320/inspiration
 //
 //2. https://apingweb.com/api/rest/2d9f824a29df805842530a73726afe9321/designers
 //2.1 https://apingweb.com/api/rest/565a31eb949c0deccbbf3a48e347484c2/designers
@@ -15,8 +16,6 @@
 
 
 import Foundation
-
-
 
 enum HayEndpoints {
     
@@ -35,7 +34,7 @@ extension HayEndpoints: Endpoint {
     var path: String {
         switch self {
         case .inspiration:
-            return "/api/rest/057759bc7db4674e59b2fae9ac99f45015/inspo"
+            return "/api/rest/26b4c2208e962cc80d96694d9944947320/inspiration"
         case .designers:
             return "/api/rest/565a31eb949c0deccbbf3a48e347484c2/designers"
             

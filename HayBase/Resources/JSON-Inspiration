@@ -14,7 +14,11 @@
                     "product_name": "sowden kettle",
                     "description": "The Sowden Kettle shares the same distinctive family of colour combinations as the rest of George Sowden's collection, making a statement in any kitchen. Designed to be durable in plastic and stainless steel, the Kettle is easy to clean and features a generously proportioned handle and easy-to-pour spout. Contains max. 1.5 litres of water.",
                     "price": 590,
-                    "image": "kettle"
+                    "image": "kettle",
+                    "image_collection": ["kettle2", "inspiration1"],
+                    "material": "plastic, stainless steel",
+                    "size": "1.5 litres",
+                    "colour": "mint"
                 },
                 
                 {
@@ -22,7 +26,11 @@
                     "product_name": "french press brewer-clear",
                     "description": "HAY's French Press Brewer is a colourful update of the classic kitchen essential. Made in durable borosilicate glass with a contrasting lid and knob, it adds a decorative twist when serving tea and coffee.",
                     "price": 390,
-                    "image": "french-press"
+                    "image": "french-press",
+                    "image_collection": ["borosilocate", "mug_french-press-brewer"],
+                    "material": "borosilicate glass",
+                    "size": "0.8 litres",
+                    "colour": "yellow lid and blue knob"
                 },
                 
                 
@@ -31,23 +39,35 @@
                     "product_name": "mug-set of 2",
                     "description": "Crafted in durable borosilicate glass, the Borosilicate Mug has a functional design in beautiful jade colours. Featuring a straight body and a round, symmetrical handle, it is an elegant upgrade to your everyday kitchen essentials.",
                     "price": 90,
-                    "image": "borosilicate-mug-set-of-2"
+                    "image": "borosilicate-mug-set-of-2",
+                    "image_collection": ["mug_french-press-brewer", "sp-blue-mugs"],
+                    "material": "borosilicate glass",
+                    "size": "0.35 litres",
+                    "colour": "jade-blue"
                 },
                 
                 {
                     "id": 141,
-                    "product_name": "travel cup -0,35 litre",
+                    "product_name": "travel cup",
                     "description": "Contrasting colours make for a playful expression in George Sowden's Travel Cup. Crafted in stainless steel with a plastic lid, the functional design is suitable for containing hot and cold drinks.",
                     "price": 60,
-                    "image": "travel-cup-clear"
+                    "image": "travel-cup-clear",
+                    "image_collection": ["travel-cup", "sp-travel-cup"],
+                    "material": "plastic, stainless steel",
+                    "size": "0,35 litres",
+                    "colour": "grey cup, blue-red lid"
                 },
                 
                 {
                     "id": 151,
                     "product_name": "coffee-medium-mint",
                     "description": "Designer George Sowden's Coffee Pot comprises a porcelain exterior with innovative SoftBrew™ brewing device that infuses the coffee through a centrally located micro-thin stainless steel filter to enhance the flavour.",
-                    "price": 390,
-                    "image": "coffee-m"
+                    "price": 690,
+                    "image": "coffee-m",
+                    "image_collection": ["kettle2", "sp-coffee-kettle"],
+                    "material": "stainless steel",
+                    "size": "1.3 litres",
+                    "colour": "mint"
                 },
                 
                 {
@@ -55,7 +75,11 @@
                     "product_name": "sowden-juicer",
                     "description": "Featuring the same signature colours as the rest of HAY's George Sowden kitchen collection, the Sowden Juicer brings function and colour to any kitchen. The electric design effectively squeezes citrus fruits, effortlessly providing fresh, pulp-free juice. Made in durable plastic and stainless steel, the Sowden Juicer is easy to disassemble and clean after use.",
                     "price": 490,
-                    "image": "juicer-clear"
+                    "image": "juicer-clear",
+                    "image_collection": ["juicer"],
+                    "material": "durable plastic and stainless steel",
+                    "size": "eu standart",
+                    "colour": "yellow"
                 },
                 
                 {
@@ -63,7 +87,11 @@
                     "product_name": "spin bowl",
                     "description": "Coloured borosilicate glass with a swirling pattern creates an elegant and distinct design in HAY’s Spin. Ideal for serving food, storing small objects or just for decorative purposes.",
                     "price": 130,
-                    "image": "bowl-coffee"
+                    "image": "bowl-coffee",
+                    "image_collection": ["sp-spin-bowl"],
+                    "material": "borosilicate glass",
+                    "size": "small",
+                    "colour": "pink with blue stripe"
                 },
                 
                 {
@@ -71,7 +99,11 @@
                     "product_name": "borosilicate jar",
                     "description": "Crafted in durable borosilicate glass, the Borosilicate Jug combines practical and decorative qualities with beautiful colours. Featuring a streamlined silhouette with handle-less design, the jug is an elegant upgrade to your everyday kitchen essentials.",
                     "price": 70,
-                    "image": "jar"
+                    "image": "jar",
+                    "image_collection": ["sp-jar"],
+                    "material": "borosilicate glass",
+                    "size": "0.7 litres",
+                    "colour": "yellow"
                 }
             ]
         },
@@ -85,10 +117,7 @@
             "collection_name": "back to work",
             "cover_image": "btw4",
             "description": "Having an organised desk space is essential. Finding the balance between utility and aesthetics is key to creating a work environment that feels both productive and inviting.From writing tools such as our Golden Bullet pens to playful desktop storage such as our Colour Crates, our office items make going back to work or school not only easier, but more fun too.",
-            "products": [
-                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue",
-                "https://hay.dk/hay/hay-colour-crate-mix-small-sky-blue"
-            ],
+         
             "images": ["btw2", "btw", "btw3", "btw4", "btw5", "btw6"],
             "products": [
                 {
@@ -96,15 +125,23 @@
                     "product_name": "cph table",
                     "description": "The CPH90 brings classic desk aesthetics into a modern context. The Bouroullec brothers' simple yet graceful asymmetrical legs coupled with the streamlined tabletop results in a functional, compact and uncluttered design. The table frame is available in different wood types with varying finishes, with the tabletops offered in different materials and finishes. The Copenhague Desk's versatile and elegant design makes it suited to most commercial or educational environments, as well as being ideal for working at home.",
                     "price": 1190,
-                    "image": "table1"
+                    "image": "table1",
+                    "image_collection": ["sp-cph-table", "btw2"],
+                    "material": "plywood with laminate",
+                    "size": "160 × 80 × 74",
+                    "colour": "grey"
                 },
                 
                 {
                     "id": 122,
                     "product_name": "paper bin",
                     "description": "Clara von Zweigbergk combines contrasting colours with a slanted folding technique to create a playful and colourful wastepaper bin that will brighten up any room. Made from FSC recycled paper, the Paper Paper Bin's protective coating means it can be used for other kinds of waste disposal, as well as serving decorative and storage purposes.",
-                    "price": 160,
-                    "image": "paper-bin"
+                    "price": 60,
+                    "image": "paper-bin",
+                    "image_collection": ["btw", "sp-bin"],
+                    "material": "FSC recycled paper",
+                    "size": "8 litres",
+                    "colour": "dark green"
                 },
                 
                 
@@ -113,7 +150,11 @@
                     "product_name": "hay shelving",
                     "description": "HAY’s Shelving Unit comprises a steel frame with exposed fittings that creates a raw, industrial look. The open construction and height-adjustable shelves make it a functional and versatile solution for storing and displaying items in offices, bedrooms, kitchens, and other rooms in the house.",
                     "price": 690,
-                    "image": "shelving"
+                    "image": "shelving",
+                    "image_collection": ["btw"],
+                    "material": "steel",
+                    "size": "110 × 60 × 230",
+                    "colour": "dusty-blue"
                 },
                 
                 {
@@ -121,7 +162,11 @@
                     "product_name": "about a chair",
                     "description": "Featuring a five-legged castor base, the AAC 155 combines the high functionality of a task chair with optimal comfort and modern aesthetics. Retaining the same high backrest and generous seat that characterises the series, the base is designed with a tilting mechanism and a gas lift that can adjust the seat height. The base is available in either polished or powder-coated aluminium, and the shell comes in a variety of upholstery options, providing a multitude of design combinations that give this series versatility in a wide range of corporate, public, and private contexts.",
                     "price": 960,
-                    "image": "chair-clear"
+                    "image": "chair-clear",
+                    "image_collection": ["btw2", "btw5"],
+                    "material": "polished aluminium",
+                    "size": "eu standart",
+                    "colour": "cognac"
                 },
                 
                 {
@@ -129,7 +174,11 @@
                     "product_name": "revolt chair",
                     "description": "Originally created by Friso Kramer while working at Ahrend in the 1950s, the Revolt Chair has been relaunched by HAY together with Ahrend. One of Friso Kramer's most famous designs, the Revolt Chair embodies his distinctive minimalist style; a revolutionary design and choice of materials that uses a bent sheet steel frame instead of a traditional tubular frame. Reproduced today using the same process, the chair retains the functionality and resilient construction of its mid-century precursor, but in a sustainable material choice comprising a mix of recycled post-consumer and virgin ABS material in different colour options. A dynamic and flexible chair, Revolt's ergonomic design moves with its user, offering active support while working, eating or sitting in conferences. Its comfort, durability and timeless aesthetics make it suitable for using in a wide variety of private, corporate or public spaces.",
                     "price": 700,
-                    "image": "steel"
+                    "image": "steel",
+                    "image_collection": ["btw6", "sp-revolt"],
+                    "material": "steel",
+                    "size": "eu standart",
+                    "colour": "ocean yellow"
                 },
                 
                 {
@@ -137,7 +186,11 @@
                     "product_name": "tool box",
                     "description": "The handy and practical plastic toolbox is designed by Shane Schneck with extra compartments at the sides and top of the handle to optimise storage space.",
                     "price": 140,
-                    "image": "tool-box"
+                    "image": "tool-box",
+                    "image_collection": ["btw3"],
+                    "material": "plastic",
+                    "size": "30 × 26",
+                    "colour": "grey"
                 },
                 
                 {
@@ -145,7 +198,11 @@
                     "product_name": "slant lamp",
                     "description": "Inspired by the power of shapes and how they impact their surroundings, Japanese design team Branch's Slant Lamp features a bold graphic aesthetic that takes possession of the space it occupies. Comprising a simple, slanted cylindrical form with a weighted base to keep the angle perfectly balanced, all components are concealed within to retain the clean, elemental silhouette. Crafted in aluminium with a wet spray satin finish to create a smooth surface, it utilises a standard retro fit bulb, hidden away behind the lamp's acrylic diffuser, which softly distributes the light.",
                     "price": 1130,
-                    "image": "slant-lamp"
+                    "image": "slant-lamp",
+                    "image_collection": ["btw6", "sp-slant-lamp"],
+                    "material": "aluminium",
+                    "size": "table-size",
+                    "colour": "black"
                 },
                 
                 {
@@ -153,7 +210,11 @@
                     "product_name": "passerelle desk",
                     "description": "Inspired by the uncluttered aesthetics of classic Shaker furniture, French designers Ronan and Erwan Bouroullec designed the Passerelle Desk – an updated interpretation sharing the same simplicity and quality in a more contemporary context. With a well-balanced, flat-packed construction, the tabletop features solid wooden edges and top surface in veneer, laminate or linoleum, with the core made of Lisocore® – an advanced, high-quality material that offers great strength yet is extremely light and easy to move around. The under construction is equally robust and functional, with the solid wooden frame and aluminium and steel crossbar positioned just off centre for extra chair space and mobility.",
                     "price": 2990,
-                    "image": "passerelle-desk"
+                    "image": "passerelle-desk",
+                    "image_collection": ["btw4"],
+                    "material": "lacqered oak wood",
+                    "size": "140 × 65 × 74",
+                    "colour": "burgundy powder coated"
                 }
             ]
         },
@@ -173,7 +234,11 @@
                     "product_name": "duvet cover standart",
                     "description": "Crafted from organic cotton with a high thread count for a silky, more luxurious feel, Outline Duvet Cover offers exceptional comfort and softness, while the bold colours and elegant contrast trim elevate the bedroom aesthetics.",
                     "price": 490,
-                    "image": "duvet"
+                    "image": "duvet",
+                    "imageCollection": ["",],
+                    "material": "",
+                    "size": "",
+                    "colour": ""
                 },
                 
                 {
@@ -181,7 +246,11 @@
                     "product_name": "pillow",
                     "description": "Crafted from organic cotton with a high thread count for a silky, more luxurious feel, Outline Pillow Case offers exceptional comfort and softness, while the bold colours and elegant contrast trim elevate the bedroom aesthetics.",
                     "price": 290,
-                    "image": "pillow"
+                    "image": "pillow",
+                    "imageCollection": [""],
+                    "material": "",
+                    "size": "",
+                    "colour": ""
                 },
                 
                 
@@ -190,7 +259,11 @@
                     "product_name": "tapis mat",
                     "description": "Flat-woven from a blend of jute and cotton, Tapis Mat adds a natural yet refined expression to bedrooms, hallways and other areas in a home.",
                     "price": 300,
-                    "image": "tapis-mat"
+                    "image": "tapis-mat",
+                    "imageCollection": [""],
+                    "material": "",
+                    "size": "",
+                    "colour": ""
                 },
                 
                 {
@@ -198,7 +271,11 @@
                     "product_name": "ete duvet",
                     "description": "Crafted in crisp, soft cotton with contrasting stripes, Été Duvet Cover is a HAY x Amanda Borberg design collaboration that brings to mind hot summery days, with sandy beaches and fresh sea air.",
                     "price": 590,
-                    "image": "duvet2"
+                    "image": "duvet2",
+                    "imageCollection": [""],
+                    "material": "",
+                    "size": "",
+                    "colour": ""
                 },
                 
                 {
@@ -206,7 +283,11 @@
                     "product_name": "dotted bed cover",
                     "description": "Mega Dot is a quilted bed cover featuring a three-dimensional circular pattern that combines modern design ideals with sensuous graphic expression. Made from soft and durable cotton, it features a two-tone design with a contrasting colour on the reverse side.",
                     "price": 490,
-                    "image": "bed-cover"
+                    "image": "bed-cover",
+                    "imageCollection": ["",],
+                    "material": "",
+                    "size": "",
+                    "colour": ""
                 },
                 
                 {
@@ -214,7 +295,11 @@
                     "product_name": "arcs wall lamp",
                     "description": "The Arcs Wall Lamp is part of a series of arched designs created for HAY by Belgian duo Muller Van Severen. Formed from a continuous chain of curved arches that create an elegant, scalloped silhouette, the lamp provides a soft, ambient up and down light that plays with shapes and shadows. The lamp is easy to mount and is available in two wall variants – providing flexible installation options with a choice of integrated and independent power cords. Arcs is crafted in solid steel and is available in several different colours or with a mirror surface. The different mounting solutions give the lamp a versatile quality, making it suitable for corridors and large spaces, as well as a bedside lamp or in small corners.",
                     "price": 790,
-                    "image": "arcs-lamp"
+                    "image": "arcs-lamp",
+                    "imageCollection": ["", "", "",],
+                    "material": "",
+                    "size": "",
+                    "colour": ""
                 },
                 
                 {
@@ -222,14 +307,22 @@
                     "product_name": "korpus shelf",
                     "description": "Korpus Shelf is a series of colourful wall-mounted shelves created for HAY by Norwegian product designer Andreas Bergsaker. Based on the desire to create a durable multi-purpose shelf from recyclable material, Korpus Shelf is made from sheet aluminium, known for its lightness, strength and ability to be reused countless times. The aluminium undergoes an industrial stamping and punching process to be formed into the distinctively curved column and top. Keyhole slits at the back facilitate mounting, while concealed hooks in the column provide additional hanging possibilities",
                     "price": 590,
-                    "image": "korpus-shelf"
+                    "image": "korpus-shelf",
+                    "imageCollection": ["", "", "",],
+                    "material": "",
+                    "size": "",
+                    "colour": ""
                 },
                 {
                     "id": 183,
                     "product_name": "flare for candles",
                     "description": "Coloured borosilicate glass creates an elegant and distinct way to display candles in HAY's Flare Candleholder series. ",
                     "price": 120,
-                    "image": "flare"
+                    "image": "flare",
+                    "imageCollection": ["", "", "",],
+                    "material": "",
+                    "size": "",
+                    "colour": ""
                 }
 
             ]

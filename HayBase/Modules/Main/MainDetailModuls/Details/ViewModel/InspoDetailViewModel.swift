@@ -21,13 +21,16 @@ import Foundation
 
 final class InspoDetailViewModel {
     
+    // data from service
     let inpirationFeed: InspirationFeed
     
+    // 1.property that we use to create local model from service model
     private var products = [LocalProduct]()
     
+    // 2. property to keep fav product from disk
     private var favProduct = [LocalProduct]()
     
-    // product' mix from service data and saved data
+    // then i merge 1 + 2 and it can be passed to view as a relevant data
     var inspoProducts: [LocalProduct]? {
         if products.isEmpty {
             products = createLocalProducts()
@@ -39,7 +42,7 @@ final class InspoDetailViewModel {
         
         let serviceProduct = inpirationFeed.products
         
-        var localProduct = serviceProduct.map { LocalProduct(id: $0.id, productName: $0.productName, description: $0.productName, price: $0.price, image: $0.image, isFavourite: false)
+        var localProduct = serviceProduct.map { LocalProduct(id: $0.id, productName: $0.productName, description: $0.description, price: $0.price, image: $0.image, isFavourite: false, isInCart: false, collectionImages: $0.imageCollection, material: $0.material, size: $0.size, colour: $0.colour)
         }
 
         
@@ -51,6 +54,12 @@ final class InspoDetailViewModel {
             }
         }
         return localProduct
+    }
+    
+    func update() {
+        favProduct.removeAll()
+        retrieveData()
+        products.removeAll()
     }
     
     // MARK: - Init

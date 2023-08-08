@@ -15,6 +15,13 @@ struct LocalProduct: Codable, Equatable {
     var price: Int
     var image: String
     var isFavourite: Bool
+    var isInCart: Bool
+    var collectionImages: [String]
+    var material: String
+    var size: String
+    var colour: String
+  
+    
     
     
     // MARK: - Equatable implementation

@@ -39,7 +39,7 @@ final class ProductArchiver: ProductArchiverInput {
             let data = try encoder.encode(products)
             
             UserDefaults.standard.set(data, forKey: key)
-            print("\(products) has been successfully saved")
+           // print("\(products) has been successfully saved")
            
             
         } catch {

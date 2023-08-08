@@ -7,48 +7,50 @@
 
 import UIKit
 
-//enum DetailType {
-//    case designer
-//   // case inspiration
-//}
-
-
-enum SectionType: CaseIterable {
-    case photoAndDescription
-    case product
+enum DetailType {
+    case designer
+   // case inspiration
 }
 
 protocol InspirationDetailViewDelegate: AnyObject {
     func updateViewModel(with product: LocalProduct)
 }
 
-final class InspirationDetailView: UIView {
+final class InspirationDetailView: UIView, InspoProductCellDelegate {
     
+    func updateViewModel(with product: LocalProduct) {
+        delegate?.updateViewModel(with: product)
+    }
     
     weak var delegate: InspirationDetailViewDelegate?
     
+  //  var onLikedButtonTapped: ((Product)->())?
     
-    var viewModel: InspoDetailViewModel {
+    enum SectionType: CaseIterable {
+        case photoAndDescription
+        case product
+    }
+    
+     var viewModel: InspoDetailViewModel {
         didSet {
             collectionView.reloadData()
         }
     }
-    
-    
     // MARK: - UI Element
 
-     lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         
         let layout = createCollectionView()
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.delegate = self
         collection.dataSource = self
-
+        
         collection.register(InspirationDetailCell.self, forCellWithReuseIdentifier: InspirationDetailCell.cellIdentifier)
         
-        collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
+        collection.register(InspoProductCell.self, forCellWithReuseIdentifier: InspoProductCell.cellIdentifier)
    
         return collection
     }()
@@ -168,7 +170,7 @@ extension InspirationDetailView: UICollectionViewDataSource {
             
         case .product:
             
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicProductCell.cellIdentifier, for: indexPath) as? BasicProductCell else {fatalError("InspoProductCell did't dequeue")}
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InspoProductCell.cellIdentifier, for: indexPath) as? InspoProductCell else {fatalError("InspoProductCell did't dequeue")}
             
             if let products = viewModel.inspoProducts {
                 let product = products[indexPath.item]
@@ -180,17 +182,5 @@ extension InspirationDetailView: UICollectionViewDataSource {
     }
 }
 
-//extension InspirationDetailView: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//    }
-//}
+extension InspirationDetailView: UICollectionViewDelegate {}
 
-
-// MARK: - Delegate
-
-extension InspirationDetailView: BasicProductCellDelegate{
-    func updateViewModel(with product: LocalProduct) {
-        delegate?.updateViewModel(with: product)
-    }
-}
