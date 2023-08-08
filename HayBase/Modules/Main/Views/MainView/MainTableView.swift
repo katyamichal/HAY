@@ -35,7 +35,7 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
         super.init(frame: frame, style: style)
         
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.delegate = self
+        //self.delegate = self
         self.dataSource = self
         
         
@@ -109,4 +109,4 @@ extension MainTableView: UITableViewDataSource {
     }
     
 }
-extension MainTableView: UITableViewDelegate {}
+//extension MainTableView: UITableViewDelegate {}

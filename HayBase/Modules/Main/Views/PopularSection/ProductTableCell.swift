@@ -23,8 +23,8 @@ final class ProductCell: UITableViewCell {
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.text = "Popular"
+        label.font = .systemFont(ofSize: 22, weight: .light)
+        label.text = "Popular".uppercased()
         return label
     }()
     

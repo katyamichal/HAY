@@ -31,6 +31,7 @@ final class MainViewController: UIViewController, InspirationTableHeaderDelegate
         super.viewDidLoad()
         mainView.productTableView.tableHeader.delegate = self
         fetchData()
+        mainView.productTableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,5 +64,19 @@ final class MainViewController: UIViewController, InspirationTableHeaderDelegate
     /// delegate
 }
 
-
+extension MainViewController: UITableViewDelegate {
+//    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let product = mainViewModel.popularProduct[indexPath.item]
+//        
+//        guard indexPath.section == 0 else { return }
+//        
+//        let productDetailViewModel = ProductDetailViewModel(product: product)
+//        let productDetailVC = ProductDetailViewController(viewModel: productDetailViewModel)
+//        
+//        navigationController?.pushViewController(productDetailVC, animated: true)
+//    }
+    
+    
+}
 

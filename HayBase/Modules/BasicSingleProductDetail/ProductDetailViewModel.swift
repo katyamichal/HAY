@@ -11,6 +11,7 @@ final class ProductDetailViewModel {
     var product: LocalProduct
     
     var images: [String] {
+        
         [product.image] + ["label"] + product.collectionImages
     }
     
