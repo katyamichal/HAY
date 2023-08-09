@@ -7,7 +7,7 @@
 import UIKit
 
 protocol InspirationTableHeaderDelegate: AnyObject {
-    func inspirtionView(_ header: InspirationTableHeader , didSelectInspiration feed: InspirationFeed)
+    func inspirationView(_ header: InspirationTableHeader , didSelectInspiration feed: InspirationFeed)
 }
 
 //
@@ -63,7 +63,7 @@ final class InspirationTableHeader: UIView {
         button.tintColor = .black
         button.setTitleColor(.black, for: .normal)
         button.clipsToBounds = true
-        button.addTarget(self, action: #selector(tappedInspoDetailButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(inspoDetailButtonDidPress), for: .touchUpInside)
         ///  setting padding area of the view' size blocks scroll view touches
         button.touchAreaPadding = UIEdgeInsets(top: 40, left: 40, bottom: 16, right: 20)
         return button
@@ -100,18 +100,18 @@ final class InspirationTableHeader: UIView {
         }
     }
     
-    
+#warning("pageControlChanged")
     @objc
     private func pageControlDidChange(_ sender: UIPageControl) {
         let current = CGFloat(sender.currentPage)
         scrollView.setContentOffset(CGPoint(x: current * (Layout.width), y: 0), animated: true)
     }
-    
+#warning("inspoDetailTapped")
     @objc
-    private func tappedInspoDetailButton() {
+    private func inspoDetailButtonDidPress() {
         guard !inspirationFeed.isEmpty else {return}
         let inspiration = inspirationFeed[pageControl.currentPage]
-        delegate?.inspirtionView(self, didSelectInspiration: inspiration)
+        delegate?.inspirationView(self, didSelectInspiration: inspiration)
     }
     
     

@@ -56,7 +56,7 @@ final class InspirationDetailViewController: UIViewController {
     
     
     private func setupNavBarButton() {
-        
+        #warning("Change names for config2")
         let config = UIImage.SymbolConfiguration(pointSize: 18, weight: .light)
         
         let image = UIImage(systemName: "chevron.left", withConfiguration: config)?.withTintColor(.black)

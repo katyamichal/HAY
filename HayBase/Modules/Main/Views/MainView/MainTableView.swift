@@ -35,7 +35,7 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
         super.init(frame: frame, style: style)
         
         self.translatesAutoresizingMaskIntoConstraints = false
-        //self.delegate = self
+        self.delegate = self
         self.dataSource = self
         
         
@@ -103,10 +103,12 @@ extension MainTableView: UITableViewDataSource {
         }
     }
     
+ 
+    
+}
+extension MainTableView: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = self.tableHeaderView as? InspirationTableHeader else {return}
         header.scrollViewDidScroll(self)
     }
-    
 }
-//extension MainTableView: UITableViewDelegate {}

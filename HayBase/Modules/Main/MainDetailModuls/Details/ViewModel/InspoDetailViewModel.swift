@@ -94,7 +94,7 @@ final class InspoDetailViewModel {
         }
     }
     // MARK: - methods to save favourite products
-
+    #warning("Change")
     private func saveFavourite(products: [LocalProduct]) {
         ProductArchiver.productArchiver.save(products)
     }

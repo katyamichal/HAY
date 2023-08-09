@@ -31,7 +31,7 @@ final class MainViewController: UIViewController, InspirationTableHeaderDelegate
         super.viewDidLoad()
         mainView.productTableView.tableHeader.delegate = self
         fetchData()
-        mainView.productTableView.delegate = self
+      //  mainView.productTableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +51,7 @@ final class MainViewController: UIViewController, InspirationTableHeaderDelegate
     // MARK: - Delegate method
     
     
-    func inspirtionView(_ header: InspirationTableHeader, didSelectInspiration feed: InspirationFeed) {
+    func inspirationView(_ header: InspirationTableHeader, didSelectInspiration feed: InspirationFeed) {
         
         //TODO: - generic  detail controller
         let inspirationDetailModel = InspoDetailViewModel(inpirationFeed: feed)

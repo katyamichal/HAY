@@ -26,10 +26,12 @@ final class FavouriteView: UIView, BasicProductCellDelegate {
     
     var viewModel: FavouriteViewModel? {
         didSet {
-            guard (viewModel?.products) != nil else {
+            guard (viewModel?.products) != [] else {
                 collectionView.isHidden = true
+                headerLabel.text = "You don't have any favourite products yet  :( "
                 return
             }
+
           updateView()
         }
     }
@@ -49,7 +51,6 @@ final class FavouriteView: UIView, BasicProductCellDelegate {
     
     var headerLabel: UILabel = {
         let label = UILabel()
-        label.text = "You don't have any favourite products yet"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 22, weight: .light)
         label.textColor = .label
@@ -69,6 +70,7 @@ final class FavouriteView: UIView, BasicProductCellDelegate {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - Layout
 
     func createLayout() -> UICollectionViewLayout {
@@ -89,11 +91,10 @@ final class FavouriteView: UIView, BasicProductCellDelegate {
     // MARK: - Private
 
     private func updateView() {
-        headerLabel.text = "Favourite".uppercased()
+        headerLabel.text = "favourite".uppercased()
         collectionView.isHidden = false
         collectionView.reloadData()
     }
-    
 }
 
 // MARK: - Constraints

@@ -13,7 +13,7 @@ final class FavouriteViewModel {
     
     var products: [LocalProduct]?
   
-
+    #warning("add product archiever to init with parameter")
     init(favouriteService: FavouriteService) {
         self.favouriteService = favouriteService
     }
@@ -23,6 +23,7 @@ final class FavouriteViewModel {
     }
     
     func update(with product: LocalProduct) {
+        
         guard let index = products?.firstIndex (where: { $0.id == product.id }) else {
             return
         }
@@ -32,8 +33,8 @@ final class FavouriteViewModel {
         } else {
             deleteFavourite(product: product)
         }
-        
     }
+    
     private func saveFavourite(products: [LocalProduct]) {
         ProductArchiver.productArchiver.save(products)
     }
