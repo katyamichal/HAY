@@ -2,9 +2,7 @@
 # в разработке
 Архитектура - MVVM
 
-![ezgif com-resize](https://github.com/katyamichal/HAY/assets/124366801/5204dd12-3946-42fd-a76c-afeb1c536f56)
-
-![ezgif com-optimize](https://github.com/katyamichal/HAY/assets/124366801/de82462a-7a3c-4f77-9a80-be7bd91c2e0d)
+![ezgif com-resize](https://github.com/katyamichal/HAY/assets/124366801/5204dd12-3946-42fd-a76c-afeb1c536f56) ![ezgif com-optimize](https://github.com/katyamichal/HAY/assets/124366801/de82462a-7a3c-4f77-9a80-be7bd91c2e0d)
 
 
 
