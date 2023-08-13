@@ -2,7 +2,7 @@
 # в разработке
 Архитектура - MVVM
 
-![Stretchy Header](https://github.com/katyamichal/HAY/assets/124366801/ac4ef300-22b1-4a4d-bfe1-c4ec01660453)
+
 
 
 Описание:
