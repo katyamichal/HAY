@@ -30,12 +30,9 @@ final class InspirationDetailViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-
         self.view = detailView
         detailView.collectionView.delegate = self
-        detailView.delegate = self
         setupConstraints()
-    
     }
     
     
@@ -48,27 +45,24 @@ final class InspirationDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-       /// update view model here
         viewModel.update()
         detailView.viewModel = viewModel
     }
     
     
     private func setupNavBarButton() {
-        #warning("Change names for config2")
-        let config = UIImage.SymbolConfiguration(pointSize: 18, weight: .light)
+        let leftButtonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 18, weight: .light)
         
-        let image = UIImage(systemName: "chevron.left", withConfiguration: config)?.withTintColor(.black)
+        let leftButtonImage = UIImage(systemName: "chevron.left", withConfiguration: leftButtonImageConfiguration)?.withTintColor(.black)
         
-        let leftBarButton = UIBarButtonItem(image: image, style: .done, target: self, action: #selector(backToMainView))
+        let leftBarButton = UIBarButtonItem(image: leftButtonImage, style: .done, target: self, action: #selector(backToMainView))
         navigationItem.leftBarButtonItem = leftBarButton
         
         
-        let config2 = UIImage.SymbolConfiguration(pointSize: 18, weight: .light)
-        let image2 = UIImage(systemName: "square.and.arrow.up", withConfiguration: config2)
+        let rightButtonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 18, weight: .light)
+        let rightButtonImage = UIImage(systemName: "square.and.arrow.up", withConfiguration: rightButtonImageConfiguration)
         
-        let rightBarButton = UIBarButtonItem(image: image2, style: .plain, target: self, action: nil)
+        let rightBarButton = UIBarButtonItem(image: rightButtonImage, style: .plain, target: self, action: nil)
         navigationItem.rightBarButtonItem = rightBarButton
     }
     
@@ -87,22 +81,14 @@ final class InspirationDetailViewController: UIViewController {
             
         ])
     }
-    
 }
 
-// MARK: - When like button pressed
-
-extension InspirationDetailViewController: InspirationDetailViewDelegate {
-    func updateViewModel(with product: LocalProduct) {
-        viewModel.updateProducts(with: product)
-    }
-}
-
-
-// MARK: - collectionView Delegate
+// MARK: - Collection View Delegate
 
 extension InspirationDetailViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         guard let product = viewModel.inspoProducts?[indexPath.item],
         indexPath.section == 1 else { return }
         

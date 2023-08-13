@@ -9,7 +9,7 @@ import UIKit
 
 class DesignerCollaborationCell: UITableViewCell {
     
-    private var designer: Designer?
+    private var designer: LocaleDesigner?
     
     // MARK: - UI Elements
     
@@ -40,7 +40,6 @@ class DesignerCollaborationCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
-       // label.text = "The Sobremesa Collection"
         label.font = .systemFont(ofSize: 16, weight: .light)
         return label
     }()
@@ -61,7 +60,6 @@ class DesignerCollaborationCell: UITableViewCell {
     private let designerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-      //  imageView.image = UIImage(named: "laila_gohar_portrait")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -81,7 +79,7 @@ class DesignerCollaborationCell: UITableViewCell {
     // MARK: - Collection View
     
     private lazy var collectionView: UICollectionView = {
-        // Layout
+ 
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: Layout.width * 0.5, height: Layout.width * 0.7)
         layout.scrollDirection = .horizontal
@@ -90,7 +88,7 @@ class DesignerCollaborationCell: UITableViewCell {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.showsHorizontalScrollIndicator = false
-        collection.delegate = self
+      //  collection.delegate = self
         collection.dataSource = self
         collection.register(DesignerProductsCell.self, forCellWithReuseIdentifier: DesignerProductsCell.cellIdentifier)
         collection.backgroundColor = .clear
@@ -109,7 +107,7 @@ class DesignerCollaborationCell: UITableViewCell {
     
     // MARK: - Public
     
-    func update(_ designer: Designer) {
+    func update(_ designer: LocaleDesigner) {
         designerNameLabel.text = designer.designerName.capitalized
         collaborationName.text = designer.collectionName.capitalized
         designerImageView.image = UIImage(named: "\(designer.designerImage)")
@@ -167,7 +165,7 @@ extension DesignerCollaborationCell {
         ])
     }
 }
-extension DesignerCollaborationCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension DesignerCollaborationCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return designer?.products.count ?? 1
@@ -186,3 +184,6 @@ extension DesignerCollaborationCell: UICollectionViewDelegate, UICollectionViewD
      
     }
 }
+
+
+extension DesignerCollaborationCell: UICollectionViewDelegate {}

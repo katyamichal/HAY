@@ -7,17 +7,21 @@
 import UIKit
 
 protocol InspirationTableHeaderDelegate: AnyObject {
-    func inspirationView(_ header: InspirationTableHeader , didSelectInspiration feed: InspirationFeed)
+    
+    func inspirationView(_ header: InspirationTableHeader , didSelectInspiration feed: LocaleInspirationFeed)
 }
 
-//
+
 final class InspirationTableHeader: UIView {
+    
+    
+    
+    // MARK: - Properties
     
     weak var delegate: InspirationTableHeaderDelegate?
     
-    // MARK: -
+    private var inspirationFeed: [LocaleInspirationFeed] = []
     
-    private var inspirationFeed: [InspirationFeed] = []
     private  var pages: [InspirationView] = []
     
     // MARK: - Inits
@@ -26,7 +30,9 @@ final class InspirationTableHeader: UIView {
         super.init(frame: frame)
         setupViews()
         setupConstrains()
+        
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -71,9 +77,10 @@ final class InspirationTableHeader: UIView {
     
     
     // MARK: -  Helper Methods
-    #warning("Clean up the guard statement")
-    private func setupScrollViewPages(with inspiration: [InspirationFeed]) {
-
+#warning("Clean up the guard statement")
+    private func setupScrollViewPages(with inspiration: [LocaleInspirationFeed]) {
+        
+        
         guard !inspiration.isEmpty, pages.isEmpty else { return }
         
         scrollView.frame = CGRect(x: .zero, y: .zero, width: Layout.width, height: Layout.height / 1.75)
@@ -100,13 +107,13 @@ final class InspirationTableHeader: UIView {
         }
     }
     
-#warning("pageControlChanged")
+    
     @objc
     private func pageControlDidChange(_ sender: UIPageControl) {
         let current = CGFloat(sender.currentPage)
         scrollView.setContentOffset(CGPoint(x: current * (Layout.width), y: 0), animated: true)
     }
-#warning("inspoDetailTapped")
+    
     @objc
     private func inspoDetailButtonDidPress() {
         guard !inspirationFeed.isEmpty else {return}
@@ -116,7 +123,7 @@ final class InspirationTableHeader: UIView {
     
     
     // MARK: - Public method
-    func update(with inspiration: [InspirationFeed]) {
+    func update(with inspiration: [LocaleInspirationFeed]) {
         self.inspirationFeed = inspiration
         setupScrollViewPages(with: inspiration)
     }

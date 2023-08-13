@@ -14,7 +14,8 @@ class HayTabBarController: UITabBarController {
     
     lazy var nav1 = UINavigationController(rootViewController: mainController)
 
-//    let nav2 = UINavigationController(rootViewController: )
+    lazy var nav2 = UINavigationController(rootViewController: favouriteController)
+    
 //    let nav3 = UINavigationController(rootViewController: )
 //    let nav4 = UINavigationController(rootViewController: )
   
@@ -34,7 +35,7 @@ class HayTabBarController: UITabBarController {
     }()
     
     
-    private let favouriteController: FavouriteViewController = {
+    private lazy var favouriteController: FavouriteViewController = {
         
         let favouriteService = FavouriteService()
         
@@ -89,7 +90,7 @@ class HayTabBarController: UITabBarController {
         tabBar.tintColor = .systemBrown
         tabBar.backgroundColor = .systemBackground
         tabBar.unselectedItemTintColor = .label
-        viewControllers = [nav1, favouriteController, profileController, cartController]
+        viewControllers = [nav1, nav2, profileController, cartController]
     }
 
 }

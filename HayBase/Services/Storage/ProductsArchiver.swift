@@ -7,18 +7,12 @@
 
 import Foundation
 
-/// нужен callback для обновления данных в приложении?
-///
 
-//protocol ProductArchiverDelegate: AnyObject {
-//    var onChangedData: (()->()) { get set }
-//}
 
 protocol ProductArchiverInput {
-    func save(_ products: [LocalProduct])
+    func save(_ product: LocalProduct)
     func retrieve() -> [LocalProduct]?
     func delete(_ product: LocalProduct)
-
 }
 
 enum ArchiverKey: String {
@@ -26,57 +20,81 @@ enum ArchiverKey: String {
     case productToBuy
 }
 
+
+
 final class ProductArchiver: ProductArchiverInput {
+    // MARK: - Init
     
-  //  weak var delegate: ProductArchiverDelegate?
-    
-    // init
-    
-    static let productArchiver = ProductArchiver()
+    init(productType: ArchiverKey) {
+        self.key = productType
+    }
+    // MARK: - Properties
     
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
-    private let key = "Products"
+    private let key: ArchiverKey
     
     
     private let userDefaults = UserDefaults.standard
     
-    func save(_ products: [LocalProduct]) {
-        do {
-            let data = try encoder.encode(products)
+    // MARK: - Public methods
+    #warning("переделать")
+    
+    func save(_ product: LocalProduct) {
+        
+        if let data = UserDefaults.standard.data(forKey: key.rawValue) {
+            var products = [LocalProduct]()
+
+            do {
+                products = try decoder.decode(Array<LocalProduct>.self, from: data)
+                if products.first(where: {$0.id == product.id}) == nil  {
+                    products.append(product)
+                } else {
+                    return
+                }
+
+            } catch {
+                print("error to decode local product array with key: \(key.rawValue)")
+            }
+    //
             
-            UserDefaults.standard.set(data, forKey: key)
-           // print("\(products) has been successfully saved")
+            do {
+                let data = try encoder.encode(products)
+                UserDefaults.standard.set(data, forKey: key.rawValue)
+                print("\(products) has been successfully saved")
+                
+            } catch {
+                print("error to save data to User Defaults")
+            }
            
             
-        } catch {
-            print("error to save data to User Defaults")
+        } else {
+            do {
+                let data = try encoder.encode([product])
+                UserDefaults.standard.set(data, forKey: key.rawValue)
+                print("\(product) has been successfully saved")
+                
+            } catch {
+                print("error to save data to User Defaults")
+            }
         }
-       
+
+
+       // print("There is no data in User Defaults with the key name: \(key)")
+     
     }
     
-    func retrieve() -> [LocalProduct]? {
-        
-        guard let data = UserDefaults.standard.data(forKey: key) else {
-            return nil
-        }
-        do {
-            let array = try decoder.decode(Array<LocalProduct>.self, from: data)
-            return array
-        } catch {
-            print("Error to retrieve data from User Defaults")
-        }
-        return nil
-    }
+    
     
     func delete(_ product: LocalProduct) {
         
-        guard let data = UserDefaults.standard.data(forKey: key)
-        else {
+        guard let data = UserDefaults.standard.data(forKey: key.rawValue) else {
+            
             print("There is no data in User Defaults with the key name: \(key)")
             return
         }
+        
         
         do {
             var products = try decoder.decode(Array<LocalProduct>.self, from: data)
@@ -85,11 +103,25 @@ final class ProductArchiver: ProductArchiverInput {
             
             guard let updatedData = try? encoder.encode(products) else {return}
             
-            UserDefaults.standard.set(updatedData, forKey: key)
-       
+            UserDefaults.standard.set(updatedData, forKey: key.rawValue)
             
         } catch {
             print("Error to remove data from User Defaults")
         }
+    }
+    
+    func retrieve() -> [LocalProduct]? {
+        
+        guard let data = UserDefaults.standard.data(forKey: key.rawValue) else { return nil }
+        
+        
+        do {
+            let array = try decoder.decode(Array<LocalProduct>.self, from: data)
+            return array
+            
+        } catch {
+            print("Error to retrieve data from User Defaults")
+        }
+        return nil
     }
 }

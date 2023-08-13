@@ -1,6 +1,125 @@
 
 {
     "inspiration": [
+        
+        {
+            "id": 103,
+            "collection_name": "bedroom inspiration",
+            "cover_image": "br7",
+            "description": "Transform your bedroom into the sanctuary it should be through soft textiles like Outline Bed Linen, Mega Dot bedspread and cosy robes. Beautifully designed organisational aids like the HAY Wardrobe and Shelving Unit keep your things in order so you stay relaxed.",
+           
+            "images": ["br8", "br", "br7", "br5", "br2"],
+            "products": [
+                {
+                    "id": 113,
+                    "product_name": "duvet cover standart",
+                    "description": "Crafted from organic cotton with a high thread count for a silky, more luxurious feel, Outline Duvet Cover offers exceptional comfort and softness, while the bold colours and elegant contrast trim elevate the bedroom aesthetics.",
+                    "price": 490,
+                    "image": "duvet",
+                    "image_collection": ["sp-duvet", "sp-duvet2"],
+                    "material": "organic cotton",
+                    "size": "W135 x L200",
+                    "colour": "sky blue"
+                },
+                
+                {
+                    "id": 123,
+                    "product_name": "pillow",
+                    "description": "Crafted from organic cotton with a high thread count for a silky, more luxurious feel, Outline Pillow Case offers exceptional comfort and softness, while the bold colours and elegant contrast trim elevate the bedroom aesthetics.",
+                    "price": 290,
+                    "image": "pillow",
+                    "image_collection": ["sp-pillow"],
+                    "material": "organic cotton",
+                    "size": "W70 x L60",
+                    "colour": "soft blue"
+                },
+                
+                
+                {
+                    "id": 133,
+                    "product_name": "tapis mat",
+                    "description": "Flat-woven from a blend of jute and cotton, Tapis Mat adds a natural yet refined expression to bedrooms, hallways and other areas in a home.",
+                    "price": 300,
+                    "image": "tapis-mat",
+                    "image_collection": ["br2"],
+                    "material": "jute and cotton",
+                    "size": "W60 x L95",
+                    "colour": "green"
+                },
+                
+                {
+                    "id": 143,
+                    "product_name": "ete duvet",
+                    "description": "Crafted in crisp, soft cotton with contrasting stripes, Été Duvet Cover is a HAY x Amanda Borberg design collaboration that brings to mind hot summery days, with sandy beaches and fresh sea air.",
+                    "price": 590,
+                    "image": "duvet2",
+                    "image_collection": ["sp-ete-duvet", "sp-ete-duvet2"],
+                    "material": "organic cotton",
+                    "size": "W200 x L210",
+                    "colour": "light yellow"
+                },
+                
+                {
+                    "id": 153,
+                    "product_name": "mega bed cover",
+                    "description": "Mega Dot is a quilted bed cover featuring a three-dimensional circular pattern that combines modern design ideals with sensuous graphic expression. Made from soft and durable cotton, it features a two-tone design with a contrasting colour on the reverse side.",
+                    "price": 490,
+                    "image": "bed-cover",
+                    "image_collection": ["sp-mega-cover", "br4"],
+                    "material": "cotton",
+                    "size": "W195 x L245",
+                    "colour": "none"
+                },
+                
+                {
+                    "id": 163,
+                    "product_name": "arcs wall lamp",
+                    "description": "The Arcs Wall Lamp is part of a series of arched designs created for HAY by Belgian duo Muller Van Severen. Formed from a continuous chain of curved arches that create an elegant, scalloped silhouette, the lamp provides a soft, ambient up and down light that plays with shapes and shadows. The lamp is easy to mount and is available in two wall variants – providing flexible installation options with a choice of integrated and independent power cords. Arcs is crafted in solid steel and is available in several different colours or with a mirror surface. The different mounting solutions give the lamp a versatile quality, making it suitable for corridors and large spaces, as well as a bedside lamp or in small corners.",
+                    "price": 790,
+                    "image": "arcs-lamp",
+                    "image_collection": ["sp-arcs-wall-lamp", "sp-arcs-wall-lamp2"],
+                    "material": "steel",
+                    "size": "H25 x W17 x L13",
+                    "colour": "auburn red"
+                },
+                
+                {
+                    "id": 173,
+                    "product_name": "korpus shelf",
+                    "description": "Korpus Shelf is a series of colourful wall-mounted shelves created for HAY by Norwegian product designer Andreas Bergsaker. Based on the desire to create a durable multi-purpose shelf from recyclable material, Korpus Shelf is made from sheet aluminium, known for its lightness, strength and ability to be reused countless times. The aluminium undergoes an industrial stamping and punching process to be formed into the distinctively curved column and top. Keyhole slits at the back facilitate mounting, while concealed hooks in the column provide additional hanging possibilities",
+                    "price": 590,
+                    "image": "korpus-shelf",
+                    "image_collection": ["br3"],
+                    "material": "aluminium powder coated",
+                    "size": "H21 x W35 x L29",
+                    "colour": "brick red"
+                },
+                {
+                    "id": 183,
+                    "product_name": "flare for candles",
+                    "description": "Coloured borosilicate glass creates an elegant and distinct way to display candles in HAY's Flare Candleholder series. ",
+                    "price": 37,
+                    "image": "flare",
+                    "image_collection": ["sp-flare", "sp-flare2"],
+                    "material": "borosilicate glass",
+                    "size": "H7 x W11 x L11",
+                    "colour": "flare yellow"
+                },
+                {
+                    "id": 922,
+                    "product_name": "tamoto bed",
+                    "description": "Developed for HAY by Shane Schneck, Tamoto Bed is designed with multifunctionality in mind, which makes it easy and intuitive to integrate into a modern lifestyle. Tamoto is influenced by the draping quality of kimono sleeves, which inspired Shane's innovative use of folding fabric over the bed's frame. The soft, draped headboard is counterbalanced by the generously dimensioned steel tubing frame, creating a contemporary and comfortable bed-sofa hybrid that is not intended exclusively for sleeping, but also as a foundation for reading, working, or watching TV and other activities. With a flat-packed, easy-to-assemble design, removable headboard cover and recyclable materials, functionality has been factored in every step of the design process.",
+                    "price": 2840,
+                    "image": "tamoto-bed",
+                    "image_collection": ["sp-tamoto-bed", "sp-tamoto bed2"],
+                    "material": "mint turquoise powder coated Steel, plastic gliders",
+                    "size": "W140 x L200",
+                    "colour": "mint"
+                    
+                }
+            ]
+        },
+        
         {
             "id": 101,
             "collection_name": "inspiration for the coffee lover",
@@ -220,114 +339,7 @@
         },
         
         
-        
-        {
-            "id": 103,
-            "collection_name": "bedroom inspiration",
-            "cover_image": "br5",
-            "description": "Transform your bedroom into the sanctuary it should be through soft textiles like Outline Bed Linen, Mega Dot bedspread and cosy robes. Beautifully designed organisational aids like the HAY Wardrobe and Shelving Unit keep your things in order so you stay relaxed.",
-           
-            "images": ["br", "br2", "br3", "br4", "br5"],
-            "products": [
-                {
-                    "id": 113,
-                    "product_name": "duvet cover standart",
-                    "description": "Crafted from organic cotton with a high thread count for a silky, more luxurious feel, Outline Duvet Cover offers exceptional comfort and softness, while the bold colours and elegant contrast trim elevate the bedroom aesthetics.",
-                    "price": 490,
-                    "image": "duvet",
-                    "imageCollection": ["",],
-                    "material": "",
-                    "size": "",
-                    "colour": ""
-                },
-                
-                {
-                    "id": 123,
-                    "product_name": "pillow",
-                    "description": "Crafted from organic cotton with a high thread count for a silky, more luxurious feel, Outline Pillow Case offers exceptional comfort and softness, while the bold colours and elegant contrast trim elevate the bedroom aesthetics.",
-                    "price": 290,
-                    "image": "pillow",
-                    "imageCollection": [""],
-                    "material": "",
-                    "size": "",
-                    "colour": ""
-                },
-                
-                
-                {
-                    "id": 133,
-                    "product_name": "tapis mat",
-                    "description": "Flat-woven from a blend of jute and cotton, Tapis Mat adds a natural yet refined expression to bedrooms, hallways and other areas in a home.",
-                    "price": 300,
-                    "image": "tapis-mat",
-                    "imageCollection": [""],
-                    "material": "",
-                    "size": "",
-                    "colour": ""
-                },
-                
-                {
-                    "id": 143,
-                    "product_name": "ete duvet",
-                    "description": "Crafted in crisp, soft cotton with contrasting stripes, Été Duvet Cover is a HAY x Amanda Borberg design collaboration that brings to mind hot summery days, with sandy beaches and fresh sea air.",
-                    "price": 590,
-                    "image": "duvet2",
-                    "imageCollection": [""],
-                    "material": "",
-                    "size": "",
-                    "colour": ""
-                },
-                
-                {
-                    "id": 153,
-                    "product_name": "dotted bed cover",
-                    "description": "Mega Dot is a quilted bed cover featuring a three-dimensional circular pattern that combines modern design ideals with sensuous graphic expression. Made from soft and durable cotton, it features a two-tone design with a contrasting colour on the reverse side.",
-                    "price": 490,
-                    "image": "bed-cover",
-                    "imageCollection": ["",],
-                    "material": "",
-                    "size": "",
-                    "colour": ""
-                },
-                
-                {
-                    "id": 163,
-                    "product_name": "arcs wall lamp",
-                    "description": "The Arcs Wall Lamp is part of a series of arched designs created for HAY by Belgian duo Muller Van Severen. Formed from a continuous chain of curved arches that create an elegant, scalloped silhouette, the lamp provides a soft, ambient up and down light that plays with shapes and shadows. The lamp is easy to mount and is available in two wall variants – providing flexible installation options with a choice of integrated and independent power cords. Arcs is crafted in solid steel and is available in several different colours or with a mirror surface. The different mounting solutions give the lamp a versatile quality, making it suitable for corridors and large spaces, as well as a bedside lamp or in small corners.",
-                    "price": 790,
-                    "image": "arcs-lamp",
-                    "imageCollection": ["", "", "",],
-                    "material": "",
-                    "size": "",
-                    "colour": ""
-                },
-                
-                {
-                    "id": 173,
-                    "product_name": "korpus shelf",
-                    "description": "Korpus Shelf is a series of colourful wall-mounted shelves created for HAY by Norwegian product designer Andreas Bergsaker. Based on the desire to create a durable multi-purpose shelf from recyclable material, Korpus Shelf is made from sheet aluminium, known for its lightness, strength and ability to be reused countless times. The aluminium undergoes an industrial stamping and punching process to be formed into the distinctively curved column and top. Keyhole slits at the back facilitate mounting, while concealed hooks in the column provide additional hanging possibilities",
-                    "price": 590,
-                    "image": "korpus-shelf",
-                    "imageCollection": ["", "", "",],
-                    "material": "",
-                    "size": "",
-                    "colour": ""
-                },
-                {
-                    "id": 183,
-                    "product_name": "flare for candles",
-                    "description": "Coloured borosilicate glass creates an elegant and distinct way to display candles in HAY's Flare Candleholder series. ",
-                    "price": 120,
-                    "image": "flare",
-                    "imageCollection": ["", "", "",],
-                    "material": "",
-                    "size": "",
-                    "colour": ""
-                }
 
-            ]
-            
-        },
         
         
         

@@ -7,33 +7,18 @@
 
 import UIKit
 
-//enum DetailType {
-//    case designer
-//   // case inspiration
-//}
-
-
 enum SectionType: CaseIterable {
     case photoAndDescription
     case product
 }
 
-protocol InspirationDetailViewDelegate: AnyObject {
-    func updateViewModel(with product: LocalProduct)
-}
-
 final class InspirationDetailView: UIView {
-    
-    
-    weak var delegate: InspirationDetailViewDelegate?
-    
     
     var viewModel: InspoDetailViewModel {
         didSet {
             collectionView.reloadData()
         }
     }
-    
     
     // MARK: - UI Element
 
@@ -61,7 +46,6 @@ final class InspirationDetailView: UIView {
         super.init(frame: frame)
         setupView()
         setupConstraints()
-       
     }
     
     required init?(coder: NSCoder) {
@@ -99,6 +83,7 @@ final class InspirationDetailView: UIView {
         
         return layout
         }
+    
     // MARK: - collection section' layouts
 
     private func createDescriptionLayout(isWide: Bool) -> NSCollectionLayoutSection {
@@ -123,11 +108,10 @@ final class InspirationDetailView: UIView {
 
         let groupFractionalWidth = isWide ? 0.855 : 1.0
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupFractionalWidth), heightDimension: .absolute(300))
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            subitems: [item, item])
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
 
-        group.interItemSpacing = .flexible(16)
+        group.interItemSpacing = .fixed(16)
         let section = NSCollectionLayoutSection(group: group)
         return section
     }
@@ -168,29 +152,13 @@ extension InspirationDetailView: UICollectionViewDataSource {
             
         case .product:
             
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicProductCell.cellIdentifier, for: indexPath) as? BasicProductCell else {fatalError("InspoProductCell did't dequeue")}
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicProductCell.cellIdentifier, for: indexPath) as? BasicProductCell else {fatalError("InspoProductCell didn't dequeue")}
             
             if let products = viewModel.inspoProducts {
                 let product = products[indexPath.item]
                 cell.update(product)
-                cell.delegate = self
             }
             return cell
         }
-    }
-}
-
-//extension InspirationDetailView: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//    }
-//}
-
-
-// MARK: - Delegate
-
-extension InspirationDetailView: BasicProductCellDelegate{
-    func updateViewModel(with product: LocalProduct) {
-        delegate?.updateViewModel(with: product)
     }
 }

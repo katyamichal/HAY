@@ -7,19 +7,16 @@
 
 import UIKit
 
-final class FavouriteViewController: UIViewController, FavouriteViewDelegate {
-    func updateViewModel(with product: LocalProduct) {
-        favouriteViewModel.update(with: product)
-    }
+final class FavouriteViewController: UIViewController {
+  
     
   
     // MARK: - ViewModel and View
-
+    
     private let favouriteViewModel: FavouriteViewModel
-    /// if viewModel has beed changed, controller sends view
     
     private var favouriteView: FavouriteView { return self.view as! FavouriteView }
-    
+
     
     // MARK: - Inits
 
@@ -42,11 +39,12 @@ final class FavouriteViewController: UIViewController, FavouriteViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        favouriteView.delegate = self
+        favouriteView.collectionView.delegate = self
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
         loadProducts()
     }
     
@@ -56,5 +54,15 @@ final class FavouriteViewController: UIViewController, FavouriteViewDelegate {
     private func loadProducts() {
         favouriteViewModel.loadProduct()
         favouriteView.update(viewModel: favouriteViewModel)
+    }
+}
+
+extension FavouriteViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let product = favouriteViewModel.products?[indexPath.item] else {return}
+        let viewModel = ProductDetailViewModel(product: product)
+        
+        let singleProductDetailVC = ProductDetailViewController(viewModel: viewModel)
+        navigationController?.pushViewController(singleProductDetailVC, animated: true)
     }
 }

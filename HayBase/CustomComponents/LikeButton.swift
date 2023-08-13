@@ -2,12 +2,16 @@
 //  LikeButton.swift
 //  HayBase
 //
-//  Created by Catarina Polakowsky on 09.08.2023.
+//  Created by Katya Michal on 09.08.2023.
 //
 
 import UIKit
 
 class LikeButton: UIButton {
+    
+    var product: LocalProduct?
+    
+    private let productArchiver: ProductArchiver = ProductArchiver(productType: .favourite)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +28,7 @@ class LikeButton: UIButton {
         let largeFont = UIFont.systemFont(ofSize: 20)
         let configuration = UIImage.SymbolConfiguration(font: largeFont)
         
+        
         let selectedImage = UIImage(systemName: "heart", withConfiguration: configuration)
         self.setImage(selectedImage, for: .normal)
         
@@ -31,27 +36,29 @@ class LikeButton: UIButton {
         self.setImage(unselectedImage, for: .selected)
         
         self.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        self.tintColor = .label
+     
     }
     
     @objc
     func likeButtonTapped() {
         if self.isSelected == true {
             self.isSelected = false
+
+            guard var product else {return}
+            product.isFavourite = false
+            productArchiver.delete(product)
+ 
+            
         } else {
             self.isSelected = true
+           
+            guard var product else {return}
+            product.isFavourite = true
+            productArchiver.save(product)
         }
+        
+       
     }
-    
 }
 
-//let button = UIButton()
-//button.translatesAutoresizingMaskIntoConstraints = false
-//let largeFont = UIFont.systemFont(ofSize: 20)
-//let configuration = UIImage.SymbolConfiguration(font: largeFont)
-//let image = UIImage(systemName: "heart", withConfiguration: configuration)
-//
-//button.setImage(image, for: .normal)
-//button.tintColor = .systemGray2
-//button.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
-//// target --> closure
-//return button

@@ -8,10 +8,13 @@
 import Foundation
 
 final class FavouriteService {
- 
+    
+    let productArchiver = ProductArchiver(productType: .favourite)
+    
     // retrieve data from user defaults
     func loadFavouriteProducts() -> [LocalProduct]? {
-        guard let products = ProductArchiver.productArchiver.retrieve() else {
+        
+        guard let products = productArchiver.retrieve() else {
             return nil
         }
         return products

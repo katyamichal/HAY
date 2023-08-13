@@ -11,7 +11,7 @@ final class InspirationView: UIView {
     
     // MARK: - Changable constraints
     
-    var inspirationFeed: InspirationFeed?
+    var inspirationFeed: LocaleInspirationFeed?
     var imageViewHeight = NSLayoutConstraint()
     var imageViewBottom = NSLayoutConstraint()
     
@@ -90,7 +90,7 @@ final class InspirationView: UIView {
 
     // MARK: -  Public
     
-    func update(with model: InspirationFeed) {
+    func update(with model: LocaleInspirationFeed) {
         self.inspirationFeed = model
         collectionLabel.text = model.collectionName.uppercased()
         imageView.image = UIImage(named: "\(model.coverImage)")

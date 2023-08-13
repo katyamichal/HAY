@@ -7,36 +7,10 @@
 
 import UIKit
 
-protocol BasicProductCellDelegate: AnyObject {
-    
-    func updateViewModel(with product: LocalProduct)
-}
 
-class BasicProductCell: UICollectionViewCell {
-    
-    
-    weak var delegate: BasicProductCellDelegate?
-    
-    var product: LocalProduct?
-    
-    private var likeButtonIsTapped: Bool? {
+final class BasicProductCell: UICollectionViewCell {
         
-        didSet {
-            
-            let largeFont = UIFont.systemFont(ofSize: 20)
-            let configuration = UIImage.SymbolConfiguration(font: largeFont)
-            var image = UIImage()
-            
-            if self.likeButtonIsTapped == true {
-                image = UIImage(systemName: "heart.fill", withConfiguration: configuration)!
-                likeButton.tintColor = .label
-            } else {
-                image = UIImage(systemName: "heart", withConfiguration: configuration)!
-                likeButton.tintColor = .systemGray2
-            }
-            likeButton.setImage(image, for: .normal)
-        }
-    }
+    var product: LocalProduct?
     
     static let cellIdentifier = "InspoProductCell"
     
@@ -56,16 +30,16 @@ class BasicProductCell: UICollectionViewCell {
         nameLabel.text = nil
         pricelLabel.text = nil
         productImageView.image = nil
-      //  likeButton.
+        likeButton.isSelected = false
     }
     
     // MARK: - Public
     func update(_ product: LocalProduct) {
-        self.product = product
-        likeButtonIsTapped = product.isFavourite
         nameLabel.text = product.productName.lowercased()
         pricelLabel.text = "\(product.price) £"
         productImageView.image = UIImage(named: product.image)
+        likeButton.product = product
+        likeButton.isSelected = product.isFavourite
     }
     
     // MARK: - UI Element
@@ -82,7 +56,6 @@ class BasicProductCell: UICollectionViewCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 15)
         return label
@@ -103,11 +76,9 @@ class BasicProductCell: UICollectionViewCell {
     
     private let pricelLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Price"
         label.textColor = .label
         label.numberOfLines = 0
-        label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
     }()
     
@@ -119,28 +90,14 @@ class BasicProductCell: UICollectionViewCell {
         return imageView
     }()
     
-    var likeButton: UIButton = {
-        let button = UIButton()
+   var likeButton: LikeButton = {
+        let button = LikeButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        let largeFont = UIFont.systemFont(ofSize: 20)
-        let configuration = UIImage.SymbolConfiguration(font: largeFont)
-        let image = UIImage(systemName: "heart", withConfiguration: configuration)
-        
-        button.setImage(image, for: .normal)
-        button.tintColor = .systemGray2
-        button.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
-        // target --> closure
         return button
     }()
     
-    @objc
-    func likeButtonTapped() {
-        guard var product = product else { return }
-        likeButtonIsTapped?.toggle()
-        product.isFavourite = likeButtonIsTapped!
-        delegate?.updateViewModel(with: product)
-    }
 }
+// MARK: - setup methods
 
 extension BasicProductCell {
     
@@ -166,7 +123,7 @@ extension BasicProductCell {
             likeButton.heightAnchor.constraint(equalToConstant: 25),
             
             productImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.7),
-            productImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -8),
+            productImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             productImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             productImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             

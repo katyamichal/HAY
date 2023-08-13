@@ -25,6 +25,8 @@
 		4E21877C2A791880002F0785 /* FavouriteProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21877B2A791880002F0785 /* FavouriteProductCell.swift */; };
 		4E21877E2A7A4306002F0785 /* FavouriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E21877D2A7A4306002F0785 /* FavouriteService.swift */; };
 		4E2187812A7CEFB9002F0785 /* ProductsArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2187802A7CEFB9002F0785 /* ProductsArchiver.swift */; };
+		4E4247502A86295B00D9153E /* LocaleDesigners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42474F2A86295B00D9153E /* LocaleDesigners.swift */; };
+		4E4247522A86298500D9153E /* LocaleInspiration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4247512A86298500D9153E /* LocaleInspiration.swift */; };
 		4E663DEF2A81106300F8D86B /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E663DEE2A81106300F8D86B /* ProductDetailViewModel.swift */; };
 		4E663DF12A81109200F8D86B /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E663DF02A81109200F8D86B /* ProductDetailViewController.swift */; };
 		4E663DF32A8110B800F8D86B /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E663DF22A8110B800F8D86B /* ProductDetailView.swift */; };
@@ -86,6 +88,8 @@
 		4E21877B2A791880002F0785 /* FavouriteProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteProductCell.swift; sourceTree = "<group>"; };
 		4E21877D2A7A4306002F0785 /* FavouriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteService.swift; sourceTree = "<group>"; };
 		4E2187802A7CEFB9002F0785 /* ProductsArchiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsArchiver.swift; sourceTree = "<group>"; };
+		4E42474F2A86295B00D9153E /* LocaleDesigners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleDesigners.swift; sourceTree = "<group>"; };
+		4E4247512A86298500D9153E /* LocaleInspiration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleInspiration.swift; sourceTree = "<group>"; };
 		4E663DEE2A81106300F8D86B /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		4E663DF02A81109200F8D86B /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		4E663DF22A8110B800F8D86B /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
@@ -251,7 +255,28 @@
 			path = BasicViews;
 			sourceTree = "<group>";
 		};
-		4E663DED2A810FFB00F8D86B /* BasicSingleProductDetail */ = {
+		4E42474D2A86291B00D9153E /* APIModels */ = {
+			isa = PBXGroup;
+			children = (
+				4E2017812A555C1F00E421C0 /* Product.swift */,
+				4E86BD622A59A3340007CDE7 /* Designer.swift */,
+				4E9BE0AB2A5D670B0043C201 /* Inspiration.swift */,
+				4E9DDF8B2A6FFC1200179AC6 /* Popular.swift */,
+			);
+			path = APIModels;
+			sourceTree = "<group>";
+		};
+		4E42474E2A86293900D9153E /* LocaleModels */ = {
+			isa = PBXGroup;
+			children = (
+				4E2187752A78FF30002F0785 /* ProductLocal.swift */,
+				4E42474F2A86295B00D9153E /* LocaleDesigners.swift */,
+				4E4247512A86298500D9153E /* LocaleInspiration.swift */,
+			);
+			path = LocaleModels;
+			sourceTree = "<group>";
+		};
+		4E663DED2A810FFB00F8D86B /* BasicModules */ = {
 			isa = PBXGroup;
 			children = (
 				4E663DEE2A81106300F8D86B /* ProductDetailViewModel.swift */,
@@ -260,13 +285,13 @@
 				4E663DF42A8135F700F8D86B /* ProductImageGaleryCell.swift */,
 				4E663DF62A823A8000F8D86B /* ProductInfoCell.swift */,
 			);
-			path = BasicSingleProductDetail;
+			path = BasicModules;
 			sourceTree = "<group>";
 		};
 		4E663DF82A837AE000F8D86B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				4E663DED2A810FFB00F8D86B /* BasicSingleProductDetail */,
+				4E663DED2A810FFB00F8D86B /* BasicModules */,
 				4E2187822A7FF54B002F0785 /* BasicViews */,
 			);
 			path = Components;
@@ -314,11 +339,8 @@
 		4E86BD642A59A5B80007CDE7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4E2017812A555C1F00E421C0 /* Product.swift */,
-				4E86BD622A59A3340007CDE7 /* Designer.swift */,
-				4E9BE0AB2A5D670B0043C201 /* Inspiration.swift */,
-				4E9DDF8B2A6FFC1200179AC6 /* Popular.swift */,
-				4E2187752A78FF30002F0785 /* ProductLocal.swift */,
+				4E42474E2A86293900D9153E /* LocaleModels */,
+				4E42474D2A86291B00D9153E /* APIModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -577,12 +599,14 @@
 				4E9BE0D72A605AF20043C201 /* InspirationPageViews.swift in Sources */,
 				4E2187762A78FF30002F0785 /* ProductLocal.swift in Sources */,
 				4E2187742A78FF0D002F0785 /* FavouriteView.swift in Sources */,
+				4E4247522A86298500D9153E /* LocaleInspiration.swift in Sources */,
 				4E21876C2A72775F002F0785 /* InspoDetailViewModel.swift in Sources */,
 				4E9DDF8C2A6FFC1200179AC6 /* Popular.swift in Sources */,
 				4E86BD692A59B3410007CDE7 /* DesignerProductsCell.swift in Sources */,
 				4E2187722A78ED08002F0785 /* UIButton + pointInside.swift in Sources */,
 				4E7E82A52A6E9016008F2EE1 /* HayService.swift in Sources */,
 				4ED29BDB2A6295AE004B8C20 /* HayTabBarController.swift in Sources */,
+				4E4247502A86295B00D9153E /* LocaleDesigners.swift in Sources */,
 				4E21876E2A727D48002F0785 /* BasicProductCell.swift in Sources */,
 				4E21877C2A791880002F0785 /* FavouriteProductCell.swift in Sources */,
 				4EBB13092A56AF3C00C6C47A /* MainView.swift in Sources */,
@@ -740,8 +764,8 @@
 				INFOPLIST_FILE = HayBase/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -768,8 +792,8 @@
 				INFOPLIST_FILE = HayBase/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol ProductCellDelegate: AnyObject {
+    func didSelectProduct(product: LocalProduct)
+}
+
 final class ProductCell: UITableViewCell {
     
-    var products: [Product] = []
+    var products: [LocalProduct] = []
+    weak var delegate: ProductCellDelegate?
     
     // MARK: - UI Elements
     
@@ -29,7 +34,8 @@ final class ProductCell: UITableViewCell {
     }()
     
     
-    private lazy var collectionView: UICollectionView = {
+    //private
+    lazy var collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: Layout.width * 0.6, height: Layout.width * 0.8)
@@ -38,7 +44,7 @@ final class ProductCell: UITableViewCell {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.delegate = self
+      //  collection.delegate = self
         collection.dataSource = self
         collection.register(ProductCollectionCell.self, forCellWithReuseIdentifier: ProductCollectionCell.cellIdentifier)
         return collection
@@ -59,7 +65,7 @@ final class ProductCell: UITableViewCell {
     
     // MARK: - Public
     
-    func update(_ products: [Product]) {
+    func update(_ products: [LocalProduct]) {
      
         self.products = products
         self.collectionView.reloadData()
@@ -101,7 +107,7 @@ extension ProductCell {
 }
 // MARK: -  Collection Data Source and Delegate
 
-extension ProductCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ProductCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return products.count
@@ -119,4 +125,3 @@ extension ProductCell: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
 }
-

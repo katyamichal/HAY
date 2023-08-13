@@ -17,7 +17,7 @@
                     "image": "bowl3",
                     "image_collection": ["sp-serving-bowl", "sp-serving-bowl2", "sp-serving-bowl3", "sp-serving-bowl4"],
                     "material": "ovenproof porcelain",
-                    "size": "M",
+                    "size": "H4 x W20 x L20",
                     "colour": "white with blue rim"
 
                 },
@@ -27,9 +27,9 @@
                     "description": "The Sobremesa Stripe Vase is a decorative vase designed to add ambiance to any table setting. Hand-painted in stoneware with a colourful striped pattern that gives each jug a unique quality, it can be used for bunches of flowers, blossoming branches or storing kitchen utensils.",
                     "price": 140,
                     "image": "sobremesa-vase",
-                    "image_collection": ["sp-stripe-vase", "sp-stripe-vase2"],
+                    "image_collection": ["sp-stripe-vase", "sp-stripe-vase2", "sp-stripe-vase3"],
                     "material": "stoneware",
-                    "size": "L",
+                    "size": "H25 x W19 x L19",
                     "colour": "white with green and yellow stripes"
           
                 },
@@ -42,7 +42,7 @@
                     "image": "tablecloth",
                     "image_collection": ["sp-tablecloth"],
                     "material": "linen-cotton blend",
-                    "size": "L-300",
+                    "size": "W140 x L300",
                     "colour": "light green"
               
                 },
@@ -54,7 +54,7 @@
                     "image": "2-in-1-serving-set",
                     "image_collection": ["sp-serving-set", "sp-serving-set2"],
                     "material": "borosilicate glass",
-                    "size": "L-433",
+                    "size": "H6 x W15 x L15",
                     "colour": "blue and aqua"
                     
                 },
@@ -64,7 +64,7 @@
                     "description": "The Sobremesa Plate is a decorative plate designed to enhance mealtime atmospheres. Hand-painted in stoneware with a beautiful contrast stripe detail, the plates are available in different sizes and stripes, and can be used alone or with other tableware from the same series.",
                     "price": 160,
                     "image": "plate",
-                    "image_collection": ["sp-pletes-set", "lgc6"],
+                    "image_collection": ["sp-plates-set", "lgc6", "sp-mat-stripe2"],
                     "material": "stoneware",
                     "size": "W24 x L24",
                     "colour": "blue and yellow"
@@ -77,9 +77,9 @@
                     "price": 520,
                     "image": "sobremesa-market-basket",
                     "image_collection": ["lgc3"],
-                    "material": "bast",
-                    "size": "L",
-                    "colour": "bast colour"
+                    "material": "ast raffia",
+                    "size": "H30 x W33 x L46",
+                    "colour": "natural, red"
           
                 },
                 
@@ -103,7 +103,7 @@
                     "image": "sobremesa-market-net",
                     "image_collection": ["sp-market-net", "sp-market-net2"],
                     "material": "recycled polyester and cotton",
-                    "size": "M",
+                    "size": "H38 x W45",
                     "colour": "light blue"
                     
                 },
@@ -115,7 +115,7 @@
                     "image": "apron",
                     "image_collection": ["sp-apron"],
                     "material": "cotton",
-                    "size": "Standart",
+                    "size": "H98 x W106",
                     "colour": "dark blue"
                     
                 }

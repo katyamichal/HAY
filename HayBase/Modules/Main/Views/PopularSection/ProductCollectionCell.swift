@@ -66,24 +66,33 @@ class ProductCollectionCell: UICollectionViewCell {
     }()
     
     
-    private let likeButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        let largeFont = UIFont.systemFont(ofSize: 20)
-        let configuration = UIImage.SymbolConfiguration(font: largeFont)
-        let image = UIImage(systemName: "heart", withConfiguration: configuration)
-        button.setImage(image, for: .normal)
-        button.tintColor = .label
-        return button
-    }()
+//    private let likeButton: UIButton = {
+//        let button = UIButton()
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        let largeFont = UIFont.systemFont(ofSize: 20)
+//        let configuration = UIImage.SymbolConfiguration(font: largeFont)
+//        let image = UIImage(systemName: "heart", withConfiguration: configuration)
+//        button.setImage(image, for: .normal)
+//        button.tintColor = .label
+//        return button
+//    }()
+     var likeButton: LikeButton = {
+          let button = LikeButton()
+          button.translatesAutoresizingMaskIntoConstraints = false
+       
+          return button
+      }()
     
     
     // MARK: - Public
     
-    func update(_ product: Product) {
+    func update(_ product: LocalProduct) {
         nameLabel.text = product.productName
         pricelLabel.text = "\(product.price) £"
         productImageView.image = UIImage(named: product.image)
+        likeButton.product = product
+        likeButton.isSelected = product.isFavourite
+
     }
 }
 

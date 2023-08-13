@@ -13,10 +13,15 @@ enum ProductSection: CaseIterable {
     case designer
 }
 
+protocol MainTableViewDelegate: AnyObject {
+    func didSelectProduct(product: LocalProduct)
+}
 
 final class MainTableView: UITableView, UIScrollViewDelegate {
     
     let tableHeader = InspirationTableHeader()
+    
+    weak var selectionDelegate: MainTableViewDelegate?
     
     func update(_ viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -24,13 +29,12 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
     var viewModel: MainViewModel? {
         didSet {
             self.reloadData()
-            guard let inspiration = viewModel?.inspiration, !inspiration.isEmpty else {return}
+            guard let inspiration = viewModel?.localInspiration, !inspiration.isEmpty else {return}
             self.tableHeader.update(with: inspiration)
         }
     }
-    
     // MARK: - Inits
-
+    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
@@ -43,11 +47,12 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
         self.allowsSelection = false
         self.separatorStyle = .none
         self.contentInsetAdjustmentBehavior = .never
-
+        
         tableHeader.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: Layout.height / 1.75)
         self.tableHeaderView = tableHeader
         self.tableHeaderView?.isUserInteractionEnabled = true
-
+        
+        
         
         self.register(ProductCell.self)
         self.register(DesignerCollaborationCell.self)
@@ -74,10 +79,10 @@ extension MainTableView: UITableViewDataSource {
             
         case .popular:
             return 1
-
+            
         case .designer:
-            return viewModel?.designers.count ?? 0
-
+            return viewModel?.localDesigners.count ?? 0
+            
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,30 +90,40 @@ extension MainTableView: UITableViewDataSource {
         let section = ProductSection.allCases[indexPath.section]
         
         switch section {
-
+            
         case .popular:
             let cell = tableView.dequeue(indexPath) as ProductCell
-            let products = viewModel?.popularProduct ?? []
+            let products = viewModel?.popularLocaleProduct ?? []
             cell.update(products)
+            cell.collectionView.delegate = self
             return cell
             
         case .designer:
             let cell = tableView.dequeue(indexPath) as DesignerCollaborationCell
-            guard let designers = viewModel?.designers, !designers.isEmpty else {
+            guard let designers = viewModel?.localDesigners, !designers.isEmpty else {
                 return cell
             }
             cell.update(designers[indexPath.row])
             return cell
-        
         }
     }
-    
- 
-    
 }
+
+// MARK: - Delegate methods
+
 extension MainTableView: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = self.tableHeaderView as? InspirationTableHeader else {return}
         header.scrollViewDidScroll(self)
     }
 }
+
+extension MainTableView: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let products = viewModel?.popularLocaleProduct else {return}
+        let product = products[indexPath.item]
+        selectionDelegate?.didSelectProduct(product: product)
+    }
+}
+

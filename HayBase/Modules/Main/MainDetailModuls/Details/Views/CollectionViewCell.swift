@@ -81,7 +81,7 @@ final class InspirationDetailCell: UICollectionViewCell {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    private func configureViews(with inspirationFeed: InspirationFeed) {
+    private func configureViews(with inspirationFeed: LocaleInspirationFeed) {
         
         let images = inspirationFeed.images
         
@@ -144,7 +144,7 @@ final class InspirationDetailCell: UICollectionViewCell {
     }
     
     
-    func update(with inspirationFeed: InspirationFeed) {
+    func update(with inspirationFeed: LocaleInspirationFeed) {
         collectionNameLabel.text = inspirationFeed.collectionName.uppercased()
         descriptionLabel.text = inspirationFeed.description
         configureViews(with: inspirationFeed)

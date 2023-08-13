@@ -27,11 +27,12 @@ class DesignerProductsCell: UICollectionViewCell {
     
     
     // MARK: - Public
-    func update(_ designerProduct: Product) {
+    func update(_ designerProduct: LocalProduct) {
         nameLabel.text = designerProduct.productName.lowercased()
-        //detailLabel.text = designerProduct.
         pricelLabel.text = "\(designerProduct.price) £"
         productImageView.image = UIImage(named: designerProduct.image)
+        likeButton.product = designerProduct
+        likeButton.isSelected = designerProduct.isFavourite
     }
     
     
@@ -56,16 +57,6 @@ class DesignerProductsCell: UICollectionViewCell {
         return label
     }()
     
-//    private let detailLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.text = "Detail"
-//        label.textColor = .label
-//        label.numberOfLines = 0
-//        label.font = UIFont.boldSystemFont(ofSize: 13)
-//        return label
-//    }()
-    
     private let pricelLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -86,16 +77,11 @@ class DesignerProductsCell: UICollectionViewCell {
     }()
     
     
-    private let likeButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        let largeFont = UIFont.systemFont(ofSize: 20)
-        let configuration = UIImage.SymbolConfiguration(font: largeFont)
-        let image = UIImage(systemName: "heart", withConfiguration: configuration)
-        button.setImage(image, for: .normal)
-        button.tintColor = .label
-        return button
-    }()
+    var likeButton: LikeButton = {
+         let button = LikeButton()
+         button.translatesAutoresizingMaskIntoConstraints = false
+         return button
+     }()
 }
 
 extension DesignerProductsCell {
@@ -105,17 +91,15 @@ extension DesignerProductsCell {
           contentView.addSubview(verticalStackView)
           contentView.addSubview(likeButton)
           verticalStackView.addArrangedSubview(nameLabel)
-         // verticalStackView.addArrangedSubview(detailLabel)
           verticalStackView.addArrangedSubview(pricelLabel)
       }
     
     
       private func setupConstraints() {
-          let constant: CGFloat = 16
           
           NSLayoutConstraint.activate([
             
-            likeButton.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: constant),
+            likeButton.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 16),
             likeButton.trailingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: -1),
            
             likeButton.widthAnchor.constraint(equalToConstant: 25),

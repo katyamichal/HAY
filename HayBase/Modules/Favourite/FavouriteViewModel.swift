@@ -9,38 +9,23 @@ import Foundation
 
 final class FavouriteViewModel {
     
-    let favouriteService: FavouriteService
+    private let favouriteService: FavouriteService
+    
+    private lazy var productArchiver = favouriteService.productArchiver
     
     var products: [LocalProduct]?
-  
-    #warning("add product archiever to init with parameter")
+    
     init(favouriteService: FavouriteService) {
         self.favouriteService = favouriteService
     }
     
     func loadProduct() {
+       
         products = favouriteService.loadFavouriteProducts()?.reversed()
-    }
-    
-    func update(with product: LocalProduct) {
-        
-        guard let index = products?.firstIndex (where: { $0.id == product.id }) else {
-            return
-        }
-        
-        if product.isFavourite {
-            saveFavourite(products: [product])
-        } else {
-            deleteFavourite(product: product)
-        }
-    }
-    
-    private func saveFavourite(products: [LocalProduct]) {
-        ProductArchiver.productArchiver.save(products)
-    }
-    
-    private func deleteFavourite(product: LocalProduct) {
-        ProductArchiver.productArchiver.delete(product)
+        print(products)
     }
     
 }
+
+
+

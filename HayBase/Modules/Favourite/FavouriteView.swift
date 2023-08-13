@@ -7,17 +7,8 @@
 
 import UIKit
 
-protocol FavouriteViewDelegate: AnyObject {
-    func updateViewModel(with product: LocalProduct)
-}
+final class FavouriteView: UIView {
 
-final class FavouriteView: UIView, BasicProductCellDelegate {
-    func updateViewModel(with product: LocalProduct) {
-        delegate?.updateViewModel(with: product)
-    }
-    
-   
-    weak var delegate: FavouriteViewDelegate?
     // MARK: - View Model
     
      func update(viewModel: FavouriteViewModel) {
@@ -26,12 +17,13 @@ final class FavouriteView: UIView, BasicProductCellDelegate {
     
     var viewModel: FavouriteViewModel? {
         didSet {
-            guard (viewModel?.products) != [] else {
+            guard let productsCount = viewModel?.products?.count,
+                  productsCount > 0
+            else {
                 collectionView.isHidden = true
                 headerLabel.text = "You don't have any favourite products yet  :( "
                 return
             }
-
           updateView()
         }
     }
@@ -41,9 +33,9 @@ final class FavouriteView: UIView, BasicProductCellDelegate {
         let layout = createLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.delegate = self
+       
+       // collection.delegate = self
         collection.dataSource = self
-//        collection.register(FavouriteProductCell.self, forCellWithReuseIdentifier: FavouriteProductCell.cellIdentifier)
        
        collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
         return collection
@@ -81,7 +73,7 @@ final class FavouriteView: UIView, BasicProductCellDelegate {
         item.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 0, bottom: 0, trailing: 0)
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(300))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
-        group.interItemSpacing = .flexible(16)
+        group.interItemSpacing = .fixed(16)
 
         let section = NSCollectionLayoutSection(group: group)
         let layout = UICollectionViewCompositionalLayout(section: section)
@@ -132,23 +124,20 @@ extension FavouriteView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.products?.count ?? 0
     }
-    
+    #warning("Clean up")
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavouriteProductCell.cellIdentifier, for: indexPath) as? FavouriteProductCell else {fatalError("Error to dequeue FavouriteProductCell")}
-//
-//        let favProduct = viewModel?.products?[indexPath.item]
-//        cell.update(favProduct ?? nil)
-//        return cell
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicProductCell.cellIdentifier, for: indexPath) as? BasicProductCell else {fatalError("Error to dequeue FavouriteProductCell")}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicProductCell.cellIdentifier, for: indexPath) as? BasicProductCell else {
+            fatalError("Error to dequeue FavouriteProductCell")
+            
+        }
         guard let favProduct = viewModel?.products?[indexPath.item]
         else {
             return cell
         }
         cell.update(favProduct)
-        cell.delegate = self
+
         return cell
     }
 }
 
-extension FavouriteView: UICollectionViewDelegate {}
