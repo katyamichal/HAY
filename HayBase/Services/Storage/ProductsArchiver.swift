@@ -18,6 +18,8 @@ enum ArchiverKey: String {
     case productToBuy
 }
 
+// TODO: - set property obeserver
+
 
 final class ProductArchiver: ProductArchiverInput {
     // MARK: - Init

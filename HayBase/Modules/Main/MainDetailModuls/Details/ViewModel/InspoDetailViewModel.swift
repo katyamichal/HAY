@@ -28,11 +28,6 @@ final class InspoDetailViewModel {
         }
     }
     
-    func update() {
-        favProduct.removeAll()
-        retrieveData()
-    }
-    
     // MARK: - Private
 
     private lazy var products: [LocalProduct] = inpirationFeed.products
@@ -52,7 +47,7 @@ final class InspoDetailViewModel {
     }
     
     
-    private func retrieveData() {
+     func retrieveData() {
         guard let products = productArchiver.retrieve() else { return }
         favProduct = products
     }
@@ -64,6 +59,15 @@ final class InspoDetailViewModel {
         retrieveData()
     }
 
+    
+    func update(product: LocalProduct) {
+        if product.isFavourite {
+            productArchiver.save(product)
+        } else {
+            productArchiver.delete(product)
+        }
+        retrieveData()
+    }
 }
 
 

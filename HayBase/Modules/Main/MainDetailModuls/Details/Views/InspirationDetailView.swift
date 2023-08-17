@@ -14,6 +14,8 @@ enum SectionType: CaseIterable {
 
 final class InspirationDetailView: UIView {
     
+    var onLocalProductDidChanged: ((LocalProduct)->())?
+    
     var viewModel: InspoDetailViewModel {
         didSet {
             collectionView.reloadData()
@@ -158,6 +160,10 @@ extension InspirationDetailView: UICollectionViewDataSource {
             if let products = viewModel.inspoProducts {
                 let product = products[indexPath.item]
                 cell.update(product)
+            }
+            cell.likeButton.onLikeButtonPressed = { isLiked, product in
+                
+                self.onLocalProductDidChanged?(product)
             }
             return cell
         }

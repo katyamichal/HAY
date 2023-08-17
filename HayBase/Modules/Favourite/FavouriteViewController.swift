@@ -40,6 +40,16 @@ final class FavouriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         favouriteView.collectionView.delegate = self
+        
+        loadProducts()
+        
+        favouriteView.onLocalProductDidChanged = { product in
+            self.favouriteViewModel.update(product: product)
+        }
+        
+        favouriteViewModel.onUpdateModel = {
+            self.favouriteView.viewModel = self.favouriteViewModel
+        }
     }
     
     

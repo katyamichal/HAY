@@ -10,6 +10,7 @@ import UIKit
 final class DesignerCollaborationCell: UITableViewCell {
     
     private var designer: LocaleDesigner?
+    var onLocalProductDidChanged: ((LocalProduct)->())?
     
     // MARK: - UI Elements
     
@@ -188,7 +189,9 @@ extension DesignerCollaborationCell: UICollectionViewDataSource {
         guard let products = designer?.products, !products.isEmpty,
             let product = designer?.products[indexPath.item] else {return cell}
         cell.update(product)
-
+        cell.likeButton.onLikeButtonPressed = { isLiked, product in
+            self.onLocalProductDidChanged?(product)
+        }
         return cell
      
     }

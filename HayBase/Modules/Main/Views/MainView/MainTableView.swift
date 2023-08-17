@@ -16,7 +16,7 @@ enum ProductSection: CaseIterable {
 protocol MainTableViewDelegate: AnyObject {
     func didSelectProduct(product: LocalProduct)
     func didSelectDesignerCell(designer: LocaleDesigner)
-    func didChangeLocalProduct(section: ProductSection, product: LocalProduct)
+    func didChangeLocalProduct(product: LocalProduct)
 }
 
 final class MainTableView: UITableView, UIScrollViewDelegate {
@@ -98,7 +98,7 @@ extension MainTableView: UITableViewDataSource {
             cell.collectionView.delegate = self
             
             cell.onLocalProductDidChanged = { product in
-                self.selectionDelegate?.didChangeLocalProduct(section: .popular, product: product)
+                self.selectionDelegate?.didChangeLocalProduct(product: product)
             }
             
             return cell
@@ -110,6 +110,10 @@ extension MainTableView: UITableViewDataSource {
             }
             cell.update(designers[indexPath.row])
             cell.collectionView.delegate = self
+            cell.onLocalProductDidChanged = { product in
+                self.selectionDelegate?.didChangeLocalProduct(product: product)
+                
+            }
             return cell
         }
     }

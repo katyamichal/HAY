@@ -40,13 +40,15 @@ final class InspirationDetailViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         
         setupNavBarButton()
+        
+        detailView.onLocalProductDidChanged = { product in
+            self.viewModel.update(product: product)
+        }
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.update()
-        detailView.viewModel = viewModel
     }
     
     

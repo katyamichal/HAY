@@ -35,9 +35,11 @@ final class MainViewModel {
     private var designers: [Designer] = []
     
     var localDesigners: [LocaleDesigner] {
+        
         var localeDesigners: [LocaleDesigner] = []
         
         for designer in designers {
+            
             let designerLocaleProducts = createLocalProducts(with: designer.products)
             let mergeProducts = mergeProducts(localProducts: designerLocaleProducts)
             
@@ -47,6 +49,8 @@ final class MainViewModel {
         }
         return localeDesigners
     }
+    
+    
     
     
     
@@ -90,7 +94,7 @@ final class MainViewModel {
     }
     // MARK: - Update Module Methods
     
-    func update(section: ProductSection, with product: LocalProduct) {
+    func update(product: LocalProduct) {
         defer {
             isUpdated = true
         }

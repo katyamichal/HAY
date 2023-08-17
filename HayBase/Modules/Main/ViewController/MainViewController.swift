@@ -34,8 +34,6 @@ final class MainViewController: UIViewController {
         fetchData()
         
         mainView.productTableView.selectionDelegate = self
-        
-        
       
     }
     
@@ -67,8 +65,9 @@ extension MainViewController: InspirationTableHeaderDelegate {
 
 
 extension MainViewController: MainTableViewDelegate {
-    func didChangeLocalProduct(section: ProductSection, product: LocalProduct) {
-        mainViewModel.update(section: section, with: product)
+    
+    func didChangeLocalProduct(product: LocalProduct) {
+        mainViewModel.update(product: product)
     }
     
     

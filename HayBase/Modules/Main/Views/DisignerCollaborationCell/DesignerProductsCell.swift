@@ -15,7 +15,6 @@ final class DesignerProductsCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
         setupViews()
         setupConstraints()
     }
@@ -32,7 +31,6 @@ final class DesignerProductsCell: UICollectionViewCell {
         productImageView.image = UIImage(named: designerProduct.image)
         likeButton.product = designerProduct
         likeButton.isSelected = designerProduct.isFavourite
-       // likeButton.type = .designer
     }
     
     

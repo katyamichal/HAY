@@ -9,6 +9,8 @@ import Foundation
 
 final class FavouriteViewModel {
     
+    var onUpdateModel: (()->())?
+    
     private let favouriteService: FavouriteService
     
     private lazy var productArchiver = favouriteService.productArchiver
@@ -21,6 +23,16 @@ final class FavouriteViewModel {
     
     func loadProduct() {
         products = favouriteService.loadFavouriteProducts()?.reversed()
+        onUpdateModel?()
+    }
+    
+    func update(product: LocalProduct) {
+        if product.isFavourite {
+            productArchiver.save(product)
+        } else {
+            productArchiver.delete(product)
+        }
+        loadProduct()
     }
     
 }

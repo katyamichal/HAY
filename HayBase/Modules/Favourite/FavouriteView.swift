@@ -8,6 +8,8 @@
 import UIKit
 
 final class FavouriteView: UIView {
+    
+    var onLocalProductDidChanged: ((LocalProduct)->())?
 
     // MARK: - View Model
     
@@ -31,10 +33,10 @@ final class FavouriteView: UIView {
     // MARK: - UI Elements
    lazy var collectionView: UICollectionView = {
         let layout = createLayout()
+       
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
-       
-       // collection.delegate = self
+    
         collection.dataSource = self
        
        collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
@@ -137,6 +139,9 @@ extension FavouriteView: UICollectionViewDataSource {
             return cell
         }
         cell.update(favProduct)
+        cell.likeButton.onLikeButtonPressed = {isLiked, product in
+            self.onLocalProductDidChanged?(product)
+        }
 
         return cell
     }
