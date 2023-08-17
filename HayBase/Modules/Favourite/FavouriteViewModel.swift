@@ -20,9 +20,7 @@ final class FavouriteViewModel {
     }
     
     func loadProduct() {
-       
         products = favouriteService.loadFavouriteProducts()?.reversed()
-        print(products)
     }
     
 }

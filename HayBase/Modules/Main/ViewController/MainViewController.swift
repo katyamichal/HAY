@@ -10,6 +10,7 @@ import UIKit
 final class MainViewController: UIViewController {
     
     private let mainViewModel: MainViewModel
+
     
     private var mainView: MainView { return self.view as! MainView }
     // MARK: - Init
@@ -33,20 +34,23 @@ final class MainViewController: UIViewController {
         fetchData()
         
         mainView.productTableView.selectionDelegate = self
+        
+        
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //TODO:-  обновить вью
         navigationController?.navigationBar.isHidden = true
     }
     
-    private func fetchData() {
+     private func fetchData() {
         mainViewModel.fetchModels()
         
         mainViewModel.onDidUpdatedViewModel =  {
             self.mainView.productTableView.update(self.mainViewModel)
-            
         }
+    
+       
     }
 }
 // MARK: - Delegate methods
@@ -63,8 +67,20 @@ extension MainViewController: InspirationTableHeaderDelegate {
 
 
 extension MainViewController: MainTableViewDelegate {
-    func didSelectProduct(product: LocalProduct) {
+    func didChangeLocalProduct(section: ProductSection, product: LocalProduct) {
+        mainViewModel.update(section: section, with: product)
+    }
+    
+    
+    #warning("Finish!")
+    func didSelectDesignerCell(designer: LocaleDesigner) {
         
+  
+    }
+    
+   /// shows detail view for single product
+
+    func didSelectProduct(product: LocalProduct) {
         let productDetailViewModel = ProductDetailViewModel(product: product)
         let productDetailVC = ProductDetailViewController(viewModel: productDetailViewModel)
         

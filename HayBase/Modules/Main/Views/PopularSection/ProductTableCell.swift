@@ -7,15 +7,13 @@
 
 import UIKit
 
-protocol ProductCellDelegate: AnyObject {
-    func didSelectProduct(product: LocalProduct)
-}
-
 final class ProductCell: UITableViewCell {
     
-    var products: [LocalProduct] = []
-    weak var delegate: ProductCellDelegate?
+    var onLocalProductDidChanged: ((LocalProduct)->())?
     
+    var products: [LocalProduct] = []
+    
+
     // MARK: - UI Elements
     
     private let containerView: UIView = {
@@ -29,12 +27,11 @@ final class ProductCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 22, weight: .light)
-        label.text = "Popular".uppercased()
+       
         return label
     }()
     
-    
-    //private
+
     lazy var collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
@@ -44,9 +41,9 @@ final class ProductCell: UITableViewCell {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
-      //  collection.delegate = self
         collection.dataSource = self
         collection.register(ProductCollectionCell.self, forCellWithReuseIdentifier: ProductCollectionCell.cellIdentifier)
+        collection.backgroundColor = .clear
         return collection
     }()
     
@@ -54,7 +51,7 @@ final class ProductCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        selectionStyle = .none
         setupViews()
         setupConstraints()
     }
@@ -66,10 +63,9 @@ final class ProductCell: UITableViewCell {
     // MARK: - Public
     
     func update(_ products: [LocalProduct]) {
-     
+        headerLabel.text = "Popular".uppercased()
         self.products = products
-        self.collectionView.reloadData()
-    
+        collectionView.reloadData()
     }
 }
 // MARK: - Setups
@@ -117,6 +113,12 @@ extension ProductCell: UICollectionViewDataSource {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionCell.cellIdentifier, for: indexPath) as? ProductCollectionCell else {
             fatalError("Product Collection Cell")
+        }
+        
+        cell.likeButton.onLikeButtonPressed = { isLiked, product in
+            
+           
+            self.onLocalProductDidChanged?(product)
         }
         
         let product = products[indexPath.item]

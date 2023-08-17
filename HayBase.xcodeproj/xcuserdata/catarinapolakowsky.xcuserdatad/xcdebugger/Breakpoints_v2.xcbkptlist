@@ -135,7 +135,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "979475A4-E038-4C29-A0D1-D3E2B54E1BA3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HayBase/PopularSection/PopularProductTVCell.swift"
@@ -167,7 +167,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B567662D-D24B-4C28-8464-348A32A4C8BE"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HayBase/MainView/Views/HeaderViews/HeaderCell.swift"
@@ -260,7 +260,7 @@
             <Locations>
                <Location
                   uuid = "F8E2951A-FC19-434A-805E-ED2B2C77AF25 - 8a245fd1e38ebd44"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HayBase.FavouriteView.viewModel.didset : Swift.Optional&lt;HayBase.FavouriteViewModel&gt;"
@@ -275,7 +275,7 @@
                </Location>
                <Location
                   uuid = "F8E2951A-FC19-434A-805E-ED2B2C77AF25 - 8a245fd1e38ebd44"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HayBase.FavouriteView.viewModel.didset : Swift.Optional&lt;HayBase.FavouriteViewModel&gt;"
@@ -290,7 +290,7 @@
                </Location>
                <Location
                   uuid = "F8E2951A-FC19-434A-805E-ED2B2C77AF25 - 8a245fd1e38ebd44"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HayBase.FavouriteView.viewModel.didset : Swift.Optional&lt;HayBase.FavouriteViewModel&gt;"
@@ -323,7 +323,7 @@
             <Locations>
                <Location
                   uuid = "BEC6E3E3-906A-4CFF-A362-3CBADAEFE354 - 370e2b039e1c61e5"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HayBase.FavouriteViewController.__allocating_init(favouriteViewModel: HayBase.FavouriteViewModel) -&gt; HayBase.FavouriteViewController"
@@ -338,7 +338,7 @@
                </Location>
                <Location
                   uuid = "BEC6E3E3-906A-4CFF-A362-3CBADAEFE354 - 9decb6b1637ab4e1"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "HayBase.FavouriteViewController.init(favouriteViewModel: HayBase.FavouriteViewModel) -&gt; HayBase.FavouriteViewController"
@@ -368,6 +368,196 @@
             endingLineNumber = "44"
             landmarkName = "likeButtonTapped()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31856233-C30C-4994-B237-08DE233392C2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HayBase/Modules/Main/ViewController/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "31856233-C30C-4994-B237-08DE233392C2 - a51969f2343ea146"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HayBase.MainViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "HayBase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catarinapolakowsky/Desktop/HayBaseP/HayBase/Modules/Main/ViewController/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "776">
+               </Location>
+               <Location
+                  uuid = "31856233-C30C-4994-B237-08DE233392C2 - 36ca2aa358eeb446"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (HayBase.LocalProduct, Swift.Optional&lt;HayBase.ProductType&gt;) -&gt; () in HayBase.MainViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "HayBase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catarinapolakowsky/Desktop/HayBaseP/HayBase/Modules/Main/ViewController/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "31856233-C30C-4994-B237-08DE233392C2 - 36ca2aa358eeb469"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (HayBase.LocalProduct, Swift.Optional&lt;HayBase.ProductType&gt;) -&gt; () in HayBase.MainViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "HayBase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catarinapolakowsky/Desktop/HayBaseP/HayBase/Modules/Main/ViewController/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "31856233-C30C-4994-B237-08DE233392C2 - a51969f2343ea0a7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HayBase.MainViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "HayBase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catarinapolakowsky/Desktop/HayBaseP/HayBase/Modules/Main/ViewController/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "779">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5023D461-914A-43D5-8B61-2FDCFE66E4F4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HayBase/Services/Storage/ProductsArchiver.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "ProductArchiver"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "338536F8-CB9D-46EF-A926-64383EE26334"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HayBase/Modules/Main/ViewModel/MainViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "init(service:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6137D401-60E7-4E95-BC2C-4EB6F3347CF8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HayBase/Modules/Main/ViewModel/MainViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "MainViewModel"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51D76F95-274B-4F91-B1DB-66D8E7361AE3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HayBase/Modules/Main/Views/MainView/MainTableView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5ACE4829-D328-4D5C-A9DF-850AA71CEA04"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HayBase/Modules/Main/ViewModel/MainViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "isUpdated"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "5ACE4829-D328-4D5C-A9DF-850AA71CEA04 - bb56a00531855024"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HayBase.MainViewModel.isUpdated.didset : Swift.Bool"
+                  moduleName = "HayBase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catarinapolakowsky/Desktop/HayBaseP/HayBase/Modules/Main/ViewModel/MainViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "5ACE4829-D328-4D5C-A9DF-850AA71CEA04 - bb56a00531855024"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HayBase.MainViewModel.isUpdated.didset : Swift.Bool"
+                  moduleName = "HayBase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catarinapolakowsky/Desktop/HayBaseP/HayBase/Modules/Main/ViewModel/MainViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -34,7 +34,7 @@ final class InspirationDetailView: UIView {
         collection.register(InspirationDetailCell.self, forCellWithReuseIdentifier: InspirationDetailCell.cellIdentifier)
         
         collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
-   
+         collection.backgroundColor = .systemBackground
         return collection
     }()
     
@@ -55,6 +55,7 @@ final class InspirationDetailView: UIView {
     // MARK: - Layout methods
     
     private func setupView() {
+       
         addSubview(collectionView)
     }
 

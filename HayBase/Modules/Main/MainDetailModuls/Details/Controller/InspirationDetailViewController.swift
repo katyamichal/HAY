@@ -9,7 +9,6 @@ import UIKit
 
 final class InspirationDetailViewController: UIViewController {
     
-    
     private let viewModel: InspoDetailViewModel
     
     private lazy var detailView = InspirationDetailView(frame: .zero, viewModel: viewModel)
@@ -27,10 +26,10 @@ final class InspirationDetailViewController: UIViewController {
     
     // MARK: - Cycle
     
-    
     override func loadView() {
         super.loadView()
         self.view = detailView
+
         detailView.collectionView.delegate = self
         setupConstraints()
     }
@@ -39,6 +38,7 @@ final class InspirationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
+        
         setupNavBarButton()
     }
     

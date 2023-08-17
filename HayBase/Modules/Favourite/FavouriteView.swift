@@ -38,6 +38,7 @@ final class FavouriteView: UIView {
         collection.dataSource = self
        
        collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
+       collection.backgroundColor = .systemBackground
         return collection
     }()
     

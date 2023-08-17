@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 protocol ProductArchiverInput {
     func save(_ product: LocalProduct)
     func retrieve() -> [LocalProduct]?
@@ -21,13 +19,14 @@ enum ArchiverKey: String {
 }
 
 
-
 final class ProductArchiver: ProductArchiverInput {
     // MARK: - Init
     
     init(productType: ArchiverKey) {
         self.key = productType
     }
+
+
     // MARK: - Properties
     
     private let encoder = JSONEncoder()
@@ -57,13 +56,12 @@ final class ProductArchiver: ProductArchiverInput {
             } catch {
                 print("error to decode local product array with key: \(key.rawValue)")
             }
-    //
+    
             
             do {
                 let data = try encoder.encode(products)
                 UserDefaults.standard.set(data, forKey: key.rawValue)
-                print("\(products) has been successfully saved")
-                
+               
             } catch {
                 print("error to save data to User Defaults")
             }
@@ -74,15 +72,12 @@ final class ProductArchiver: ProductArchiverInput {
                 let data = try encoder.encode([product])
                 UserDefaults.standard.set(data, forKey: key.rawValue)
                 print("\(product) has been successfully saved")
+            
                 
             } catch {
                 print("error to save data to User Defaults")
             }
         }
-
-
-       // print("There is no data in User Defaults with the key name: \(key)")
-     
     }
     
     
@@ -104,6 +99,7 @@ final class ProductArchiver: ProductArchiverInput {
             guard let updatedData = try? encoder.encode(products) else {return}
             
             UserDefaults.standard.set(updatedData, forKey: key.rawValue)
+            
             
         } catch {
             print("Error to remove data from User Defaults")

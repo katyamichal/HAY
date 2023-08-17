@@ -41,7 +41,6 @@ class ProductCollectionCell: UICollectionViewCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 15)
         return label
@@ -50,7 +49,6 @@ class ProductCollectionCell: UICollectionViewCell {
 
     private let pricelLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Price"
         label.textColor = .label
         label.numberOfLines = 0
@@ -65,21 +63,9 @@ class ProductCollectionCell: UICollectionViewCell {
         return imageView
     }()
     
-    
-//    private let likeButton: UIButton = {
-//        let button = UIButton()
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        let largeFont = UIFont.systemFont(ofSize: 20)
-//        let configuration = UIImage.SymbolConfiguration(font: largeFont)
-//        let image = UIImage(systemName: "heart", withConfiguration: configuration)
-//        button.setImage(image, for: .normal)
-//        button.tintColor = .label
-//        return button
-//    }()
      var likeButton: LikeButton = {
           let button = LikeButton()
           button.translatesAutoresizingMaskIntoConstraints = false
-       
           return button
       }()
     

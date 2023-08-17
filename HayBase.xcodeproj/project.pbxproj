@@ -53,6 +53,8 @@
 		4E9BE0D72A605AF20043C201 /* InspirationPageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9BE0D62A605AF20043C201 /* InspirationPageViews.swift */; };
 		4E9DDF8A2A6FF17A00179AC6 /* PopularProducts in Resources */ = {isa = PBXBuildFile; fileRef = 4E9DDF892A6FF17A00179AC6 /* PopularProducts */; };
 		4E9DDF8C2A6FFC1200179AC6 /* Popular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9DDF8B2A6FFC1200179AC6 /* Popular.swift */; };
+		4EA9A6982A8BCC2300D3D415 /* HayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A6972A8BCC2300D3D415 /* HayViewModel.swift */; };
+		4EA9A69A2A8BCCA100D3D415 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A6992A8BCCA100D3D415 /* Models.swift */; };
 		4EBB13092A56AF3C00C6C47A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB13082A56AF3C00C6C47A /* MainView.swift */; };
 		4EBB130B2A56BF8500C6C47A /* UITableView + registerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB130A2A56BF8500C6C47A /* UITableView + registerCell.swift */; };
 		4EBB130D2A56C31200C6C47A /* UITableViewCell + reuseID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB130C2A56C31200C6C47A /* UITableViewCell + reuseID.swift */; };
@@ -116,6 +118,8 @@
 		4E9BE0D62A605AF20043C201 /* InspirationPageViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspirationPageViews.swift; sourceTree = "<group>"; };
 		4E9DDF892A6FF17A00179AC6 /* PopularProducts */ = {isa = PBXFileReference; lastKnownFileType = text; path = PopularProducts; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		4E9DDF8B2A6FFC1200179AC6 /* Popular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popular.swift; sourceTree = "<group>"; };
+		4EA9A6972A8BCC2300D3D415 /* HayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HayViewModel.swift; sourceTree = "<group>"; };
+		4EA9A6992A8BCCA100D3D415 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4EBB13082A56AF3C00C6C47A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4EBB130A2A56BF8500C6C47A /* UITableView + registerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + registerCell.swift"; sourceTree = "<group>"; };
 		4EBB130C2A56C31200C6C47A /* UITableViewCell + reuseID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + reuseID.swift"; sourceTree = "<group>"; };
@@ -432,6 +436,7 @@
 		4E9BE0D12A605A240043C201 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4EA9A69B2A8BD47500D3D415 /* TestingViewModel */,
 				4E9BE0CF2A6059920043C201 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
@@ -444,6 +449,15 @@
 				4E9BE0D62A605AF20043C201 /* InspirationPageViews.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		4EA9A69B2A8BD47500D3D415 /* TestingViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4EA9A6972A8BCC2300D3D415 /* HayViewModel.swift */,
+				4EA9A6992A8BCCA100D3D415 /* Models.swift */,
+			);
+			path = TestingViewModel;
 			sourceTree = "<group>";
 		};
 		4ED29BD92A62956E004B8C20 /* Navigation */ = {
@@ -602,6 +616,7 @@
 				4E4247522A86298500D9153E /* LocaleInspiration.swift in Sources */,
 				4E21876C2A72775F002F0785 /* InspoDetailViewModel.swift in Sources */,
 				4E9DDF8C2A6FFC1200179AC6 /* Popular.swift in Sources */,
+				4EA9A6982A8BCC2300D3D415 /* HayViewModel.swift in Sources */,
 				4E86BD692A59B3410007CDE7 /* DesignerProductsCell.swift in Sources */,
 				4E2187722A78ED08002F0785 /* UIButton + pointInside.swift in Sources */,
 				4E7E82A52A6E9016008F2EE1 /* HayService.swift in Sources */,
@@ -619,6 +634,7 @@
 				4E9BE0AC2A5D670B0043C201 /* Inspiration.swift in Sources */,
 				4E9BE0A52A5D58CE0043C201 /* InsipationTableCell.swift in Sources */,
 				4E86BD5C2A594EC70007CDE7 /* ProductCollectionCell.swift in Sources */,
+				4EA9A69A2A8BCCA100D3D415 /* Models.swift in Sources */,
 				4EBB130F2A56C76000C6C47A /* MainTableView.swift in Sources */,
 				4E21877E2A7A4306002F0785 /* FavouriteService.swift in Sources */,
 			);

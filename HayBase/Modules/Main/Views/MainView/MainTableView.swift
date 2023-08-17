@@ -15,6 +15,8 @@ enum ProductSection: CaseIterable {
 
 protocol MainTableViewDelegate: AnyObject {
     func didSelectProduct(product: LocalProduct)
+    func didSelectDesignerCell(designer: LocaleDesigner)
+    func didChangeLocalProduct(section: ProductSection, product: LocalProduct)
 }
 
 final class MainTableView: UITableView, UIScrollViewDelegate {
@@ -29,7 +31,8 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
     var viewModel: MainViewModel? {
         didSet {
             self.reloadData()
-            guard let inspiration = viewModel?.localInspiration, !inspiration.isEmpty else {return}
+            guard let inspiration = viewModel?.localInspiration, !inspiration.isEmpty else { return }
+            
             self.tableHeader.update(with: inspiration)
         }
     }
@@ -42,17 +45,13 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
         self.delegate = self
         self.dataSource = self
         
-        
         self.showsVerticalScrollIndicator = false
-        self.allowsSelection = false
         self.separatorStyle = .none
         self.contentInsetAdjustmentBehavior = .never
         
         tableHeader.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: Layout.height / 1.75)
         self.tableHeaderView = tableHeader
         self.tableHeaderView?.isUserInteractionEnabled = true
-        
-        
         
         self.register(ProductCell.self)
         self.register(DesignerCollaborationCell.self)
@@ -95,7 +94,13 @@ extension MainTableView: UITableViewDataSource {
             let cell = tableView.dequeue(indexPath) as ProductCell
             let products = viewModel?.popularLocaleProduct ?? []
             cell.update(products)
+            
             cell.collectionView.delegate = self
+            
+            cell.onLocalProductDidChanged = { product in
+                self.selectionDelegate?.didChangeLocalProduct(section: .popular, product: product)
+            }
+            
             return cell
             
         case .designer:
@@ -104,6 +109,7 @@ extension MainTableView: UITableViewDataSource {
                 return cell
             }
             cell.update(designers[indexPath.row])
+            cell.collectionView.delegate = self
             return cell
         }
     }
@@ -116,14 +122,43 @@ extension MainTableView: UITableViewDelegate {
         guard let header = self.tableHeaderView as? InspirationTableHeader else {return}
         header.scrollViewDidScroll(self)
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let sections = ProductSection.allCases[indexPath.section]
+        switch sections {
+        case .popular:
+            break
+        case .designer:
+            guard let designers = viewModel?.localDesigners else {return}
+            let selected = designers[indexPath.item]
+            selectionDelegate?.didSelectDesignerCell(designer: selected)
+        }
+    }
 }
+// MARK: - Popular Product Collection Delegate
 
 extension MainTableView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let products = viewModel?.popularLocaleProduct else {return}
-        let product = products[indexPath.item]
-        selectionDelegate?.didSelectProduct(product: product)
+
+        let section = collectionView.cellForItem(at: indexPath)
+           
+        switch section {
+        case section as ProductCollectionCell:
+            guard let products = viewModel?.popularLocaleProduct else {return}
+            let product = products[indexPath.item]
+            selectionDelegate?.didSelectProduct(product: product)
+        case section as DesignerProductsCell:
+            // here not sure
+            guard let designer = viewModel?.localDesigners[indexPath.section]
+            else {return}
+            let product = designer.products[indexPath.item]
+            selectionDelegate?.didSelectProduct(product: product)
+        default:
+            break
+        }
+    
     }
 }
-

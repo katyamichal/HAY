@@ -9,10 +9,10 @@ import UIKit
 
 class LikeButton: UIButton {
     
+    var onLikeButtonPressed: ((Bool, LocalProduct)->())?
+    
     var product: LocalProduct?
     
-    private let productArchiver: ProductArchiver = ProductArchiver(productType: .favourite)
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
@@ -42,20 +42,19 @@ class LikeButton: UIButton {
     
     @objc
     func likeButtonTapped() {
-        if self.isSelected == true {
+        if self.isSelected {
             self.isSelected = false
 
             guard var product else {return}
             product.isFavourite = false
-            productArchiver.delete(product)
- 
-            
+            self.onLikeButtonPressed?(false, product)
+           
+
         } else {
             self.isSelected = true
-           
             guard var product else {return}
             product.isFavourite = true
-            productArchiver.save(product)
+            self.onLikeButtonPressed?(true, product)
         }
         
        

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DesignerProductsCell: UICollectionViewCell {
+final class DesignerProductsCell: UICollectionViewCell {
     
     static let cellIdentifier = "DesignerProductsCell"
     
@@ -19,7 +19,6 @@ class DesignerProductsCell: UICollectionViewCell {
         setupViews()
         setupConstraints()
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -33,6 +32,7 @@ class DesignerProductsCell: UICollectionViewCell {
         productImageView.image = UIImage(named: designerProduct.image)
         likeButton.product = designerProduct
         likeButton.isSelected = designerProduct.isFavourite
+       // likeButton.type = .designer
     }
     
     

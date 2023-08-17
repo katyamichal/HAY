@@ -112,6 +112,7 @@ final class InspirationDetailCell: UICollectionViewCell {
     
     
     private func setupViews() {
+   
         contentView.addSubview(collectionNameLabel)
         contentView.addSubview(scrollView)
         contentView.addSubview(pageControl)

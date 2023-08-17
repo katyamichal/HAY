@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DesignerCollaborationCell: UITableViewCell {
+final class DesignerCollaborationCell: UITableViewCell {
     
     private var designer: LocaleDesigner?
     
@@ -78,7 +78,7 @@ class DesignerCollaborationCell: UITableViewCell {
     }()
     // MARK: - Collection View
     
-    private lazy var collectionView: UICollectionView = {
+     lazy var collectionView: UICollectionView = {
  
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: Layout.width * 0.5, height: Layout.width * 0.7)
@@ -86,17 +86,19 @@ class DesignerCollaborationCell: UITableViewCell {
         layout.minimumLineSpacing = 16
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+         collection.backgroundColor = .clear
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.showsHorizontalScrollIndicator = false
-      //  collection.delegate = self
         collection.dataSource = self
+         
         collection.register(DesignerProductsCell.self, forCellWithReuseIdentifier: DesignerProductsCell.cellIdentifier)
-        collection.backgroundColor = .clear
+       
         return collection
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         setupViews()
         setupConstraints()
     }
@@ -108,6 +110,7 @@ class DesignerCollaborationCell: UITableViewCell {
     // MARK: - Public
     
     func update(_ designer: LocaleDesigner) {
+        
         designerNameLabel.text = designer.designerName.capitalized
         collaborationName.text = designer.collectionName.capitalized
         designerImageView.image = UIImage(named: "\(designer.designerImage)")
@@ -116,6 +119,9 @@ class DesignerCollaborationCell: UITableViewCell {
         collectionView.reloadData()
     }
 }
+
+
+// MARK: - Setup methods
 
 extension DesignerCollaborationCell {
     private func setupViews() {
@@ -143,28 +149,31 @@ extension DesignerCollaborationCell {
             containerView.heightAnchor.constraint(equalToConstant: 600),
 
 
-            //1
+          
             headerLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             headerLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
             headerLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
 
-            //2
+       
             designerStackView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20),
             designerStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             designerStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
 
-            //3
+     
             collectionView.topAnchor.constraint(equalTo: designerStackView.bottomAnchor, constant: -25),
             collectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
             collectionView.leadingAnchor.constraint(equalTo: designerStackView.leadingAnchor, constant: 30),
             collectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
 
-            //4
+     
             designerImageView.widthAnchor.constraint(equalToConstant: Layout.width * 0.65),
             designerImageView.heightAnchor.constraint(equalToConstant: Layout.width * 0.7),
         ])
     }
 }
+
+// MARK: - Collection Data Source
+
 extension DesignerCollaborationCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -185,5 +194,3 @@ extension DesignerCollaborationCell: UICollectionViewDataSource {
     }
 }
 
-
-extension DesignerCollaborationCell: UICollectionViewDelegate {}
