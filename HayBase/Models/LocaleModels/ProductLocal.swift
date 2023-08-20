@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LocalProduct: Codable, Equatable {
+struct LocaleProduct: Codable, Equatable {
     
     var id: Int
     var productName: String
@@ -26,7 +26,7 @@ struct LocalProduct: Codable, Equatable {
     
     // MARK: - Equatable implementation
 
-    static func ==(lhs: LocalProduct, rhs: LocalProduct) -> Bool {
+    static func ==(lhs: LocaleProduct, rhs: LocaleProduct) -> Bool {
         return lhs.id == rhs.id
     }
 }

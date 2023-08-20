@@ -9,13 +9,13 @@ import Foundation
 
 final class FavouriteViewModel {
     
-    var onUpdateModel: (()->())?
+    // var onUpdateModel: (()->())?
     
     private let favouriteService: FavouriteService
     
-    private lazy var productArchiver = favouriteService.productArchiver
+    lazy var productArchiver = favouriteService.productArchiver
     
-    var products: [LocalProduct]?
+    var products: [LocaleProduct]?
     
     init(favouriteService: FavouriteService) {
         self.favouriteService = favouriteService
@@ -23,14 +23,15 @@ final class FavouriteViewModel {
     
     func loadProduct() {
         products = favouriteService.loadFavouriteProducts()?.reversed()
-        onUpdateModel?()
     }
     
-    func update(product: LocalProduct) {
+    func update(product: LocaleProduct) {
         if product.isFavourite {
             productArchiver.save(product)
+            ProductArchiver.favourite?.append(product)
         } else {
             productArchiver.delete(product)
+            ProductArchiver.favourite?.removeAll(where: {$0.id == product.id})
         }
         loadProduct()
     }

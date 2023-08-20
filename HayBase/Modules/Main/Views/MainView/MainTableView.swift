@@ -14,9 +14,9 @@ enum ProductSection: CaseIterable {
 }
 
 protocol MainTableViewDelegate: AnyObject {
-    func didSelectProduct(product: LocalProduct)
+    func didSelectProduct(product: LocaleProduct)
     func didSelectDesignerCell(designer: LocaleDesigner)
-    func didChangeLocalProduct(product: LocalProduct)
+    func didChangeLocalProduct(product: LocaleProduct)
 }
 
 final class MainTableView: UITableView, UIScrollViewDelegate {

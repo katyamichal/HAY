@@ -37,21 +37,26 @@ final class InspirationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = false
-        
         setupNavBarButton()
         
+        /// like button
         detailView.onLocalProductDidChanged = { product in
             self.viewModel.update(product: product)
+        }
+        viewModel.onUpdateViewModel = {
+            self.detailView.update(self.viewModel)
         }
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+        viewModel.update()
     }
     
-    
+    // MARK: - Setup methods
+
     private func setupNavBarButton() {
         let leftButtonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 18, weight: .light)
         
@@ -91,7 +96,7 @@ extension InspirationDetailViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let product = viewModel.inspoProducts?[indexPath.item],
+        guard let product = viewModel.inspoMergedProducts?[indexPath.item],
         indexPath.section == 1 else { return }
         
         let productDetailViewModel = ProductDetailViewModel(product: product)

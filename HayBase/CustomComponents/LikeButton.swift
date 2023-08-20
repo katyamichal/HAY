@@ -9,10 +9,12 @@ import UIKit
 
 class LikeButton: UIButton {
     
-    var onLikeButtonPressed: ((Bool, LocalProduct)->())?
+    var onLikeButtonPressed: ((Bool, LocaleProduct)->())?
     
-    var product: LocalProduct?
+    var product: LocaleProduct?
     
+    // MARK: - Inits
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
@@ -21,8 +23,9 @@ class LikeButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setupButton() {
+    // MARK: - setup methods
+
+  private func setupButton() {
         self.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         
         let largeFont = UIFont.systemFont(ofSize: 20)
@@ -36,12 +39,11 @@ class LikeButton: UIButton {
         self.setImage(unselectedImage, for: .selected)
         
         self.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
-        self.tintColor = .label
-     
+        self.tintColor = .black
     }
     
     @objc
-    func likeButtonTapped() {
+  private func likeButtonTapped() {
         if self.isSelected {
             self.isSelected = false
 
@@ -56,8 +58,6 @@ class LikeButton: UIButton {
             product.isFavourite = true
             self.onLikeButtonPressed?(true, product)
         }
-        
-       
     }
 }
 

@@ -10,9 +10,9 @@ import UIKit
 final class MainViewController: UIViewController {
     
     private let mainViewModel: MainViewModel
-
     
     private var mainView: MainView { return self.view as! MainView }
+    
     // MARK: - Init
     
     init(mainViewModel: MainViewModel) {
@@ -30,11 +30,18 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.productTableView.tableHeader.delegate = self
+        /// inittial fetching
         fetchData()
         
-        mainView.productTableView.selectionDelegate = self
-      
+        ///delegates
+        mainView.mainTableView.selectionDelegate = self
+        mainView.mainTableView.tableHeader.delegate = self
+        
+        
+        /// trigger when favourite products has been changed(all modules)
+        ProductArchiver.onFavouriteProductChanged = { [weak self] in
+            self?.mainViewModel.update()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,11 +51,9 @@ final class MainViewController: UIViewController {
      private func fetchData() {
         mainViewModel.fetchModels()
         
-        mainViewModel.onDidUpdatedViewModel =  {
-            self.mainView.productTableView.update(self.mainViewModel)
+        mainViewModel.onUpdatedModel =  {
+            self.mainView.mainTableView.update(self.mainViewModel)
         }
-    
-       
     }
 }
 // MARK: - Delegate methods
@@ -66,20 +71,17 @@ extension MainViewController: InspirationTableHeaderDelegate {
 
 extension MainViewController: MainTableViewDelegate {
     
-    func didChangeLocalProduct(product: LocalProduct) {
+    func didChangeLocalProduct(product: LocaleProduct) {
         mainViewModel.update(product: product)
     }
     
     
-    #warning("Finish!")
-    func didSelectDesignerCell(designer: LocaleDesigner) {
-        
-  
-    }
+    #warning("finish")
+    func didSelectDesignerCell(designer: LocaleDesigner) {}
     
    /// shows detail view for single product
 
-    func didSelectProduct(product: LocalProduct) {
+    func didSelectProduct(product: LocaleProduct) {
         let productDetailViewModel = ProductDetailViewModel(product: product)
         let productDetailVC = ProductDetailViewController(viewModel: productDetailViewModel)
         

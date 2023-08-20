@@ -12,7 +12,7 @@ final class FavouriteService {
     let productArchiver = ProductArchiver(productType: .favourite)
     
     // retrieve data from user defaults
-    func loadFavouriteProducts() -> [LocalProduct]? {
+    func loadFavouriteProducts() -> [LocaleProduct]? {
         
         guard let products = productArchiver.retrieve() else {
             return nil

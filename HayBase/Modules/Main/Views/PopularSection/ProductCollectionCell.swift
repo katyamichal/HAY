@@ -72,7 +72,7 @@ class ProductCollectionCell: UICollectionViewCell {
     
     // MARK: - Public
     
-    func update(_ product: LocalProduct) {
+    func update(_ product: LocaleProduct) {
         nameLabel.text = product.productName
         pricelLabel.text = "\(product.price) £"
         productImageView.image = UIImage(named: product.image)

@@ -9,7 +9,7 @@ import UIKit
 
 final class FavouriteView: UIView {
     
-    var onLocalProductDidChanged: ((LocalProduct)->())?
+    var onLocalProductDidChanged: ((LocaleProduct)->())?
 
     // MARK: - View Model
     
@@ -127,7 +127,7 @@ extension FavouriteView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.products?.count ?? 0
     }
-    #warning("Clean up")
+ 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicProductCell.cellIdentifier, for: indexPath) as? BasicProductCell else {

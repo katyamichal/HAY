@@ -10,7 +10,7 @@ import UIKit
 final class DesignerCollaborationCell: UITableViewCell {
     
     private var designer: LocaleDesigner?
-    var onLocalProductDidChanged: ((LocalProduct)->())?
+    var onLocalProductDidChanged: ((LocaleProduct)->())?
     
     // MARK: - UI Elements
     

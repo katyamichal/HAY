@@ -9,7 +9,7 @@ import UIKit
 final class MainView: UIView {
     
     // MARK: - UI Elements
-    var productTableView = MainTableView()
+    var mainTableView = MainTableView()
 
     // MARK: - Inits
     
@@ -33,15 +33,15 @@ extension MainView {
     }
     
     private func setupViews() {
-        addSubview(productTableView)
+        addSubview(mainTableView)
      
     }
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            productTableView.topAnchor.constraint(equalTo: self.topAnchor),
-            productTableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            productTableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            productTableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)
+            mainTableView.topAnchor.constraint(equalTo: self.topAnchor),
+            mainTableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            mainTableView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            mainTableView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
 }

@@ -19,5 +19,5 @@ struct LocaleDesigner: Codable {
     let collectionImages: [String]
     let collectionName: String
     let description: String
-    let products: [LocalProduct]
+    let products: [LocaleProduct]
 }

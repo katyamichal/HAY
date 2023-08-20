@@ -14,8 +14,12 @@ enum SectionType: CaseIterable {
 
 final class InspirationDetailView: UIView {
     
-    var onLocalProductDidChanged: ((LocalProduct)->())?
+    var onLocalProductDidChanged: ((LocaleProduct)->())?
     
+    func update(_ viewModel: InspoDetailViewModel) {
+        self.viewModel = viewModel
+    }
+ 
     var viewModel: InspoDetailViewModel {
         didSet {
             collectionView.reloadData()
@@ -134,7 +138,7 @@ extension InspirationDetailView: UICollectionViewDataSource {
         let sectionType = SectionType.allCases[section]
         switch sectionType {
         case .photoAndDescription: return 1
-        case .product: return viewModel.inspoProducts?.count ?? 0
+        case .product: return viewModel.inspoMergedProducts?.count ?? 0
         }
     }
     
@@ -157,7 +161,7 @@ extension InspirationDetailView: UICollectionViewDataSource {
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicProductCell.cellIdentifier, for: indexPath) as? BasicProductCell else {fatalError("InspoProductCell didn't dequeue")}
             
-            if let products = viewModel.inspoProducts {
+            if let products = viewModel.inspoMergedProducts {
                 let product = products[indexPath.item]
                 cell.update(product)
             }

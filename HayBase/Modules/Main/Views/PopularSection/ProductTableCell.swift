@@ -9,9 +9,9 @@ import UIKit
 
 final class ProductCell: UITableViewCell {
     
-    var onLocalProductDidChanged: ((LocalProduct)->())?
+    var onLocalProductDidChanged: ((LocaleProduct)->())?
     
-    var products: [LocalProduct] = []
+    var products: [LocaleProduct] = []
     
 
     // MARK: - UI Elements
@@ -62,7 +62,7 @@ final class ProductCell: UITableViewCell {
     
     // MARK: - Public
     
-    func update(_ products: [LocalProduct]) {
+    func update(_ products: [LocaleProduct]) {
         headerLabel.text = "Popular".uppercased()
         self.products = products
         collectionView.reloadData()

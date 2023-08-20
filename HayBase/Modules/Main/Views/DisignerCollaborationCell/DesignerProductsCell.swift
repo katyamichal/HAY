@@ -25,7 +25,7 @@ final class DesignerProductsCell: UICollectionViewCell {
     
     
     // MARK: - Public
-    func update(_ designerProduct: LocalProduct) {
+    func update(_ designerProduct: LocaleProduct) {
         nameLabel.text = designerProduct.productName.lowercased()
         pricelLabel.text = "\(designerProduct.price) £"
         productImageView.image = UIImage(named: designerProduct.image)

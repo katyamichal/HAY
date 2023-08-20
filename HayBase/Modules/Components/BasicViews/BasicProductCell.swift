@@ -10,7 +10,7 @@ import UIKit
 
 final class BasicProductCell: UICollectionViewCell {
         
-    var product: LocalProduct?
+    var product: LocaleProduct?
     
     static let cellIdentifier = "InspoProductCell"
     
@@ -34,7 +34,7 @@ final class BasicProductCell: UICollectionViewCell {
     }
     
     // MARK: - Public
-    func update(_ product: LocalProduct) {
+    func update(_ product: LocaleProduct) {
         nameLabel.text = product.productName.lowercased()
         pricelLabel.text = "\(product.price) £"
         productImageView.image = UIImage(named: product.image)

@@ -12,61 +12,57 @@ import Foundation
 
 final class InspoDetailViewModel {
     
-    // MARK: - Public
+    private let productArchiver = ProductArchiver(productType: .favourite)
+    private lazy var inspoProducts: [LocaleProduct] = inpirationFeed.products
+    private var savedProducts: [LocaleProduct]?
 
-    
-    let productArchiver = ProductArchiver(productType: .favourite)
-    
     let inpirationFeed: LocaleInspirationFeed
-    
-    var inspoProducts: [LocalProduct]? {
-        set {
-            self.products = []
-        }
-        get {
-            mergeProducts()
-        }
-    }
-    
-    // MARK: - Private
-
-    private lazy var products: [LocalProduct] = inpirationFeed.products
-    
-    private var favProduct = [LocalProduct]()
-    
-    private func mergeProducts() -> [LocalProduct]? {
-        
-        guard !favProduct.isEmpty else { return products }
-        
-        for product in favProduct {
-            if let index = products.firstIndex(where: { $0.id == product.id }) {
-                products[index].isFavourite = product.isFavourite
-            }
-        }
-        return products
-    }
+    var inspoMergedProducts: [LocaleProduct]?
+    var onUpdateViewModel: (()->())?
     
     
-     func retrieveData() {
-        guard let products = productArchiver.retrieve() else { return }
-        favProduct = products
-    }
     
     // MARK: - Init
     
     init(inpirationFeed: LocaleInspirationFeed) {
         self.inpirationFeed = inpirationFeed
-        retrieveData()
     }
-
     
-    func update(product: LocalProduct) {
+    // MARK: - Public
+
+    func update(product: LocaleProduct) {
+
         if product.isFavourite {
             productArchiver.save(product)
         } else {
             productArchiver.delete(product)
         }
-        retrieveData()
+        update()
+    }
+    
+    func update() {
+        defer {
+            onUpdateViewModel?()
+        }
+        savedProducts = productArchiver.retrieve()
+        mergeProducts()
+        
+    }
+    // MARK: - Private
+
+    private func mergeProducts() {
+        guard let savedProducts else {
+            inspoMergedProducts = inspoProducts
+            return
+        }
+        var merged: [LocaleProduct] = inspoProducts
+        
+        for saved in savedProducts {
+            if let index = merged.firstIndex(where: { $0.id == saved.id }) {
+                merged[index].isFavourite = saved.isFavourite
+            }
+        }
+        inspoMergedProducts = merged
     }
 }
 

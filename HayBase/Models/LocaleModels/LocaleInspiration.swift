@@ -18,6 +18,6 @@ struct LocaleInspirationFeed: Codable {
     let coverImage: String
     let description: String
     let images: [String]
-    let products: [LocalProduct]
+    let products: [LocaleProduct]
 }
 

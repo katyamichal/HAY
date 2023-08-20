@@ -156,7 +156,7 @@ final class ProductImageGaleryCell: UITableViewCell {
     // MARK: - Public
 
     
-    func update(with product: LocalProduct, images: [String]) {
+    func update(with product: LocaleProduct, images: [String]) {
         collectionNameLabel.text = product.productName.uppercased()
         
         configureViews(with: images, detail: product.description)

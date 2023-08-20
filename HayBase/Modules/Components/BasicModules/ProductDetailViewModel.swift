@@ -8,7 +8,7 @@ import Foundation
 
 final class ProductDetailViewModel {
     
-    var product: LocalProduct
+    var product: LocaleProduct
     
     var images: [String] {
         
@@ -21,7 +21,7 @@ final class ProductDetailViewModel {
     
     // MARK: - Init
     
-    init(product: LocalProduct) {
+    init(product: LocaleProduct) {
         self.product = product
     }
     
