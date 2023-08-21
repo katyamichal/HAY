@@ -9,8 +9,6 @@ import UIKit
 
 final class FavouriteViewController: UIViewController {
   
-    
-  
     // MARK: - ViewModel and View
     
     private let favouriteViewModel: FavouriteViewModel
@@ -44,8 +42,13 @@ final class FavouriteViewController: UIViewController {
         
         loadProducts()
     
-        favouriteView.onLocalProductDidChanged = { product in
+        favouriteView.onProductAddToFavourite = { product in
             self.favouriteViewModel.update(product: product)
+        }
+        
+        favouriteView.onProductAddToBasket = { product in
+            self.favouriteViewModel.updateBasket(product: product)
+            
         }
     }
 
@@ -59,7 +62,8 @@ final class FavouriteViewController: UIViewController {
 
     private func loadProducts() {
         favouriteViewModel.loadProduct()
-        favouriteView.update(viewModel: favouriteViewModel)
+        //favouriteView.update(viewModel: favouriteViewModel)
+        favouriteView.viewModel = favouriteViewModel
     }
 }
 

@@ -36,6 +36,10 @@ final class FavouriteViewModel {
         loadProduct()
     }
     
+    func updateBasket(product: LocaleProduct) {
+        favouriteService.saveBasketProduct(product: product)
+    }
+    
 }
 
 

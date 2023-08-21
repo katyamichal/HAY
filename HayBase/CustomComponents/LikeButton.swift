@@ -40,18 +40,18 @@ class LikeButton: UIButton {
         
         self.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         self.tintColor = .black
-    }
+  }
     
     @objc
-  private func likeButtonTapped() {
+    private func likeButtonTapped() {
         if self.isSelected {
             self.isSelected = false
-
+            
             guard var product else {return}
             product.isFavourite = false
             self.onLikeButtonPressed?(false, product)
-           
-
+            
+            
         } else {
             self.isSelected = true
             guard var product else {return}

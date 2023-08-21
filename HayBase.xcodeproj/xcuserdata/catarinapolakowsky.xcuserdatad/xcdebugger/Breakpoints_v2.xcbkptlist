@@ -253,8 +253,8 @@
             filePath = "HayBase/Modules/Favourite/FavouriteView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "viewModel"
             landmarkType = "24">
             <Locations>
@@ -316,8 +316,8 @@
             filePath = "HayBase/Modules/Favourite/FavouriteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "init(favouriteViewModel:)"
             landmarkType = "7">
             <Locations>

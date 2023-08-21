@@ -9,7 +9,10 @@ import Foundation
 
 final class FavouriteService {
     
+    private let basketProductArchiver = ProductArchiver(productType: .basket)
+    
     let productArchiver = ProductArchiver(productType: .favourite)
+    
     
     // retrieve data from user defaults
     func loadFavouriteProducts() -> [LocaleProduct]? {
@@ -19,4 +22,22 @@ final class FavouriteService {
         }
         return products
     }
+    
+    func saveBasketProduct(product: LocaleProduct) {
+        basketProductArchiver.save(product)
+       
+    }
+
+}
+
+
+final class CartService {
+    
+    let productArchiver = ProductArchiver(productType: .basket)
+    
+    func loadProductToBuy() -> [LocaleProduct]? {
+        guard let products = productArchiver.retrieve() else { return nil }
+        return products
+    }
+    
 }

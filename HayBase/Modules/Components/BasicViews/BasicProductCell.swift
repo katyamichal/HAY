@@ -38,8 +38,12 @@ final class BasicProductCell: UICollectionViewCell {
         nameLabel.text = product.productName.lowercased()
         pricelLabel.text = "\(product.price) £"
         productImageView.image = UIImage(named: product.image)
+        
         likeButton.product = product
         likeButton.isSelected = product.isFavourite
+        
+        buyButton.product = product
+        
     }
     
     // MARK: - UI Element
@@ -61,16 +65,9 @@ final class BasicProductCell: UICollectionViewCell {
         return label
     }()
     
-    private let buyButton: UIButton = {
-        let button = UIButton()
+     let buyButton: BuyButton = {
+        let button = BuyButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        let largeFont = UIFont.systemFont(ofSize: 16)
-        let configuration = UIImage.SymbolConfiguration(font: largeFont)
-        let image = UIImage(systemName: "bag", withConfiguration: configuration)
-        button.backgroundColor = .black
-        button.layer.cornerRadius = 18
-        button.setImage(image, for: .normal)
-        button.tintColor = .white
         return button
     }()
     

@@ -61,8 +61,12 @@ class HayTabBarController: UITabBarController {
         return controller
     }()
     
-    private let cartController: CartViewController = {
-        let controller = CartViewController()
+    private let cartController: BasketViewController = {
+        
+        let cartService = CartService()
+        let viewModel = BasketViewModel(cartService: cartService)
+        
+        let controller = BasketViewController(basketViewModel: viewModel)
         let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .light)
         let image = UIImage(systemName: "bag", withConfiguration: config)
         let tabItem = UITabBarItem(title: nil, image: image, selectedImage: nil)
@@ -75,7 +79,6 @@ class HayTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
- 
     }
     
     override func viewDidLayoutSubviews() {

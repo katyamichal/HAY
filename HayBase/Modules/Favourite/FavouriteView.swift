@@ -9,13 +9,14 @@ import UIKit
 
 final class FavouriteView: UIView {
     
-    var onLocalProductDidChanged: ((LocaleProduct)->())?
+    var onProductAddToFavourite: ((LocaleProduct)->())?
+    var onProductAddToBasket: ((LocaleProduct)->())?
 
     // MARK: - View Model
     
-     func update(viewModel: FavouriteViewModel) {
-        self.viewModel = viewModel
-    }
+//     func update(viewModel: FavouriteViewModel) {
+//        self.viewModel = viewModel
+//    }
     
     var viewModel: FavouriteViewModel? {
         didSet {
@@ -23,7 +24,7 @@ final class FavouriteView: UIView {
                   productsCount > 0
             else {
                 collectionView.isHidden = true
-                headerLabel.text = "You don't have any favourite products yet  :( "
+                headerLabel.text = "You don't have any favourite products yet  :("
                 return
             }
           updateView()
@@ -124,6 +125,7 @@ extension FavouriteView {
 // MARK: - UICollectionViewDataSource and Delegate
 
 extension FavouriteView: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel?.products?.count ?? 0
     }
@@ -140,9 +142,12 @@ extension FavouriteView: UICollectionViewDataSource {
         }
         cell.update(favProduct)
         cell.likeButton.onLikeButtonPressed = {isLiked, product in
-            self.onLocalProductDidChanged?(product)
+            self.onProductAddToFavourite?(product)
         }
-
+        
+        cell.buyButton.onBuyButtonPressed = {product in
+            self.onProductAddToBasket?(product)
+        }
         return cell
     }
 }

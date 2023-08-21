@@ -15,7 +15,7 @@ protocol ProductArchiverInput {
 
 enum ArchiverKey: String {
     case favourite
-    case productToBuy
+    case basket
 }
 
 final class ProductArchiver: ProductArchiverInput {
