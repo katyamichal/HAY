@@ -13,6 +13,7 @@ import Foundation
 final class InspoDetailViewModel {
     
     private let productArchiver = ProductArchiver(productType: .favourite)
+    private let basketProductArchiver = ProductArchiver(productType: .basket)
     private lazy var inspoProducts: [LocaleProduct] = inpirationFeed.products
     private var savedProducts: [LocaleProduct]?
 
@@ -46,7 +47,6 @@ final class InspoDetailViewModel {
         }
         savedProducts = productArchiver.retrieve()
         mergeProducts()
-        
     }
     // MARK: - Private
 
@@ -63,6 +63,10 @@ final class InspoDetailViewModel {
             }
         }
         inspoMergedProducts = merged
+    }
+    
+    func saveToBasket(product: LocaleProduct) {
+        basketProductArchiver.save(product)
     }
 }
 

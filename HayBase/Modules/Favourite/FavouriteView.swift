@@ -9,7 +9,7 @@ import UIKit
 
 final class FavouriteView: UIView {
     
-    var onProductAddToFavourite: ((LocaleProduct)->())?
+    var onProductTappedLikeButton: ((LocaleProduct)->())?
     var onProductAddToBasket: ((LocaleProduct)->())?
 
     // MARK: - View Model
@@ -142,7 +142,7 @@ extension FavouriteView: UICollectionViewDataSource {
         }
         cell.update(favProduct)
         cell.likeButton.onLikeButtonPressed = {isLiked, product in
-            self.onProductAddToFavourite?(product)
+            self.onProductTappedLikeButton?(product)
         }
         
         cell.buyButton.onBuyButtonPressed = {product in

@@ -42,7 +42,7 @@ final class FavouriteViewController: UIViewController {
         
         loadProducts()
     
-        favouriteView.onProductAddToFavourite = { product in
+        favouriteView.onProductTappedLikeButton = { product in
             self.favouriteViewModel.update(product: product)
         }
         

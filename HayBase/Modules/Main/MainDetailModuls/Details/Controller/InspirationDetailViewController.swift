@@ -40,9 +40,14 @@ final class InspirationDetailViewController: UIViewController {
         setupNavBarButton()
         
         /// like button
-        detailView.onLocalProductDidChanged = { product in
+        detailView.onProductTappedLikeButton = { product in
             self.viewModel.update(product: product)
         }
+        
+        detailView.onTappedBuyButton = { product in
+            self.viewModel.saveToBasket(product: product)
+        }
+        
         viewModel.onUpdateViewModel = {
             self.detailView.update(self.viewModel)
         }

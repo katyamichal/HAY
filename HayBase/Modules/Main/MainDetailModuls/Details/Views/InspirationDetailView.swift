@@ -14,12 +14,13 @@ enum SectionType: CaseIterable {
 
 final class InspirationDetailView: UIView {
     
-    var onLocalProductDidChanged: ((LocaleProduct)->())?
+    var onProductTappedLikeButton: ((LocaleProduct)->())?
+    var onTappedBuyButton: ((LocaleProduct)->())?
     
     func update(_ viewModel: InspoDetailViewModel) {
         self.viewModel = viewModel
     }
- 
+    
     var viewModel: InspoDetailViewModel {
         didSet {
             collectionView.reloadData()
@@ -162,13 +163,18 @@ extension InspirationDetailView: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicProductCell.cellIdentifier, for: indexPath) as? BasicProductCell else {fatalError("InspoProductCell didn't dequeue")}
             
             if let products = viewModel.inspoMergedProducts {
+                
                 let product = products[indexPath.item]
                 cell.update(product)
-            }
-            cell.likeButton.onLikeButtonPressed = { isLiked, product in
                 
-                self.onLocalProductDidChanged?(product)
+                cell.likeButton.onLikeButtonPressed = { isLiked, product in
+                    self.onProductTappedLikeButton?(product)
+                }
+                cell.buyButton.onBuyButtonPressed = { product in
+                    self.onTappedBuyButton?(product)
+                }
             }
+          
             return cell
         }
     }
