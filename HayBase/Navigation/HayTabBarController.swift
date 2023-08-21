@@ -17,7 +17,7 @@ class HayTabBarController: UITabBarController {
     lazy var nav2 = UINavigationController(rootViewController: favouriteController)
     
 //    let nav3 = UINavigationController(rootViewController: )
-//    let nav4 = UINavigationController(rootViewController: )
+    lazy var nav4 = UINavigationController(rootViewController: basketController)
   
     private lazy var mainController: MainViewController = {
         
@@ -61,10 +61,10 @@ class HayTabBarController: UITabBarController {
         return controller
     }()
     
-    private let cartController: BasketViewController = {
+    private let basketController: BasketViewController = {
         
-        let cartService = CartService()
-        let viewModel = BasketViewModel(cartService: cartService)
+        let basketService = BasketService()
+        let viewModel = BasketViewModel(basketService: basketService)
         
         let controller = BasketViewController(basketViewModel: viewModel)
         let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .light)
@@ -93,7 +93,7 @@ class HayTabBarController: UITabBarController {
         tabBar.tintColor = .systemBrown
         tabBar.backgroundColor = .systemBackground
         tabBar.unselectedItemTintColor = .label
-        viewControllers = [nav1, nav2, profileController, cartController]
+        viewControllers = [nav1, nav2, profileController, nav4]
     }
 
 }

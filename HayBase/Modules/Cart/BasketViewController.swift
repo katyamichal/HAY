@@ -28,6 +28,18 @@ class BasketViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        basketView.onDeleteProduct = {product in
+            self.basketViewModel.deleteProduct(product: product)
+        }
+        
+        basketView.onShowProductDetail = { product in
+            
+            let productDetailViewModel = ProductDetailViewModel(product: product)
+            let productDetailVC = ProductDetailViewController(viewModel: productDetailViewModel)
+            
+            self.navigationController?.pushViewController(productDetailVC, animated: true)
+        }
     }
     
     override func loadView() {
@@ -35,6 +47,7 @@ class BasketViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
         loadProducts()
     }
     private func loadProducts() {

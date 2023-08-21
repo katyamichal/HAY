@@ -31,7 +31,7 @@ final class FavouriteService {
 }
 
 
-final class CartService {
+final class BasketService {
     
     let productArchiver = ProductArchiver(productType: .basket)
     

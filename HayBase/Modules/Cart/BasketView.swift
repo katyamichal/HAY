@@ -13,6 +13,10 @@ enum CartTableSection: CaseIterable {
 }
 
 final class BasketView: UIView {
+    
+    var onDeleteProduct: ((LocaleProduct)->())?
+    var onLikeProductsUpdated: ((LocaleProduct)->())?
+    var onShowProductDetail: ((LocaleProduct)->())?
 
     // MARK: - View Model
     
@@ -26,7 +30,6 @@ final class BasketView: UIView {
             updateView()
         }
     }
-  
     // MARK: - Inits
 
     override init(frame: CGRect) {
@@ -44,12 +47,9 @@ final class BasketView: UIView {
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-      //  label.text = "shopping basket".uppercased()
         label.font = .systemFont(ofSize: 22, weight: .light)
         label.textColor = .label
         label.numberOfLines = 0
-        //Your shopping basket is empty
-        // See if your favourites are in your basket or add items from the new collection ---> button
         return label
     }()
 
@@ -57,7 +57,6 @@ final class BasketView: UIView {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.separatorStyle = .none
-        table.allowsSelection = false
         table.isHidden = true
         table.register(ProductTableCell.self)
         table.register(OrderInfoCell.self)
@@ -73,7 +72,6 @@ final class BasketView: UIView {
         tableView.reloadData()
     }
 }
-
 
 // MARK: - Setup methods
 
@@ -166,10 +164,30 @@ extension BasketView: UITableViewDelegate {
     }
     
     
+    
+    // TODO: - finish with like button
+
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
         let delete = UIContextualAction(style: .normal, title: "Delete") { _, _, _ in
-            print("Delete")
+           
+            guard let prosuct = self.viewModel?.products?[indexPath.row], indexPath.section == 0 else { return }
+            
+            self.onDeleteProduct?(prosuct)
+            
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.endUpdates()
+            
+            let sectionToReload = 1
+            let indexSet: IndexSet = [sectionToReload]
+            self.tableView.reloadSections(indexSet, with: .bottom)
+            
+            if self.viewModel?.products?.count == 0 {
+                tableView.isHidden = true
+                self.headerLabel.text = "Your shopping basket is empty. See if your favourites are in your basket."
+            }
         }
         delete.image = UIImage(systemName: "multiply")
         delete.backgroundColor = .black
@@ -177,6 +195,9 @@ extension BasketView: UITableViewDelegate {
         
         let addToFavourite = UIContextualAction(style: .normal, title: "add to favourite") { _, _, _ in
             print("addToFavourite")
+            
+           
+            
         }
         addToFavourite.image = UIImage(systemName: "heart")
         addToFavourite.backgroundColor = .brown.withAlphaComponent(0.7)
@@ -186,5 +207,11 @@ extension BasketView: UITableViewDelegate {
         let swipe = UISwipeActionsConfiguration(actions: [delete, addToFavourite])
         swipe.performsFirstActionWithFullSwipe = false
         return swipe
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == 0,
+        let product = viewModel?.products?[indexPath.row] else { return }
+        onShowProductDetail?(product)
     }
 }

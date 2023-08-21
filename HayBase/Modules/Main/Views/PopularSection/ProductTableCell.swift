@@ -116,8 +116,6 @@ extension ProductCell: UICollectionViewDataSource {
         }
         
         cell.likeButton.onLikeButtonPressed = { isLiked, product in
-            
-           
             self.onLocalProductDidChanged?(product)
         }
         

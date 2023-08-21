@@ -18,6 +18,7 @@ final class OrderInfoCell: UITableViewCell {
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
+        stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
     
@@ -47,6 +48,7 @@ final class OrderInfoCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
         stackView.alignment = .trailing
+        stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
     
@@ -85,7 +87,7 @@ final class OrderInfoCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        
+        selectionStyle = .none
         setupViews()
         setupConstraints()
     }
@@ -125,13 +127,15 @@ final class OrderInfoCell: UITableViewCell {
             NSLayoutConstraint.activate([
                 verticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 60),
                 verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-                verticalStackView.heightAnchor.constraint(equalToConstant: 50),
+                verticalStackView.heightAnchor.constraint(equalToConstant: 60),
+                verticalStackView.widthAnchor.constraint(equalToConstant: Layout.width / 2.1),
                 verticalStackView.bottomAnchor.constraint(equalTo: totalStackView.topAnchor),
                 
              
-                totalStackView.leadingAnchor.constraint(equalTo: verticalStackView.trailingAnchor),
+                totalStackView.leadingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: 10),
                 totalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
                 totalStackView.heightAnchor.constraint(equalToConstant: 50),
+        
                 totalStackView.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -40),
                
                 

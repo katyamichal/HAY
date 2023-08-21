@@ -9,7 +9,7 @@ import Foundation
 
 final class BasketViewModel {
     
-    private let cartService: CartService
+    private let basketService: BasketService
     
     private var subtotal: Int {
         var price = 0
@@ -26,8 +26,8 @@ final class BasketViewModel {
 
     // MARK: - Init
 
-    init(cartService: CartService) {
-        self.cartService = cartService
+    init(basketService: BasketService) {
+        self.basketService = basketService
     }
     
     // MARK: - Public
@@ -38,6 +38,11 @@ final class BasketViewModel {
     }
     
     func loadProduct() {
-        products = cartService.loadProductToBuy()?.reversed()
+        products = basketService.loadProductToBuy()?.reversed()
+    }
+    
+    func deleteProduct(product: LocaleProduct) {
+        products?.removeAll(where: { $0.id == product.id })
+        basketService.productArchiver.delete(product)
     }
 }

@@ -27,7 +27,6 @@ class InspirationCollectionCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        
         imageView.image = UIImage(named: "apron")
         imageView.clipsToBounds = true
         return imageView

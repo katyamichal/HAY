@@ -62,7 +62,6 @@ final class FavouriteViewController: UIViewController {
 
     private func loadProducts() {
         favouriteViewModel.loadProduct()
-        //favouriteView.update(viewModel: favouriteViewModel)
         favouriteView.viewModel = favouriteViewModel
     }
 }
