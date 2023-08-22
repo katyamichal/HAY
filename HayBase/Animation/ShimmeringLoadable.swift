@@ -11,26 +11,17 @@ protocol ShimmeringLoadable {}
 
 extension ShimmeringLoadable {
     
-    func makeAnimationGroup() -> CABasicAnimation {
+    func makeAnimation() -> CABasicAnimation {
         
-        let duration: CFTimeInterval = 1.2
+        let duration: CFTimeInterval = 1.6
         let animation = CABasicAnimation(keyPath: #keyPath(CAGradientLayer.backgroundColor))
         animation.fromValue = UIColor.gradientLightGrey.cgColor
-        animation.toValue = UIColor.gradientDarkGrey.cgColor
+        animation.toValue = UIColor.productDescription2.cgColor
         animation.duration = duration
         animation.beginTime = 0.0
         animation.isRemovedOnCompletion = false
         animation.repeatCount = .infinity
        
-        
-//        let group = CAAnimationGroup()
-//        group.animations = [animation]
-//        group.repeatCount = .greatestFiniteMagnitude
-//        group.duration = animation.beginTime + animation.duration
-//        group.isRemovedOnCompletion = false
-//
-//        return group
-        
        return animation
     }
 }

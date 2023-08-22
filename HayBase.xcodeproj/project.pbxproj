@@ -59,7 +59,7 @@
 		4E9EFCA52A949ABF004111FC /* ShimmeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCA42A949ABE004111FC /* ShimmeringView.swift */; };
 		4E9EFCA82A949D5F004111FC /* ShimmeringLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCA72A949D5F004111FC /* ShimmeringLoadable.swift */; };
 		4E9EFCAA2A94D3F8004111FC /* UIColour + customColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCA92A94D3F8004111FC /* UIColour + customColour.swift */; };
-		4E9EFCAC2A94D8C6004111FC /* ProductActionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCAB2A94D8C6004111FC /* ProductActionsCell.swift */; };
+		4E9EFCAC2A94D8C6004111FC /* ProductActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCAB2A94D8C6004111FC /* ProductActionsView.swift */; };
 		4EA9A6982A8BCC2300D3D415 /* HayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A6972A8BCC2300D3D415 /* HayViewModel.swift */; };
 		4EA9A69A2A8BCCA100D3D415 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A6992A8BCCA100D3D415 /* Models.swift */; };
 		4EBB13092A56AF3C00C6C47A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB13082A56AF3C00C6C47A /* MainView.swift */; };
@@ -131,7 +131,7 @@
 		4E9EFCA42A949ABE004111FC /* ShimmeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringView.swift; sourceTree = "<group>"; };
 		4E9EFCA72A949D5F004111FC /* ShimmeringLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringLoadable.swift; sourceTree = "<group>"; };
 		4E9EFCA92A94D3F8004111FC /* UIColour + customColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColour + customColour.swift"; sourceTree = "<group>"; };
-		4E9EFCAB2A94D8C6004111FC /* ProductActionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductActionsCell.swift; sourceTree = "<group>"; };
+		4E9EFCAB2A94D8C6004111FC /* ProductActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductActionsView.swift; sourceTree = "<group>"; };
 		4EA9A6972A8BCC2300D3D415 /* HayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HayViewModel.swift; sourceTree = "<group>"; };
 		4EA9A6992A8BCCA100D3D415 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4EBB13082A56AF3C00C6C47A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 			children = (
 				4E663DF82A837AE000F8D86B /* Components */,
 				4E9BE09D2A5C02400043C201 /* Main */,
-				4ED29BE12A62974B004B8C20 /* Cart */,
+				4ED29BE12A62974B004B8C20 /* Basket */,
 				4ED29BE02A629740004B8C20 /* Profile */,
 				4ED29BDD2A629670004B8C20 /* Favourite */,
 			);
@@ -302,7 +302,7 @@
 				4E663DF22A8110B800F8D86B /* ProductDetailView.swift */,
 				4E663DF42A8135F700F8D86B /* ProductImageGaleryCell.swift */,
 				4E663DF62A823A8000F8D86B /* ProductInfoCell.swift */,
-				4E9EFCAB2A94D8C6004111FC /* ProductActionsCell.swift */,
+				4E9EFCAB2A94D8C6004111FC /* ProductActionsView.swift */,
 			);
 			path = BasicModules;
 			sourceTree = "<group>";
@@ -526,7 +526,7 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		4ED29BE12A62974B004B8C20 /* Cart */ = {
+		4ED29BE12A62974B004B8C20 /* Basket */ = {
 			isa = PBXGroup;
 			children = (
 				4ED29BE22A6297C4004B8C20 /* BasketViewController.swift */,
@@ -535,7 +535,7 @@
 				4E86BD5F2A59786B0007CDE7 /* ProductTabelCell.swift */,
 				4E9EFCA22A92512D004111FC /* OrderInfoCell.swift */,
 			);
-			path = Cart;
+			path = Basket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -623,7 +623,7 @@
 				4E9BE0AA2A5D5C870043C201 /* InspirationCollectionCell.swift in Sources */,
 				4E2187782A78FF63002F0785 /* FavouriteViewModel.swift in Sources */,
 				4E2187812A7CEFB9002F0785 /* ProductsArchiver.swift in Sources */,
-				4E9EFCAC2A94D8C6004111FC /* ProductActionsCell.swift in Sources */,
+				4E9EFCAC2A94D8C6004111FC /* ProductActionsView.swift in Sources */,
 				4E663DEF2A81106300F8D86B /* ProductDetailViewModel.swift in Sources */,
 				4E9EFCAA2A94D3F8004111FC /* UIColour + customColour.swift in Sources */,
 				4E663DF52A8135F700F8D86B /* ProductImageGaleryCell.swift in Sources */,

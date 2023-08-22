@@ -37,11 +37,11 @@ final class InspirationDetailView: UIView {
         
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.dataSource = self
-
+        
         collection.register(InspirationDetailCell.self, forCellWithReuseIdentifier: InspirationDetailCell.cellIdentifier)
         
         collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
-         collection.backgroundColor = .systemBackground
+
         return collection
     }()
     
@@ -62,7 +62,6 @@ final class InspirationDetailView: UIView {
     // MARK: - Layout methods
     
     private func setupView() {
-       
         addSubview(collectionView)
     }
 
@@ -95,11 +94,14 @@ final class InspirationDetailView: UIView {
     // MARK: - collection section' layouts
 
     private func createDescriptionLayout(isWide: Bool) -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1.7))
+        
+        let height = Layout.height / 2 + 260
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(height))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupFractionalWidth = isWide ? 0.855 : 1.0
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupFractionalWidth), heightDimension: .fractionalWidth(1.75))
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(groupFractionalWidth), heightDimension: .absolute(height))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
@@ -155,7 +157,7 @@ extension InspirationDetailView: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InspirationDetailCell.cellIdentifier, for: indexPath) as? InspirationDetailCell else {fatalError("InspirationDetailCell did't dequeue")}
             
             cell.update(with: viewModel.inpirationFeed)
-            
+           
             return cell
             
         case .product:
@@ -174,7 +176,7 @@ extension InspirationDetailView: UICollectionViewDataSource {
                     self.onTappedBuyButton?(product)
                 }
             }
-          
+           
             return cell
         }
     }

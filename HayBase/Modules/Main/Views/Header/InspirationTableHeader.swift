@@ -27,7 +27,6 @@ final class InspirationTableHeader: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupViews()
         setupConstrains()
         shimmeringView.createGradient()

@@ -2,7 +2,7 @@
 //  OrderInfoCell.swift
 //  HayBase
 //
-//  Created by atya Michal on 20.08.2023.
+//  Created by Katya Michal on 20.08.2023.
 //
 
 import UIKit

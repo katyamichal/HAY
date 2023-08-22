@@ -26,22 +26,31 @@ final class InspirationDetailCell: UICollectionViewCell {
     }()
     
     
-    let collectionNameLabel: UILabel = {
+    private let verticalStackView: UIStackView = {
+        var stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        stackView.alignment = .center
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 30, left: 20, bottom: 40, right: 20)
+        return stackView
+    }()
+    
+    private  let productNameLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 22, weight: .light)
+        label.font = .systemFont(ofSize: 23, weight: .regular)
         label.numberOfLines = 0
-        label.textAlignment = .right
+        label.textAlignment = .center
         label.textColor = .label
         return label
     }()
     
     
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 17, weight: .light)
+        label.font = .systemFont(ofSize: 13, weight: .light)
         label.textColor = .label
         label.textAlignment = .center
         return label
@@ -62,6 +71,7 @@ final class InspirationDetailCell: UICollectionViewCell {
         setupViews()
         setupConstraints()
         setupScrollView()
+        
     }
   
     
@@ -113,22 +123,21 @@ final class InspirationDetailCell: UICollectionViewCell {
     
     private func setupViews() {
    
-        contentView.addSubview(collectionNameLabel)
+        contentView.addSubview(verticalStackView)
+        
+        verticalStackView.addArrangedSubview(productNameLabel)
+        verticalStackView.addArrangedSubview(descriptionLabel)
+        
         contentView.addSubview(scrollView)
         contentView.addSubview(pageControl)
-        contentView.addSubview(descriptionLabel)
+       
     }
     
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            collectionNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            collectionNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            collectionNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-          
-
-            scrollView.topAnchor.constraint(equalTo: collectionNameLabel.bottomAnchor, constant: 10),
+            scrollView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: Layout.height / 2),
@@ -138,15 +147,16 @@ final class InspirationDetailCell: UICollectionViewCell {
             pageControl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             pageControl.heightAnchor.constraint(equalToConstant: 20),
 
-            descriptionLabel.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 10),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30)
+            verticalStackView.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
     
     func update(with inspirationFeed: LocaleInspirationFeed) {
-        collectionNameLabel.text = inspirationFeed.collectionName.uppercased()
+        productNameLabel.text = inspirationFeed.collectionName.uppercased()
         descriptionLabel.text = inspirationFeed.description
         configureViews(with: inspirationFeed)
         if inspirationFeed.images.count  == 1 {

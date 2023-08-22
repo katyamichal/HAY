@@ -27,7 +27,7 @@ class ShimmeringView: UIView {
     }
     
     func createGradient() {
-        let animationGroup = makeAnimationGroup()
+        let animationGroup = makeAnimation()
         animationGroup.beginTime = 0.0
         shimmeringLayer.add(animationGroup, forKey: "backgroudColour")
         shimmeringLayer.frame = self.bounds

@@ -63,6 +63,9 @@ final class InspirationDetailViewController: UIViewController {
     // MARK: - Setup methods
 
     private func setupNavBarButton() {
+        
+        navigationItem.title = "HAY"
+        
         let leftButtonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 18, weight: .light)
         
         let leftButtonImage = UIImage(systemName: "chevron.left", withConfiguration: leftButtonImageConfiguration)?.withTintColor(.black)

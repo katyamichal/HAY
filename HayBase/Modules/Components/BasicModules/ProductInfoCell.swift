@@ -30,7 +30,7 @@ final class ProductInfoCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 10
-        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 20, trailing: 16)
+        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 16)
         stackView.isLayoutMarginsRelativeArrangement = true
         
         return stackView
