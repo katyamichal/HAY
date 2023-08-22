@@ -2,9 +2,13 @@
 # в разработке
 Архитектура - MVVM
 
-![ezgif com-resize](https://github.com/katyamichal/HAY/assets/124366801/5204dd12-3946-42fd-a76c-afeb1c536f56)               ![ezgif com-optimize](https://github.com/katyamichal/HAY/assets/124366801/de82462a-7a3c-4f77-9a80-be7bd91c2e0d)
+![main](https://github.com/katyamichal/HAY/assets/124366801/00a6ad54-585e-4ed7-8f39-abe59383c717)
 
+![inspo](https://github.com/katyamichal/HAY/assets/124366801/50b37a6b-bfc7-47cc-a557-fd39fde1dacb)
 
+![single](https://github.com/katyamichal/HAY/assets/124366801/d14d0c3e-3b58-43a7-9496-57a621a00edc)
+
+![likes](https://github.com/katyamichal/HAY/assets/124366801/c92ced2d-2960-44e8-877a-b6eca52e794a)
 
 Описание:
 
