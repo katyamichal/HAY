@@ -11,8 +11,7 @@ final class ProductDetailViewModel {
     var product: LocaleProduct
     
     var images: [String] {
-        
-        [product.image] + ["label"] + product.collectionImages
+        product.collectionImages + [product.image]
     }
     
     var productInfo: [String] {
@@ -24,5 +23,4 @@ final class ProductDetailViewModel {
     init(product: LocaleProduct) {
         self.product = product
     }
-    
 }

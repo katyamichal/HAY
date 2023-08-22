@@ -1,11 +1,6 @@
-//
-//  HeaderCell.swift
-//  HayBase
-//
-//  Created by Catarina Polakowsky on 20.07.2023.
-//
 
-import UIKit
+
+//import UIKit
 
 //class HeaderCell: UITableViewCell {
 //

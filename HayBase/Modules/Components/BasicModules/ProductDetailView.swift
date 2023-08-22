@@ -115,8 +115,8 @@ extension ProductDetailView: UITableViewDataSource {
 
 extension ProductDetailView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard indexPath.section == 0 else { return UITableView.automaticDimension }
-        return Layout.height / 1.7
+//        guard indexPath.section == 0 else { return UITableView.automaticDimension }
+        return UITableView.automaticDimension
     }
 }
 

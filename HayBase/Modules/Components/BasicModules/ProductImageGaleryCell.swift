@@ -12,7 +12,7 @@ final class ProductImageGaleryCell: UITableViewCell {
     
     // MARK: -  UIElements
     
-    let scrollView = UIScrollView()
+    private let scrollView = UIScrollView()
     
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
@@ -23,28 +23,38 @@ final class ProductImageGaleryCell: UITableViewCell {
         return pageControl
     }()
     
+    private let verticalStackView: UIStackView = {
+        var stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 40
+        stackView.alignment = .center
+        stackView.backgroundColor = UIColor.productDescription
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 40, left: 20, bottom: 40, right: 20)
+        return stackView
+    }()
     
-    let collectionNameLabel: UILabel = {
+    private  let productNameLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 22, weight: .light)
+        label.font = .systemFont(ofSize: 23, weight: .regular)
         label.numberOfLines = 0
-        label.textAlignment = .right
+        label.textAlignment = .center
         label.textColor = .label
         return label
     }()
     
     
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 18, weight: .light)
+        label.font = .systemFont(ofSize: 13, weight: .light)
         label.textColor = .label
         label.textAlignment = .center
         return label
     }()
     
-    
+    #warning("count of images * 32")
     @objc
     private func pageControlDidChange(_ sender: UIPageControl) {
         let current = CGFloat(sender.currentPage)
@@ -61,7 +71,6 @@ final class ProductImageGaleryCell: UITableViewCell {
         setupScrollView()
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -75,47 +84,38 @@ final class ProductImageGaleryCell: UITableViewCell {
         scrollView.delegate = self
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .systemBrown.withAlphaComponent(0.1)
     }
     
     private func configureViews(with images: [String], detail: String) {
         
         pageControl.numberOfPages = images.count
         
-        scrollView.contentSize = CGSize(width: Layout.width * CGFloat(Float(images.count)), height: scrollView.frame.size.height)
+        scrollView.contentSize = CGSize(width: ((Layout.width - 32) * CGFloat(Float(images.count))), height: scrollView.frame.size.height)
         
         for index in 0..<images.count {
             
-            if index == 1 {
-                
-                let description = descriptionLabel
-                description.frame = CGRect(
-                    x: CGFloat(index) * Layout.width + 20,
-                    y: 0,
-                    width: Layout.width - 40,
-                    height: scrollView.frame.size.height)
-                description.text = detail
-                scrollView.addSubview(description)
-                
-            } else {
-                
-                let page = UIImageView(frame: CGRect(
-                    x: CGFloat(index) * Layout.width,
-                    y: 0,
-                    width: Layout.width,
-                    height: scrollView.frame.size.height))
-              
-                page.contentMode = .scaleToFill
-                page.image = UIImage(named: images[index])
-                scrollView.addSubview(page)
-            }
+            let page = UIImageView(frame: CGRect(
+                x: (CGFloat(index) * (Layout.width - 32)),
+                y: 0,
+                width: Layout.width - 32,
+                height: scrollView.frame.size.height))
+           
+            page.contentMode = .scaleAspectFill
+            page.layer.masksToBounds = true
+            page.image = UIImage(named: images[index])
+            scrollView.addSubview(page)
+            
         }
     }
     
     // MARK: - Setup methods
 
     private func setupViews() {
-        contentView.addSubview(collectionNameLabel)
+        contentView.addSubview(verticalStackView)
+        
+        verticalStackView.addArrangedSubview(productNameLabel)
+        verticalStackView.addArrangedSubview(descriptionLabel)
+      
         contentView.addSubview(scrollView)
         contentView.addSubview(pageControl)
     }
@@ -124,29 +124,28 @@ final class ProductImageGaleryCell: UITableViewCell {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            
-            collectionNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            collectionNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            collectionNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
-            
-            scrollView.topAnchor.constraint(equalTo: collectionNameLabel.bottomAnchor, constant: 10),
-            scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40),
+            scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             scrollView.heightAnchor.constraint(equalToConstant: Layout.height / 2),
             
+            pageControl.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 16),
+            pageControl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            pageControl.heightAnchor.constraint(equalToConstant: 10),
             
-            pageControl.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10),
-            pageControl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            pageControl.heightAnchor.constraint(equalToConstant: 20)
+            
+            
+            verticalStackView.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
+            
         ])
     }
     
     // MARK: -
     
     override func prepareForReuse() {
-        collectionNameLabel.text = nil
-        descriptionLabel.text = nil
         let subViews = self.scrollView.subviews
         for subview in subViews{
             subview.removeFromSuperview()
@@ -157,7 +156,8 @@ final class ProductImageGaleryCell: UITableViewCell {
 
     
     func update(with product: LocaleProduct, images: [String]) {
-        collectionNameLabel.text = product.productName.uppercased()
+        productNameLabel.text = product.productName.uppercased()
+        descriptionLabel.text = product.description
         
         configureViews(with: images, detail: product.description)
         
@@ -170,6 +170,7 @@ final class ProductImageGaleryCell: UITableViewCell {
 
 extension ProductImageGaleryCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         pageControl.currentPage = Int(floorf(Float(scrollView.contentOffset.x) / Float(scrollView.frame.size.width)))
     }
 }

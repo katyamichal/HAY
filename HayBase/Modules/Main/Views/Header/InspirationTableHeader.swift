@@ -14,8 +14,7 @@ protocol InspirationTableHeaderDelegate: AnyObject {
 
 final class InspirationTableHeader: UIView {
     
-    
-    
+
     // MARK: - Properties
     
     weak var delegate: InspirationTableHeaderDelegate?
@@ -28,15 +27,17 @@ final class InspirationTableHeader: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupViews()
         setupConstrains()
-        
+        shimmeringView.createGradient()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+
     // MARK: - Constraints to change
     
     private var scrollViewHeight = NSLayoutConstraint()
@@ -44,10 +45,16 @@ final class InspirationTableHeader: UIView {
     
     private var container = UIView()
     private var containerHeight = NSLayoutConstraint()
+    
     // MARK: - UI Elements
+
+    private let shimmeringView: ShimmeringView = {
+        let shimmering = ShimmeringView()
+        shimmering.frame = CGRect(x: .zero, y: .zero, width: Layout.width, height: Layout.height / 1.75)
+        return shimmering
+    }()
     
     private let scrollView = UIScrollView()
-    
     
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
@@ -72,14 +79,15 @@ final class InspirationTableHeader: UIView {
         button.addTarget(self, action: #selector(inspoDetailButtonDidPress), for: .touchUpInside)
         ///  setting padding area of the view' size blocks scroll view touches
         button.touchAreaPadding = UIEdgeInsets(top: 40, left: 40, bottom: 16, right: 20)
+        button.isHidden = true
         return button
     }()
     
     
     // MARK: -  Helper Methods
 #warning("Clean up the guard statement")
+    
     private func setupScrollViewPages(with inspiration: [LocaleInspirationFeed]) {
-        
         
         guard !inspiration.isEmpty, pages.isEmpty else { return }
         
@@ -126,12 +134,17 @@ final class InspirationTableHeader: UIView {
     func update(with inspiration: [LocaleInspirationFeed]) {
         self.inspirationFeed = inspiration
         setupScrollViewPages(with: inspiration)
+        detailButton.isHidden = false
+        shimmeringView.isHidden = true
     }
     
     
     // MARK: - Setups
     
     private func setupViews() {
+        
+        addSubview(shimmeringView)
+        
         addSubview(container)
         addSubview(detailButton)
         container.addSubview(scrollView)
@@ -142,6 +155,8 @@ final class InspirationTableHeader: UIView {
     private func setupConstrains() {
         
         NSLayoutConstraint.activate([
+            
+            
             
             pageControl.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 70),
             pageControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -15),
@@ -160,6 +175,8 @@ final class InspirationTableHeader: UIView {
             
         ])
         
+        // MARK: - Transformable constraints
+
         container.translatesAutoresizingMaskIntoConstraints = false
         
         container.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
@@ -199,4 +216,5 @@ extension InspirationTableHeader: UIScrollViewDelegate {
         pages[pageControl.currentPage].imageViewHeight.constant = max(offsetY + scrollView.contentInset.top, scrollView.contentInset.top)
     }
 }
+
 

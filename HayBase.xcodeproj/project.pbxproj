@@ -56,6 +56,10 @@
 		4E9EFC9F2A923254004111FC /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFC9E2A923254004111FC /* BasketView.swift */; };
 		4E9EFCA12A92326F004111FC /* BasketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCA02A92326F004111FC /* BasketViewModel.swift */; };
 		4E9EFCA32A92512D004111FC /* OrderInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCA22A92512D004111FC /* OrderInfoCell.swift */; };
+		4E9EFCA52A949ABF004111FC /* ShimmeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCA42A949ABE004111FC /* ShimmeringView.swift */; };
+		4E9EFCA82A949D5F004111FC /* ShimmeringLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCA72A949D5F004111FC /* ShimmeringLoadable.swift */; };
+		4E9EFCAA2A94D3F8004111FC /* UIColour + customColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCA92A94D3F8004111FC /* UIColour + customColour.swift */; };
+		4E9EFCAC2A94D8C6004111FC /* ProductActionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E9EFCAB2A94D8C6004111FC /* ProductActionsCell.swift */; };
 		4EA9A6982A8BCC2300D3D415 /* HayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A6972A8BCC2300D3D415 /* HayViewModel.swift */; };
 		4EA9A69A2A8BCCA100D3D415 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA9A6992A8BCCA100D3D415 /* Models.swift */; };
 		4EBB13092A56AF3C00C6C47A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB13082A56AF3C00C6C47A /* MainView.swift */; };
@@ -124,6 +128,10 @@
 		4E9EFC9E2A923254004111FC /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		4E9EFCA02A92326F004111FC /* BasketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModel.swift; sourceTree = "<group>"; };
 		4E9EFCA22A92512D004111FC /* OrderInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoCell.swift; sourceTree = "<group>"; };
+		4E9EFCA42A949ABE004111FC /* ShimmeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringView.swift; sourceTree = "<group>"; };
+		4E9EFCA72A949D5F004111FC /* ShimmeringLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringLoadable.swift; sourceTree = "<group>"; };
+		4E9EFCA92A94D3F8004111FC /* UIColour + customColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColour + customColour.swift"; sourceTree = "<group>"; };
+		4E9EFCAB2A94D8C6004111FC /* ProductActionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductActionsCell.swift; sourceTree = "<group>"; };
 		4EA9A6972A8BCC2300D3D415 /* HayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HayViewModel.swift; sourceTree = "<group>"; };
 		4EA9A6992A8BCCA100D3D415 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4EBB13082A56AF3C00C6C47A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -176,6 +184,7 @@
 				4E9BE09F2A5C02680043C201 /* Services */,
 				4E663DFD2A83AAD200F8D86B /* CustomComponents */,
 				4E86BD642A59A5B80007CDE7 /* Models */,
+				4E9EFCA62A949D43004111FC /* Animation */,
 				4E9BE0A62A5D58EC0043C201 /* Constants */,
 				4E86BD5D2A59596C0007CDE7 /* Extentions */,
 				4ED29BDC2A6295F1004B8C20 /* Resources */,
@@ -293,6 +302,7 @@
 				4E663DF22A8110B800F8D86B /* ProductDetailView.swift */,
 				4E663DF42A8135F700F8D86B /* ProductImageGaleryCell.swift */,
 				4E663DF62A823A8000F8D86B /* ProductInfoCell.swift */,
+				4E9EFCAB2A94D8C6004111FC /* ProductActionsCell.swift */,
 			);
 			path = BasicModules;
 			sourceTree = "<group>";
@@ -333,6 +343,7 @@
 				4EBB130A2A56BF8500C6C47A /* UITableView + registerCell.swift */,
 				4EBB130C2A56C31200C6C47A /* UITableViewCell + reuseID.swift */,
 				4E2187712A78ED08002F0785 /* UIButton + pointInside.swift */,
+				4E9EFCA92A94D3F8004111FC /* UIColour + customColour.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -452,8 +463,17 @@
 			children = (
 				4E9BE0D22A605A840043C201 /* InspirationTableHeader.swift */,
 				4E9BE0D62A605AF20043C201 /* InspirationPageViews.swift */,
+				4E9EFCA42A949ABE004111FC /* ShimmeringView.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		4E9EFCA62A949D43004111FC /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				4E9EFCA72A949D5F004111FC /* ShimmeringLoadable.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		4EA9A69B2A8BD47500D3D415 /* TestingViewModel */ = {
@@ -603,10 +623,13 @@
 				4E9BE0AA2A5D5C870043C201 /* InspirationCollectionCell.swift in Sources */,
 				4E2187782A78FF63002F0785 /* FavouriteViewModel.swift in Sources */,
 				4E2187812A7CEFB9002F0785 /* ProductsArchiver.swift in Sources */,
+				4E9EFCAC2A94D8C6004111FC /* ProductActionsCell.swift in Sources */,
 				4E663DEF2A81106300F8D86B /* ProductDetailViewModel.swift in Sources */,
+				4E9EFCAA2A94D3F8004111FC /* UIColour + customColour.swift in Sources */,
 				4E663DF52A8135F700F8D86B /* ProductImageGaleryCell.swift in Sources */,
 				4ED29BED2A6411B5004B8C20 /* HayEndpoins.swift in Sources */,
 				4ED29BE52A6297D4004B8C20 /* ProfileViewController.swift in Sources */,
+				4E9EFCA52A949ABF004111FC /* ShimmeringView.swift in Sources */,
 				4E80FF802A66A85A0065F729 /* API.swift in Sources */,
 				4ED29BE32A6297C4004B8C20 /* BasketViewController.swift in Sources */,
 				4E663DF12A81109200F8D86B /* ProductDetailViewController.swift in Sources */,
@@ -624,6 +647,7 @@
 				4E86BD632A59A3340007CDE7 /* Designer.swift in Sources */,
 				4E9BE0D72A605AF20043C201 /* InspirationPageViews.swift in Sources */,
 				4E2187762A78FF30002F0785 /* ProductLocal.swift in Sources */,
+				4E9EFCA82A949D5F004111FC /* ShimmeringLoadable.swift in Sources */,
 				4E2187742A78FF0D002F0785 /* FavouriteView.swift in Sources */,
 				4E4247522A86298500D9153E /* LocaleInspiration.swift in Sources */,
 				4E21876C2A72775F002F0785 /* InspoDetailViewModel.swift in Sources */,

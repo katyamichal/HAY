@@ -45,6 +45,9 @@ final class ProductDetailViewController: UIViewController {
     
     private func setupNavBarButton() {
         
+        navigationItem.title = "HAY"
+        
+        
         let config = UIImage.SymbolConfiguration(pointSize: 18, weight: .light)
         
         let image = UIImage(systemName: "chevron.left", withConfiguration: config)?.withTintColor(.black)

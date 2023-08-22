@@ -21,10 +21,16 @@ protocol MainTableViewDelegate: AnyObject {
 
 final class MainTableView: UITableView, UIScrollViewDelegate {
     
-    let tableHeader = InspirationTableHeader()
-    
+    // MARK: - Delegate
+
     weak var selectionDelegate: MainTableViewDelegate?
-    
+   
+    // MARK: - Header
+
+    let tableHeader = InspirationTableHeader()
+     
+    // MARK: - View Model
+
     func update(_ viewModel: MainViewModel) {
         self.viewModel = viewModel
     }
@@ -84,6 +90,8 @@ extension MainTableView: UITableViewDataSource {
             
         }
     }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let section = ProductSection.allCases[indexPath.section]
@@ -122,6 +130,7 @@ extension MainTableView: UITableViewDataSource {
 // MARK: - Delegate methods
 
 extension MainTableView: UITableViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = self.tableHeaderView as? InspirationTableHeader else {return}
         header.scrollViewDidScroll(self)
@@ -163,6 +172,5 @@ extension MainTableView: UICollectionViewDelegate {
         default:
             break
         }
-    
     }
 }

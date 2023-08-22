@@ -193,9 +193,9 @@ extension BasketView: UITableViewDelegate {
         delete.backgroundColor = .black
         
         
-        let addToFavourite = UIContextualAction(style: .normal, title: "add to favourite") { _, _, _ in
+        let addToFavourite = UIContextualAction(style: .normal, title: " Add to Favourite") { _, _, _ in
             print("addToFavourite")
-            
+           
            
             
         }

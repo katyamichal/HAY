@@ -30,8 +30,9 @@ final class ProductInfoCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 10
-        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 8, leading: 10, bottom: 16, trailing: 10)
+        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 20, trailing: 16)
         stackView.isLayoutMarginsRelativeArrangement = true
+        
         return stackView
     }()
     
@@ -48,7 +49,7 @@ final class ProductInfoCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 13, weight: .light)
+        label.font = .systemFont(ofSize: 14, weight: .light)
         return label
     }()
 
@@ -60,9 +61,9 @@ final class ProductInfoCell: UITableViewCell {
 
         // TODO: - Clean up
         if infoType[infoTypeIndex] == "Price" {
-            infolLabel.text = (productInfo[infoTypeIndex] + " £").uppercased()
+            infolLabel.text = ("£" + productInfo[infoTypeIndex]).lowercased()
         } else {
-            infolLabel.text = (productInfo[infoTypeIndex]).uppercased()
+            infolLabel.text = (productInfo[infoTypeIndex]).lowercased()
         }
     }
 }
