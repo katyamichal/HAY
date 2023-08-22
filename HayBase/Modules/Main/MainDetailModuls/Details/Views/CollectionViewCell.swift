@@ -30,10 +30,10 @@ final class InspirationDetailCell: UICollectionViewCell {
         var stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 20
+        stackView.spacing = 30
         stackView.alignment = .center
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 30, left: 20, bottom: 40, right: 20)
+        stackView.layoutMargins = UIEdgeInsets(top: 30, left: 30, bottom: 40, right: 30)
         return stackView
     }()
     
@@ -150,7 +150,6 @@ final class InspirationDetailCell: UICollectionViewCell {
             verticalStackView.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
             verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     

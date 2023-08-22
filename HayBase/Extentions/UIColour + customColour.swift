@@ -20,7 +20,7 @@ extension UIColor {
         return UIColor(red: 236 / 255.0, green: 236 / 255.0, blue: 236 / 255.0, alpha: 1)
     }
     
-    static var productDescription2: UIColor {
+    static var hayMain: UIColor {
         return UIColor(red: 243 / 255.0, green: 238 / 255.0, blue: 232 / 255.0, alpha: 1)
     }
 }
