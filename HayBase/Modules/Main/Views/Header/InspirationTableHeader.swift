@@ -84,7 +84,6 @@ final class InspirationTableHeader: UIView {
     
     
     // MARK: -  Helper Methods
-#warning("Clean up the guard statement")
     
     private func setupScrollViewPages(with inspiration: [LocaleInspirationFeed]) {
         

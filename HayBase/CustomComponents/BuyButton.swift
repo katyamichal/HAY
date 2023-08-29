@@ -35,7 +35,7 @@ class BuyButton: UIButton {
         let buttonImage = UIImage(systemName: "bag", withConfiguration: configuration)
       
         self.setImage(buttonImage, for: .normal)
-        self.setImage(buttonImage, for: .selected)
+
         
         self.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
     
@@ -62,7 +62,7 @@ class BuyButton: UIButton {
         guard var product else {return}
         product.isInCart = true
         self.onBuyButtonPressed?(product)
-        
+
     }
     
 }

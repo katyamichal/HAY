@@ -13,7 +13,7 @@ extension ShimmeringLoadable {
     
     func makeAnimation() -> CABasicAnimation {
         
-        let duration: CFTimeInterval = 1.6
+        let duration: CFTimeInterval = 1.2
         let animation = CABasicAnimation(keyPath: #keyPath(CAGradientLayer.backgroundColor))
         animation.fromValue = UIColor.gradientLightGrey.cgColor
         animation.toValue = UIColor.hayMain.cgColor

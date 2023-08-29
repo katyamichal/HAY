@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum CartTableSection: CaseIterable {
+enum BasketTableSection: CaseIterable {
     case products
     case orderInfo
 }
@@ -15,8 +15,9 @@ enum CartTableSection: CaseIterable {
 final class BasketView: UIView {
     
     var onDeleteProduct: ((LocaleProduct)->())?
-    var onLikeProductsUpdated: ((LocaleProduct)->())?
+//    var onLikeProductsUpdated: ((LocaleProduct)->())?
     var onShowProductDetail: ((LocaleProduct)->())?
+    var onShowOrderView: (()->())?
 
     // MARK: - View Model
     
@@ -44,12 +45,14 @@ final class BasketView: UIView {
     }
     // MARK: - UI Elements
     
+    
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 22, weight: .light)
         label.textColor = .label
         label.numberOfLines = 0
+        label.textColor = .black
         return label
     }()
 
@@ -57,6 +60,7 @@ final class BasketView: UIView {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.separatorStyle = .none
+        table.backgroundColor = .clear
         table.isHidden = true
         table.register(ProductTableCell.self)
         table.register(OrderInfoCell.self)
@@ -77,9 +81,8 @@ final class BasketView: UIView {
 
 extension BasketView {
     
-    
     private func setupStyles() {
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .hayMain
     }
     
     
@@ -112,13 +115,13 @@ extension BasketView: UITableViewDataSource {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return CartTableSection.allCases.count
+        return BasketTableSection.allCases.count
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let section = CartTableSection.allCases[section]
+        let section = BasketTableSection.allCases[section]
         
         switch section {
         case .products:
@@ -130,7 +133,7 @@ extension BasketView: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let section = CartTableSection.allCases[indexPath.section]
+        let section = BasketTableSection.allCases[indexPath.section]
         switch section {
             
         case .products:
@@ -146,25 +149,21 @@ extension BasketView: UITableViewDataSource {
             let cell = tableView.dequeue(indexPath) as OrderInfoCell
             guard let viewModel = viewModel, viewModel.orderInfo.count == 3 else {return cell}
             cell.update(orderInfo: viewModel.orderInfo)
+            cell.onOrderButtonTapped = {
+                self.onShowOrderView?()
+            }
             return cell
         }
     }
 }
 extension BasketView: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard indexPath.section == 0 else { return UITableView.automaticDimension }
-        return Layout.width * 0.4
-    }
-    
-    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         guard indexPath.section == 0 else { return false}
         return true
     }
     
-    
-    
+        
     // TODO: - finish with like button
 
     
@@ -177,17 +176,24 @@ extension BasketView: UITableViewDelegate {
             self.onDeleteProduct?(prosuct)
             
             self.tableView.beginUpdates()
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.deleteRows(at: [indexPath], with: .left)
             self.tableView.endUpdates()
             
-            let sectionToReload = 1
-            let indexSet: IndexSet = [sectionToReload]
-            self.tableView.reloadSections(indexSet, with: .bottom)
+            //let sectionToReload = 1
+           // let indexSet: IndexSet = [sectionToReload]
+           // self.tableView.reloadSections(indexSet, with: .bottom)
             
+            let orderIndexPath = IndexPath(row: 0, section: 1)
+            let cell = self.tableView.cellForRow(at: orderIndexPath) as? OrderInfoCell
+            if let info = self.viewModel?.orderInfo {
+                cell?.update(orderInfo: info)
+            }
+        
             if self.viewModel?.products?.count == 0 {
                 tableView.isHidden = true
                 self.headerLabel.text = "Your shopping basket is empty. See if your favourites are in your basket."
             }
+           
         }
         delete.image = UIImage(systemName: "multiply")
         delete.backgroundColor = .black
@@ -195,14 +201,11 @@ extension BasketView: UITableViewDelegate {
         
         let addToFavourite = UIContextualAction(style: .normal, title: " Add to Favourite") { _, _, _ in
             print("addToFavourite")
-           
-           
             
         }
         addToFavourite.image = UIImage(systemName: "heart")
         addToFavourite.backgroundColor = .brown.withAlphaComponent(0.7)
-        
-        
+
         
         let swipe = UISwipeActionsConfiguration(actions: [delete, addToFavourite])
         swipe.performsFirstActionWithFullSwipe = false

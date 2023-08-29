@@ -44,7 +44,7 @@ final class ProductArchiver: ProductArchiverInput {
     private let userDefaults = UserDefaults.standard
     
     // MARK: - Save method
-#warning("переделать")
+
     
     func save(_ product: LocaleProduct) {
         

@@ -48,12 +48,15 @@ class HayTabBarController: UITabBarController {
         
         let tabItem = UITabBarItem(title: nil, image: image, selectedImage: nil)
         controller.tabBarItem = tabItem
+        
         return controller
     }()
  
     
     private let profileController: ProfileViewController = {
-        let controller = ProfileViewController()
+        let viewModel = ProfileViewModel()
+        
+        let controller = ProfileViewController(profileViewModel: viewModel)
         let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .light)
         let image = UIImage(systemName: "person.circle", withConfiguration: config)
         let tabItem = UITabBarItem(title: nil, image: image, selectedImage: nil)
@@ -91,8 +94,10 @@ class HayTabBarController: UITabBarController {
     
     private func setupTabBar() {
         tabBar.tintColor = .systemBrown
-        tabBar.backgroundColor = .systemBackground
-        tabBar.unselectedItemTintColor = .label
+        tabBar.backgroundColor = .hayMain
+        tabBar.barTintColor = .hayMain
+        tabBar.unselectedItemTintColor = .black
+        
         viewControllers = [nav1, nav2, profileController, nav4]
     }
 

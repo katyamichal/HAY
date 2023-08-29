@@ -27,7 +27,7 @@ final class ProductCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 22, weight: .light)
-       
+        label.textColor = .black
         return label
     }()
     
@@ -115,7 +115,7 @@ extension ProductCell: UICollectionViewDataSource {
             fatalError("Product Collection Cell")
         }
         
-        cell.likeButton.onLikeButtonPressed = { isLiked, product in
+        cell.likeButton.onLikeButtonTapped = { isLiked, product in
             self.onLocalProductDidChanged?(product)
         }
         

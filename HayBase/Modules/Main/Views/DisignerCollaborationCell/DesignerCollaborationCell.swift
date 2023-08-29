@@ -25,6 +25,7 @@ final class DesignerCollaborationCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 22, weight: .bold)
         label.text = "HAY × Designers"
+        label.textColor = .black
         return label
     }()
     // MARK: - Designer Description
@@ -34,6 +35,7 @@ final class DesignerCollaborationCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 21, weight: .light)
+        label.textColor = .black
         return label
     }()
     
@@ -42,6 +44,7 @@ final class DesignerCollaborationCell: UITableViewCell {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16, weight: .light)
+        label.textColor = .black
         return label
     }()
     
@@ -189,7 +192,7 @@ extension DesignerCollaborationCell: UICollectionViewDataSource {
         guard let products = designer?.products, !products.isEmpty,
             let product = designer?.products[indexPath.item] else {return cell}
         cell.update(product)
-        cell.likeButton.onLikeButtonPressed = { isLiked, product in
+        cell.likeButton.onLikeButtonTapped = { isLiked, product in
             self.onLocalProductDidChanged?(product)
         }
         return cell

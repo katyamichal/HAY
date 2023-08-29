@@ -17,11 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
        
         window = UIWindow(windowScene: windowScene)
-//        let productService = ProductService()
-//        let mainViewModel = MainViewModel(productService: productService)
                           
         window?.rootViewController = HayTabBarController()
-       
+        window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
         
     }

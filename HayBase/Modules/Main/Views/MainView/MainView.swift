@@ -29,7 +29,6 @@ final class MainView: UIView {
 
 extension MainView {
     private func setupStyles() {
-        self.backgroundColor = .systemBackground
     }
     
     private func setupViews() {

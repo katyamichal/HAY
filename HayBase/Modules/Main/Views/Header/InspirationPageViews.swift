@@ -19,11 +19,9 @@ final class InspirationView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupViews()
         setupConstraints()
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -35,14 +33,14 @@ final class InspirationView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textColor = .label
+        label.textColor = .black
         return label
     }()
     
     private let view: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemGray6.withAlphaComponent(0.7)
+        view.backgroundColor = .hayMain.withAlphaComponent(0.5)
         return view
     }()
     
@@ -54,7 +52,8 @@ final class InspirationView: UIView {
         return imageView
     }()
     
-    
+    // MARK: - Setup methods
+
     private func setupViews() {
         addSubview(imageView)
         imageView.addSubview(view)
@@ -87,7 +86,7 @@ final class InspirationView: UIView {
         imageViewHeight.isActive = true
     }
     
-
+    
     // MARK: -  Public
     
     func update(with model: LocaleInspirationFeed) {

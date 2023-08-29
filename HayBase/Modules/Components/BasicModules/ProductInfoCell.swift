@@ -14,6 +14,7 @@ final class ProductInfoCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.backgroundColor = .hayMain
         setupViews()
         setupConstraints()
     }
@@ -41,15 +42,17 @@ final class ProductInfoCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 17, weight: .light)
+        label.textColor = .black
         return label
     }()
     
     
     private let infolLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .label
+
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 14, weight: .light)
+        label.textColor = .black
         return label
     }()
 

@@ -52,6 +52,7 @@ final class DesignerProductsCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.textColor = .black
         return label
     }()
     
@@ -62,6 +63,7 @@ final class DesignerProductsCell: UICollectionViewCell {
         label.textColor = .label
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.textColor = .black
         return label
     }()
     

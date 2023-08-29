@@ -47,6 +47,9 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
+        
+        self.backgroundColor = .hayMain
+        
         self.translatesAutoresizingMaskIntoConstraints = false
         self.delegate = self
         self.dataSource = self
@@ -104,7 +107,7 @@ extension MainTableView: UITableViewDataSource {
             cell.update(products)
             
             cell.collectionView.delegate = self
-            
+            cell.backgroundColor = .hayMain
             cell.onLocalProductDidChanged = { product in
                 self.selectionDelegate?.didChangeLocalProduct(product: product)
             }
@@ -116,6 +119,7 @@ extension MainTableView: UITableViewDataSource {
             guard let designers = viewModel?.localDesigners, !designers.isEmpty else {
                 return cell
             }
+            cell.backgroundColor = .hayMain
             cell.update(designers[indexPath.row])
             cell.collectionView.delegate = self
             cell.onLocalProductDidChanged = { product in

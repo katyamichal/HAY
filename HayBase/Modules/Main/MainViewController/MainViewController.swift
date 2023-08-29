@@ -39,8 +39,8 @@ final class MainViewController: UIViewController {
         
         
         /// trigger when favourite products has been changed(all modules)
-        ProductArchiver.onFavouriteProductChanged = { [weak self] in
-            self?.mainViewModel.update()
+        ProductArchiver.onFavouriteProductChanged = {
+            self.mainViewModel.update()
         }
     }
     

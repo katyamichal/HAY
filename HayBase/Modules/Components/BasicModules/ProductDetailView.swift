@@ -14,18 +14,20 @@ enum Sections: CaseIterable {
 
 final class ProductDetailView: UIView {
     
+
     var viewModel: ProductDetailViewModel? {
         didSet {
+            guard let viewModel else {return}
             tableView.reloadData()
+            actionButtonView.update(product: viewModel.product)
         }
     }
-    
     
     // MARK: - Inits
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
+        backgroundColor = .hayMain
         setupView()
         setupConstraints()
         tableView.delegate = self
@@ -37,24 +39,34 @@ final class ProductDetailView: UIView {
     }
     
     //MARK: - UIElements
-    let tableView: UITableView = {
+
+  private  let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
+        tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         
         tableView.register(ProductImageGaleryCell.self)
         tableView.register(ProductInfoCell.self)
         
-       
-        
         return tableView
     }()
+    
+    private let actionButtonView: ProductActionsView = {
+        let view = ProductActionsView()
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    
     // MARK: - Setups
 
     private func setupView() {
         addSubview(tableView)
+        addSubview(actionButtonView)
+        
     }
     
     
@@ -64,7 +76,12 @@ final class ProductDetailView: UIView {
             tableView.topAnchor.constraint(equalTo: topAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: actionButtonView.topAnchor, constant: -10),
+            
+            actionButtonView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            actionButtonView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            actionButtonView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            actionButtonView.heightAnchor.constraint(equalToConstant: 50),
             
         ])
     }
@@ -113,10 +130,5 @@ extension ProductDetailView: UITableViewDataSource {
     }
 }
 
-extension ProductDetailView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        guard indexPath.section == 0 else { return UITableView.automaticDimension }
-        return UITableView.automaticDimension
-    }
-}
+extension ProductDetailView: UITableViewDelegate {}
 

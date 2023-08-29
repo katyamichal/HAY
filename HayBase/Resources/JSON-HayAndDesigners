@@ -2,15 +2,28 @@
 {
     "designers": [
         {
-            "id": 701,
+            "id": 700,
             "designer_name": "Laila Gohar",
             "collection_name": "the sobremesa collection",
             "description": "Laila Gohar is a conceptual artist and chef who works with food as her artistic medium. She creates immersive experiences that blur the line between performance and dining. Gohar was born in Egypt, where she grew up in a large family of passionate cooks and hosts. She is now based in New York City where she works internationally, and is known for her high profile collaborations across art, design and fashion. Laila also writes a monthly column called How to Host It for FT’s How to Spend It magazine. For HAY, Laila Gohar has designed the Sobremesa Collection – a series of tableware and kitchen accessories designed to celebrate the joy of hosting.",
             "designer_image": "laila_gohar_portrait",
             "collection_images": ["lgc", "lgc2", "lgc3", "lgc4", "lgc5"],
             "products": [
+                
                 {
-                    "id": 711,
+                    "id": 701,
+                    "product_name": "bean pot",
+                    "description": "Part of a design collaboration between HAY and artist Laila Gohar that celebrates the joy of meeting family and friends over a good meal, the Sobremesa Bean Pot is a decorative casserole dish designed to enhance mealtime atmospheres. Featuring a classic bean pot shape with small handles and a lid, it is hand painted with a beautiful pattern that gives each pot a unique quality. Crafted in ovenproof stoneware, it can be used for cooking, serving or storage.",
+                    "price": 219,
+                    "image": "bean-pot",
+                    "image_collection": ["sp-bean-pot", "sp-bean-pot2"],
+                    "material": "stoneware",
+                    "size": "H17 x W19 x L19",
+                    "colour": "blue"
+                },
+                
+                {
+                    "id": 702,
                     "product_name": "serving bowl",
                     "description": "The Sobremesa Serving Bowl is a series of beautiful tableware designed to enhance mealtime atmospheres. Made from ovenproof porcelain in beautiful colours, it can be used for cooking as well as a decorative serving dish.",
                     "price": 290,
@@ -22,7 +35,7 @@
 
                 },
                 {
-                    "id": 721,
+                    "id": 703,
                     "product_name": "Stripe Vase",
                     "description": "The Sobremesa Stripe Vase is a decorative vase designed to add ambiance to any table setting. Hand-painted in stoneware with a colourful striped pattern that gives each jug a unique quality, it can be used for bunches of flowers, blossoming branches or storing kitchen utensils.",
                     "price": 140,
@@ -35,7 +48,7 @@
                 },
                 
                 {
-                    "id": 731,
+                    "id": 704,
                     "product_name": "Tablecloth",
                     "description": "The Sobremesa Tablecloth is designed to elevate mealtimes. Made in a premium quality linen-cotton blend, it features colourful embroidered and appliqué motifs that add a decorative edge to table settings.",
                     "price": 440,
@@ -47,7 +60,7 @@
               
                 },
                 {
-                    "id": 741,
+                    "id": 705,
                     "product_name": "2 in 1 serving set",
                     "description": "As its name suggests, the 2-in-1 Serving Set is both multifunctional and decorative. Crafted in coloured borosilicate glass, the container is accompanied by an extra part that can be used both as a saucer underneath and a lid on top. Durable and heat-resistant, it is suitable for serving hot or cold food, storing or displaying small items.",
                     "price": 220,
@@ -59,7 +72,7 @@
                     
                 },
                 {
-                    "id": 751,
+                    "id": 706,
                     "product_name": "plates set",
                     "description": "The Sobremesa Plate is a decorative plate designed to enhance mealtime atmospheres. Hand-painted in stoneware with a beautiful contrast stripe detail, the plates are available in different sizes and stripes, and can be used alone or with other tableware from the same series.",
                     "price": 160,
@@ -71,7 +84,7 @@
 
                 },
                 {
-                    "id": 761,
+                    "id": 707,
                     "product_name": "market basket",
                     "description": "The Sobremesa Market Basket is a spacious shopping basket designed for trips to the farmer's market or grocery store. Handmade in bast, with a bright red fastening detail, the multifunctional basket can also be used for other kinds of shopping, picnics or household storage.",
                     "price": 520,
@@ -84,7 +97,7 @@
                 },
                 
                 {
-                    "id": 771,
+                    "id": 708,
                     "product_name": "mat stripe",
                     "description": "The Sobremesa Place Mats are designed to add a decorative edge to a table setting. Made in a nice quality cotton with a colourful patchwork design, the placemats elevate the table’s aesthetics, as well as protecting tables and other surfaces. Available in different designs, the place mats can be used on their own or with the tablecloth and napkins from the same collection.",
                     "price": 440,
@@ -96,7 +109,7 @@
               
                 },
                 {
-                    "id": 781,
+                    "id": 709,
                     "product_name": "market net",
                     "description": "The Sobremesa Market Net Bag is designed to make grocery shopping a little more fun. Made in recycled polyester and cotton blend in a variety of bold colour combinations, the multifunctional bag can also be used for other kinds of shopping, carrying belongings or storing items.",
                     "price": 15,
@@ -108,7 +121,7 @@
                     
                 },
                 {
-                    "id": 791,
+                    "id": 710,
                     "product_name": "apron",
                     "description": "The Sobremesa Apron is a kitchen classic designed to protect clothing and enhance mealtime preparation. Made in durable cotton, it has crossover straps at the back, handy pockets at the front and is finished with a small, embroidered spoon detail. One size fits all.",
                     "price": 105,
@@ -118,6 +131,18 @@
                     "size": "H98 x W106",
                     "colour": "dark blue"
                     
+                },
+                
+                {
+                    "id": 711,
+                    "product_name": "jug",
+                    "description": "Part of a design collaboration between HAY and artist Laila Gohar that celebrates the joy of meeting family and friends over a good meal, the Sobremesa Jug is a beautiful jug designed to add a decorative edge to any table setting. Hand-painted in stoneware with a monochrome pattern that gives each jug a unique quality, it can also be used as a vase or for storing kitchen utensils",
+                    "price": 219,
+                    "image": "jug-green",
+                    "image_collection": ["sp-jug-green", "sp-stripe-vase2"],
+                    "material": "stoneware",
+                    "size": "H20 x W13 x L13",
+                    "colour": "green"
                 }
             ]
         },

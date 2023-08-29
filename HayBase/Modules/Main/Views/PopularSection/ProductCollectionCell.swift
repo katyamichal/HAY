@@ -43,6 +43,7 @@ class ProductCollectionCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.textColor = .black
         return label
     }()
     
@@ -53,6 +54,7 @@ class ProductCollectionCell: UICollectionViewCell {
         label.textColor = .label
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.textColor = .black
         return label
     }()
     

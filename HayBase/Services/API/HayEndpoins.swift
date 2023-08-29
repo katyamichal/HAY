@@ -9,7 +9,7 @@
 // 1.2 https://apingweb.com/api/rest/26b4c2208e962cc80d96694d9944947320/inspiration
 //https://apingweb.com/api/rest/2a73dfd54faaba3a987a683668f22d8416/inspiration
 //
-//2.2 https://apingweb.com/api/rest/a55b55d589fa478ba6432a413ce2e72d26/designers
+//2.2 https://apingweb.com/api/rest/885cf0c6fc07da547594a5b1dcb0667d24/designers
 
 // 3. https://apingweb.com/api/rest/3e968b82afefe30beb86736353d3954122/popular
 
@@ -37,7 +37,7 @@ extension HayEndpoints: Endpoint {
             return "/api/rest/2a73dfd54faaba3a987a683668f22d8416/inspiration"
             
         case .designers:
-            return "/api/rest/a55b55d589fa478ba6432a413ce2e72d26/designers"
+            return "/api/rest/885cf0c6fc07da547594a5b1dcb0667d24/designers"
             
         case .popular:
             return "/api/rest/3e968b82afefe30beb86736353d3954122/popular"

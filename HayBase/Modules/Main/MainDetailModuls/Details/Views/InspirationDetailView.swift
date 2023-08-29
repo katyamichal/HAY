@@ -29,13 +29,14 @@ final class InspirationDetailView: UIView {
     
     // MARK: - UI Element
 
-     lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         
         let layout = createCollectionView()
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.backgroundColor = .hayMain
         collection.dataSource = self
         
         collection.register(InspirationDetailCell.self, forCellWithReuseIdentifier: InspirationDetailCell.cellIdentifier)
@@ -51,6 +52,7 @@ final class InspirationDetailView: UIView {
     init(frame: CGRect, viewModel: InspoDetailViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
+        backgroundColor = .hayMain
         setupView()
         setupConstraints()
     }
@@ -169,7 +171,7 @@ extension InspirationDetailView: UICollectionViewDataSource {
                 let product = products[indexPath.item]
                 cell.update(product)
                 
-                cell.likeButton.onLikeButtonPressed = { isLiked, product in
+                cell.likeButton.onLikeButtonTapped = { isLiked, product in
                     self.onProductTappedLikeButton?(product)
                 }
                 cell.buyButton.onBuyButtonPressed = { product in

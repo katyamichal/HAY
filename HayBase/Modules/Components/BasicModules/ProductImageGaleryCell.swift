@@ -40,7 +40,7 @@ final class ProductImageGaleryCell: UITableViewCell {
         label.font = .systemFont(ofSize: 23, weight: .regular)
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.textColor = .label
+        label.textColor = .black
         return label
     }()
     
@@ -51,6 +51,7 @@ final class ProductImageGaleryCell: UITableViewCell {
         label.font = .systemFont(ofSize: 13, weight: .light)
         label.textColor = .label
         label.textAlignment = .center
+        label.textColor = .black
         return label
     }()
     
@@ -66,6 +67,7 @@ final class ProductImageGaleryCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.backgroundColor = .hayMain
         setupViews()
         setupConstraints()
         setupScrollView()

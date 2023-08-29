@@ -42,7 +42,7 @@ final class InspirationDetailCell: UICollectionViewCell {
         label.font = .systemFont(ofSize: 23, weight: .regular)
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.textColor = .label
+        label.textColor = .black
         return label
     }()
     
@@ -51,7 +51,7 @@ final class InspirationDetailCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 13, weight: .light)
-        label.textColor = .label
+        label.textColor = .black
         label.textAlignment = .center
         return label
     }()
@@ -68,6 +68,7 @@ final class InspirationDetailCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.backgroundColor = .hayMain
         setupViews()
         setupConstraints()
         setupScrollView()

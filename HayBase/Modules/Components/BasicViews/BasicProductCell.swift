@@ -5,6 +5,10 @@
 //  Created by Katya Michal on 27.07.2023.
 //
 
+/// USED IN:
+/// -  Favourite Module
+/// - Inspiration Module
+
 import UIKit
 
 
@@ -18,6 +22,7 @@ final class BasicProductCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        contentView.backgroundColor = .clear
         setupViews()
         setupConstraints()
     }
@@ -62,6 +67,7 @@ final class BasicProductCell: UICollectionViewCell {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.textColor = .black
         return label
     }()
     
@@ -76,6 +82,7 @@ final class BasicProductCell: UICollectionViewCell {
         label.textColor = .label
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = .black
         return label
     }()
     

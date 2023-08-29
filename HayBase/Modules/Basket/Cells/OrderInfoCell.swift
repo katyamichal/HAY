@@ -9,8 +9,18 @@ import UIKit
 
 final class OrderInfoCell: UITableViewCell {
     
+    var onOrderButtonTapped: (()->())?
+    
 
     // MARK: - UI Elements
+    
+    private let separatorLineView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .black
+        return view
+    }()
+    
     
     private let verticalStackView: UIStackView = {
         let stackView = UIStackView()
@@ -28,8 +38,10 @@ final class OrderInfoCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 17, weight: .light)
+        label.textColor = .black
         return label
     }()
+    
     
     private let deliveryLabel: UILabel = {
         let label = UILabel()
@@ -37,6 +49,7 @@ final class OrderInfoCell: UITableViewCell {
         label.textColor = .label
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 17, weight: .light)
+        label.textColor = .black
         return label
     }()
     
@@ -59,8 +72,10 @@ final class OrderInfoCell: UITableViewCell {
         label.numberOfLines = 0
         label.text = "Total"
         label.font = .systemFont(ofSize: 17, weight: .medium)
+        label.textColor = .black
         return label
     }()
+    
     
     private let pricelLabel: UILabel = {
         let label = UILabel()
@@ -68,6 +83,7 @@ final class OrderInfoCell: UITableViewCell {
         label.textColor = .label
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .black
         return label
     }()
     
@@ -77,17 +93,22 @@ final class OrderInfoCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Place your order", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .light)
         button.backgroundColor = .black
-      
+        button.addTarget(self, action: #selector(orderButtonTapped), for: .touchUpInside)
         return button
     }()
     
+    @objc
+    private func orderButtonTapped() {
+        onOrderButtonTapped?()
+    }
     // MARK: - Inits
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         selectionStyle = .none
+        backgroundColor = .clear
         setupViews()
         setupConstraints()
     }
@@ -104,11 +125,13 @@ final class OrderInfoCell: UITableViewCell {
         pricelLabel.text = "£\(orderInfo[2])"
     }
 }
+
     // MARK: - Constraints
 
     extension OrderInfoCell {
 
         private func setupViews() {
+            contentView.addSubview(separatorLineView)
             contentView.addSubview(verticalStackView)
             contentView.addSubview(totalStackView)
             contentView.addSubview(orderButton)
@@ -125,15 +148,22 @@ final class OrderInfoCell: UITableViewCell {
         private func setupConstraints() {
         
             NSLayoutConstraint.activate([
-                verticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 60),
-                verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+                
+                separatorLineView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
+                separatorLineView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                separatorLineView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                separatorLineView.heightAnchor.constraint(equalToConstant: 0.2),
+               
+                
+                verticalStackView.topAnchor.constraint(equalTo: separatorLineView.topAnchor, constant: 20),
+                verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
                 verticalStackView.heightAnchor.constraint(equalToConstant: 60),
                 verticalStackView.widthAnchor.constraint(equalToConstant: Layout.width / 2.1),
                 verticalStackView.bottomAnchor.constraint(equalTo: totalStackView.topAnchor),
                 
              
                 totalStackView.leadingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: 10),
-                totalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                totalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 totalStackView.heightAnchor.constraint(equalToConstant: 50),
         
                 totalStackView.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -40),

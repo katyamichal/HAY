@@ -29,8 +29,15 @@ class BasketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        basketView.onDeleteProduct = {product in
+        basketView.onDeleteProduct = { product in
             self.basketViewModel.deleteProduct(product: product)
+        }
+        
+        
+        basketView.onShowOrderView = {
+            let orderViewModel = OrderViewModel()
+            let orderView = OrderViewController(orderViewModel: orderViewModel)
+            self.navigationController?.pushViewController(orderView, animated: true)
         }
         
         basketView.onShowProductDetail = { product in

@@ -20,6 +20,7 @@ final class ProductTableCell: UITableViewCell {
         label.numberOfLines = 0
         label.text = "Name Label"
         label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.textColor = .black
         return label
     }()
     
@@ -30,6 +31,7 @@ final class ProductTableCell: UITableViewCell {
         label.numberOfLines = 0
         label.text = "Price: £300"
         label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.textColor = .black
         return label
     }()
 
@@ -59,6 +61,7 @@ final class ProductTableCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        backgroundColor = .clear
         setupViews()
         setupConstraints()
     }
@@ -88,24 +91,28 @@ extension ProductTableCell {
     }
 
     private func setupConstraints() {
-        let constant: CGFloat = 8
 
         NSLayoutConstraint.activate([
-            productImageView.heightAnchor.constraint(equalToConstant: 0.3 * Layout.width),
-            productImageView.widthAnchor.constraint(equalToConstant: 0.3 * Layout.width),
-            productImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: constant),
-            productImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-
-            nameLabel.topAnchor.constraint(equalTo: productImageView.topAnchor, constant: constant),
             
+            productImageView.heightAnchor.constraint(equalToConstant: 100),
+            productImageView.widthAnchor.constraint(equalToConstant: 100),
+            
+            productImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            productImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            productImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            
+
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             nameLabel.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: 20),
             
-            
+        
+        
             detailButton.topAnchor.constraint(equalTo: productImageView.topAnchor),
-            detailButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -constant),
+            detailButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
             pricelLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-            pricelLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
+            pricelLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            
 
         ])
     }

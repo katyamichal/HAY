@@ -32,16 +32,15 @@ final class FavouriteView: UIView {
     }
     
     // MARK: - UI Elements
-   lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = createLayout()
-       
+        
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
-    
+ 
         collection.dataSource = self
-       
-       collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
-       collection.backgroundColor = .systemBackground
+        collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
+        collection.backgroundColor = .hayMain
         return collection
     }()
     
@@ -51,6 +50,7 @@ final class FavouriteView: UIView {
         label.font = .systemFont(ofSize: 22, weight: .light)
         label.textColor = .label
         label.numberOfLines = 0
+        label.textColor = .black
         return label
     }()
 
@@ -58,6 +58,7 @@ final class FavouriteView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupStyles()
         setupViews()
         setupConstraints()
@@ -81,7 +82,6 @@ final class FavouriteView: UIView {
 
         let section = NSCollectionLayoutSection(group: group)
         let layout = UICollectionViewCompositionalLayout(section: section)
-        
         return layout
     }
     // MARK: - Private
@@ -98,7 +98,7 @@ final class FavouriteView: UIView {
 extension FavouriteView {
     
     private func setupStyles() {
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .hayMain
     }
     
     private func setupViews() {
@@ -141,7 +141,7 @@ extension FavouriteView: UICollectionViewDataSource {
             return cell
         }
         cell.update(favProduct)
-        cell.likeButton.onLikeButtonPressed = {isLiked, product in
+        cell.likeButton.onLikeButtonTapped = {isLiked, product in
             self.onProductTappedLikeButton?(product)
         }
         

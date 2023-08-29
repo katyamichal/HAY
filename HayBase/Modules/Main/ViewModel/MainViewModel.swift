@@ -12,11 +12,14 @@ import Foundation
 
 final class MainViewModel {
     
-    let service: HayServiceable
+   private let service: HayServiceable
     
-    let productArchiver: ProductArchiver = ProductArchiver(productType: .favourite)
+   private let productArchiver: ProductArchiver = ProductArchiver(productType: .favourite)
+private let basketProductArchiver: ProductArchiver = ProductArchiver(productType: .basket)
     
-    var savedProducts: [LocaleProduct]? = []
+    private var savedProducts: [LocaleProduct]? = []
+    private var basketProducts: [LocaleProduct]? = []
+    
     
     // MARK: - Popular View Model
     
@@ -56,7 +59,7 @@ final class MainViewModel {
     // MARK: - Inspiration View Model
     
     private var inspiration: [InspirationFeed] = []
-//
+
     var localInspiration: [LocaleInspirationFeed] {
 
         var localeInspiration: [LocaleInspirationFeed] = []
@@ -118,6 +121,8 @@ final class MainViewModel {
     init(service: HayServiceable) {
         self.service = service
         savedProducts = productArchiver.retrieve()
+        basketProducts = basketProductArchiver.retrieve()
+        
     }
     
     @MainActor func fetchModels()  {
@@ -175,12 +180,20 @@ final class MainViewModel {
             return localProducts
         }
         var merged: [LocaleProduct] = localProducts
+        
         for saved in savedProducts {
             if let index = merged.firstIndex(where: { $0.id == saved.id }) {
                 merged[index].isFavourite = saved.isFavourite
             }
-            
         }
+        
+        guard let basketProducts else { return merged }
+        
+        for product in basketProducts {
+            if let index = merged.firstIndex(where: { $0.id == product.id }) {
+                merged[index].isInCart = product.isInCart
+            }
+        }        
         return merged
     }
 }

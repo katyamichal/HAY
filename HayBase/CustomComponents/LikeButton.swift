@@ -9,7 +9,7 @@ import UIKit
 
 class LikeButton: UIButton {
     
-    var onLikeButtonPressed: ((Bool, LocaleProduct)->())?
+    var onLikeButtonTapped: ((Bool, LocaleProduct)->())?
     
     var product: LocaleProduct?
     
@@ -49,14 +49,14 @@ class LikeButton: UIButton {
             
             guard var product else {return}
             product.isFavourite = false
-            self.onLikeButtonPressed?(false, product)
+            self.onLikeButtonTapped?(false, product)
             
             
         } else {
             self.isSelected = true
             guard var product else {return}
             product.isFavourite = true
-            self.onLikeButtonPressed?(true, product)
+            self.onLikeButtonTapped?(true, product)
         }
     }
 }
