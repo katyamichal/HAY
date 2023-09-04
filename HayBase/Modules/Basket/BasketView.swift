@@ -82,7 +82,7 @@ final class BasketView: UIView {
 extension BasketView {
     
     private func setupStyles() {
-        self.backgroundColor = .hayMain
+        self.backgroundColor = Colours.Main.hayBackground
     }
     
     
@@ -101,7 +101,7 @@ extension BasketView {
             headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             headerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            tableView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 10),
+            tableView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 30),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor)

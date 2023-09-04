@@ -24,7 +24,7 @@ final class ReceiverCell: UITableViewCell {
         return imageView
     }()
     
-    private let receiverLabel: UILabel = {
+    private let headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "receiver"
@@ -92,12 +92,11 @@ final class ReceiverCell: UITableViewCell {
     }()
     
     // MARK: - Inits
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-
         backgroundColor = .clear
         setupViews()
         setupConstraints()
@@ -109,56 +108,52 @@ final class ReceiverCell: UITableViewCell {
     
 }
 
+
+// MARK: - Setup methods
+
 extension ReceiverCell {
     
     private func setupViews() {
         contentView.addSubview(circleImageView)
-        contentView.addSubview(receiverLabel)
+        contentView.addSubview(headerLabel)
         contentView.addSubview(receiverNameLabel)
         contentView.addSubview(verticalStackView)
         
         verticalStackView.addArrangedSubview(mobileNumberLabel)
         verticalStackView.addArrangedSubview(mailLabel)
-       
-
+        
         contentView.addSubview(chevronImageView)
     }
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-           
-        
-            receiverLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            receiverLabel.leadingAnchor.constraint(equalTo: circleImageView.leadingAnchor, constant: 22),
+            
+            headerLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerLabel.leadingAnchor.constraint(equalTo: circleImageView.leadingAnchor, constant: 22),
             
             
-            circleImageView.centerYAnchor.constraint(equalTo: receiverLabel.centerYAnchor),
+            circleImageView.centerYAnchor.constraint(equalTo: headerLabel.centerYAnchor),
             circleImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             circleImageView.widthAnchor.constraint(equalToConstant: 10),
             circleImageView.heightAnchor.constraint(equalToConstant: 10),
             
-            receiverNameLabel.topAnchor.constraint(equalTo: receiverLabel.bottomAnchor, constant: 6),
+            receiverNameLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 6),
             receiverNameLabel.leadingAnchor.constraint(equalTo: circleImageView.leadingAnchor, constant: 22),
             receiverNameLabel.trailingAnchor.constraint(equalTo: chevronImageView.leadingAnchor),
             
             verticalStackView.topAnchor.constraint(equalTo: receiverNameLabel.bottomAnchor, constant: 10),
             
-            verticalStackView.leadingAnchor.constraint(equalTo: receiverLabel.leadingAnchor),
+            verticalStackView.leadingAnchor.constraint(equalTo: headerLabel.leadingAnchor),
             verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             
             
-            
-            chevronImageView.topAnchor.constraint(equalTo: receiverLabel.topAnchor),
+            chevronImageView.topAnchor.constraint(equalTo: headerLabel.topAnchor),
             chevronImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-        
             chevronImageView.heightAnchor.constraint(equalToConstant: 20),
             chevronImageView.widthAnchor.constraint(equalToConstant: 15)
             
         ])
-        
     }
-    
-
 }

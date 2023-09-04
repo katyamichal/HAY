@@ -52,7 +52,9 @@ final class MainViewController: UIViewController {
         mainViewModel.fetchModels()
         
         mainViewModel.onUpdatedModel =  {
-            self.mainView.mainTableView.update(self.mainViewModel)
+            
+            self.mainView.mainTableView.viewModel = self.mainViewModel
+          //  self.mainView.mainTableView.update(self.mainViewModel)
         }
     }
 }

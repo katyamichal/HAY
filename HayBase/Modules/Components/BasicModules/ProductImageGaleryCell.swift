@@ -29,7 +29,7 @@ final class ProductImageGaleryCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.spacing = 40
         stackView.alignment = .center
-        stackView.backgroundColor = UIColor.productDescription
+        stackView.backgroundColor = Colours.Main.productDescription
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 40, left: 20, bottom: 40, right: 20)
         return stackView
@@ -67,7 +67,7 @@ final class ProductImageGaleryCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .hayMain
+        backgroundColor = .clear
         setupViews()
         setupConstraints()
         setupScrollView()

@@ -29,11 +29,13 @@ final class FavouriteViewModel {
         if product.isFavourite {
             productArchiver.save(product)
             ProductArchiver.favourite?.append(product)
+            guard let removedProduct = products?.firstIndex(where: {$0.id == product.id}) else { return }
+            products?.remove(at: removedProduct)
         } else {
             productArchiver.delete(product)
             ProductArchiver.favourite?.removeAll(where: {$0.id == product.id})
         }
-        loadProduct()
+      //  loadProduct()
     }
     
     func updateBasket(product: LocaleProduct) {

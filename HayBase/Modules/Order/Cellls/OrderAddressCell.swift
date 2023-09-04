@@ -23,7 +23,7 @@ final class OrderAddressCell: UITableViewCell {
         return imageView
     }()
     
-    private let addressLabel: UILabel = {
+    private let headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "address and shipping"
@@ -44,12 +44,12 @@ final class OrderAddressCell: UITableViewCell {
         return label
     }()
 
-    private let chevronImageView: UIImageView = {
+    private let accessory: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .center
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        let imageConfiguration = UIImage.SymbolConfiguration(pointSize: 15, weight: .regular)
+        let imageConfiguration = UIImage.SymbolConfiguration(pointSize: 10, weight: .regular)
         let image = UIImage(systemName: "chevron.right", withConfiguration: imageConfiguration)
         imageView.image = image
         imageView.tintColor = .black
@@ -62,7 +62,6 @@ final class OrderAddressCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-
         backgroundColor = .clear
         setupViews()
         setupConstraints()
@@ -78,9 +77,9 @@ extension OrderAddressCell {
     
     private func setupViews() {
         contentView.addSubview(circleImageView)
-        contentView.addSubview(addressLabel)
+        contentView.addSubview(headerLabel)
         contentView.addSubview(addressDetailLabel)
-        contentView.addSubview(chevronImageView)
+        contentView.addSubview(accessory)
     }
     
     private func setupConstraints() {
@@ -88,27 +87,27 @@ extension OrderAddressCell {
         NSLayoutConstraint.activate([
            
         
-            addressLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            addressLabel.leadingAnchor.constraint(equalTo: circleImageView.leadingAnchor, constant: 22),
+            headerLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerLabel.leadingAnchor.constraint(equalTo: circleImageView.leadingAnchor, constant: 22),
             
             
-            circleImageView.centerYAnchor.constraint(equalTo: addressLabel.centerYAnchor),
+            circleImageView.centerYAnchor.constraint(equalTo: headerLabel.centerYAnchor),
             circleImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             circleImageView.widthAnchor.constraint(equalToConstant: 10),
             circleImageView.heightAnchor.constraint(equalToConstant: 10),
             
-            addressDetailLabel.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 6),
+            addressDetailLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 6),
             addressDetailLabel.leadingAnchor.constraint(equalTo: circleImageView.leadingAnchor, constant: 22),
             addressDetailLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
-            addressDetailLabel.trailingAnchor.constraint(equalTo: chevronImageView.leadingAnchor),
+            addressDetailLabel.trailingAnchor.constraint(equalTo: accessory.leadingAnchor),
             
             
             
-            chevronImageView.topAnchor.constraint(equalTo: addressLabel.topAnchor),
-            chevronImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            accessory.centerYAnchor.constraint(equalTo: headerLabel.centerYAnchor),
+            accessory.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         
-            chevronImageView.heightAnchor.constraint(equalToConstant: 20),
-            chevronImageView.widthAnchor.constraint(equalToConstant: 15)
+            accessory.heightAnchor.constraint(equalToConstant: 13),
+            accessory.widthAnchor.constraint(equalToConstant: 8)
             
         ])
         

@@ -15,14 +15,14 @@ final class ProfileCell: UITableViewCell {
         let imageView = UIImageView()
  
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .profile
+        imageView.backgroundColor = Colours.Profile.profileDark
         imageView.clipsToBounds = true
         imageView.contentMode = .center
         
         let imageConfiguration = UIImage.SymbolConfiguration(pointSize: 25, weight: .light)
         let image = UIImage(systemName: "camera", withConfiguration: imageConfiguration)
         
-        imageView.tintColor = .black
+        imageView.tintColor = .white
         imageView.image = image
         imageView.layer.cornerRadius = 35
         
@@ -65,13 +65,10 @@ final class ProfileCell: UITableViewCell {
         let imageView = UIImageView()
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
-
         let imageConfiguration = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular)
         let image = UIImage(systemName: "ellipsis", withConfiguration: imageConfiguration)
         imageView.tintColor = .black
-        
         imageView.image = image
-        
         return imageView
     }()
     
@@ -80,7 +77,6 @@ final class ProfileCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-
         backgroundColor = .clear
         setupViews()
         setupConstraints()
@@ -95,14 +91,10 @@ final class ProfileCell: UITableViewCell {
 extension ProfileCell {
     
     private func setupViews() {
-
         contentView.addSubview(profileImageView)
-       
         contentView.addSubview(verticalStackView)
-        
         verticalStackView.addArrangedSubview(nameLabel)
         verticalStackView.addArrangedSubview(surnameLabel)
-        
         contentView.addSubview(detailImageView)
     }
     
@@ -110,10 +102,9 @@ extension ProfileCell {
         
         NSLayoutConstraint.activate([
         
-        
             profileImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             profileImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
-            profileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            profileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             profileImageView.heightAnchor.constraint(equalToConstant: 70),
             profileImageView.widthAnchor.constraint(equalToConstant: 70),
             
@@ -123,8 +114,7 @@ extension ProfileCell {
             
             
             detailImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            detailImageView.leadingAnchor.constraint(equalTo: verticalStackView.trailingAnchor),
-            detailImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            detailImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             detailImageView.widthAnchor.constraint(equalToConstant: 20)
             
         ])

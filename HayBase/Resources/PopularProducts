@@ -2,6 +2,20 @@
 
 {
     "products": [
+        
+        {
+            "id": 201,
+            "product_name": "liberty lamp",
+            "description": "Featuring Liberty’s distinctive floral print on the Matin Shade’s classic pleated construction, the Liberty Shade brings together two iconic designs in a poetic and timeless design. The shade’s delicate yet contemporary expression brings an inviting atmosphere to most rooms in the home. The shade comes in two different sizes that fit Inge Sempé’s Matin Table Lamp and is available in five selected prints.",
+            "price": 390,
+            "image": "liberty",
+            "image_collection": ["sp-liberty", "sp-liberty2"],
+            "material": "Cotton fabric laminated with a PVC sheet. Black top screw in injection moulded ABS. LAMP BODY: Bent steel wire with polished brass finish or mirror plated steel, precision cast steel counterweight and injection moulded ABS.",
+            "size": "38 × 38 × 52",
+            "colour": "mitsi"
+           
+
+        },
   
         {
             "id": 211,
@@ -10,7 +24,7 @@
             "price": 790,
             "image": "dapper",
             "image_collection": ["sp-dapper", "sp-dapper2"],
-            "material": "plywood with oak veneer with upholstery on seat and backrest. 30 mm thick foam.",
+            "material": "plywood with oak veneer with upholstery on seat and backrest. 30 mm thick foam",
             "size": "70 × 65 × 74.5",
             "colour": "black"
            

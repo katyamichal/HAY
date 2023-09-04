@@ -10,29 +10,7 @@ import UIKit
 final class DesignerProductsCell: UICollectionViewCell {
     
     static let cellIdentifier = "DesignerProductsCell"
-    
-    // MARK: - Inits
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-        setupConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    // MARK: - Public
-    func update(_ designerProduct: LocaleProduct) {
-        nameLabel.text = designerProduct.productName.lowercased()
-        pricelLabel.text = "\(designerProduct.price) £"
-        productImageView.image = UIImage(named: designerProduct.image)
-        likeButton.product = designerProduct
-        likeButton.isSelected = designerProduct.isFavourite
-    }
-    
+        
     
     // MARK: - UI Element
     
@@ -82,6 +60,28 @@ final class DesignerProductsCell: UICollectionViewCell {
          button.translatesAutoresizingMaskIntoConstraints = false
          return button
      }()
+    
+    // MARK: - Inits
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: - Public
+    func update(_ designerProduct: LocaleProduct) {
+        nameLabel.text = designerProduct.productName.lowercased()
+        pricelLabel.text = "\(designerProduct.price) £"
+        productImageView.image = UIImage(named: designerProduct.image)
+        likeButton.product = designerProduct
+        likeButton.isSelected = designerProduct.isFavourite
+    }
 }
 
 extension DesignerProductsCell {

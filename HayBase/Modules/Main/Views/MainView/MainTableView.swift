@@ -31,9 +31,9 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
      
     // MARK: - View Model
 
-    func update(_ viewModel: MainViewModel) {
-        self.viewModel = viewModel
-    }
+//    func update(_ viewModel: MainViewModel) {
+//        self.viewModel = viewModel
+//    }
     var viewModel: MainViewModel? {
         didSet {
             self.reloadData()
@@ -48,7 +48,7 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
         super.init(frame: frame, style: style)
         
         
-        self.backgroundColor = .hayMain
+        self.backgroundColor = Colours.Main.hayBackground
         
         self.translatesAutoresizingMaskIntoConstraints = false
         self.delegate = self
@@ -63,7 +63,10 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
         self.tableHeaderView?.isUserInteractionEnabled = true
         
         self.register(ProductCell.self)
-        self.register(DesignerCollaborationCell.self)
+        self.register(DesignerCell.self)
+        
+        //Loading Cell
+        self.register(LoadingDesignerCell.self)
     }
     
     required init?(coder: NSCoder) {
@@ -84,13 +87,10 @@ extension MainTableView: UITableViewDataSource {
         let section = ProductSection.allCases[section]
         
         switch section {
-            
         case .popular:
             return 1
-            
         case .designer:
-            return viewModel?.localDesigners.count ?? 0
-            
+            return viewModel?.localDesigners.count ?? 1
         }
     }
     
@@ -107,7 +107,7 @@ extension MainTableView: UITableViewDataSource {
             cell.update(products)
             
             cell.collectionView.delegate = self
-            cell.backgroundColor = .hayMain
+          
             cell.onLocalProductDidChanged = { product in
                 self.selectionDelegate?.didChangeLocalProduct(product: product)
             }
@@ -115,16 +115,17 @@ extension MainTableView: UITableViewDataSource {
             return cell
             
         case .designer:
-            let cell = tableView.dequeue(indexPath) as DesignerCollaborationCell
+            
             guard let designers = viewModel?.localDesigners, !designers.isEmpty else {
+                let cell = tableView.dequeue(indexPath) as LoadingDesignerCell
                 return cell
             }
-            cell.backgroundColor = .hayMain
+            
+            let cell = tableView.dequeue(indexPath) as DesignerCell
             cell.update(designers[indexPath.row])
             cell.collectionView.delegate = self
             cell.onLocalProductDidChanged = { product in
                 self.selectionDelegate?.didChangeLocalProduct(product: product)
-                
             }
             return cell
         }

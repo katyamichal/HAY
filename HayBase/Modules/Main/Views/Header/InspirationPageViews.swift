@@ -40,7 +40,7 @@ final class InspirationView: UIView {
     private let view: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .hayMain.withAlphaComponent(0.5)
+        view.backgroundColor = Colours.Main.hayBackground.withAlphaComponent(0.5)
         return view
     }()
     

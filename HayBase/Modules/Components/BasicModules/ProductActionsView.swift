@@ -23,7 +23,7 @@ final class ProductActionsView: UIView {
     private let favouriteButton: LikeButton = {
         let button = LikeButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .gradientLightGrey
+        button.tintColor = Colours.Main.hayBackground
         button.backgroundColor = .black
         return button
     }()

@@ -75,7 +75,7 @@ final class ProductTableCell: UITableViewCell {
 
     func update(_ product: LocaleProduct) {
         nameLabel.text = product.productName
-        pricelLabel.text = "\(product.price) £".uppercased()
+        pricelLabel.text = "price: " + "£\(product.price)".uppercased()
         productImageView.image = UIImage(named: product.image)
     }
 }

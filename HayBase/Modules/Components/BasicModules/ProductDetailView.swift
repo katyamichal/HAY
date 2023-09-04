@@ -27,7 +27,7 @@ final class ProductDetailView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .hayMain
+        backgroundColor = Colours.Main.hayBackground
         setupView()
         setupConstraints()
         tableView.delegate = self

@@ -36,7 +36,7 @@ final class InspirationDetailView: UIView {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = .hayMain
+        collection.backgroundColor = .clear
         collection.dataSource = self
         
         collection.register(InspirationDetailCell.self, forCellWithReuseIdentifier: InspirationDetailCell.cellIdentifier)
@@ -52,7 +52,7 @@ final class InspirationDetailView: UIView {
     init(frame: CGRect, viewModel: InspoDetailViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
-        backgroundColor = .hayMain
+        backgroundColor = Colours.Main.hayBackground
         setupView()
         setupConstraints()
     }

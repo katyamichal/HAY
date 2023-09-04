@@ -8,7 +8,6 @@
 import UIKit
 
 final class PaymentCell: UITableViewCell {
-
     
     // MARK: - UI Elements
     
@@ -44,7 +43,7 @@ final class PaymentCell: UITableViewCell {
         label.textColor = .black
         return label
     }()
-
+    
     private let chevronImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .center
@@ -58,12 +57,11 @@ final class PaymentCell: UITableViewCell {
     }()
     
     // MARK: - Inits
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-
         backgroundColor = .clear
         setupViews()
         setupConstraints()
@@ -74,6 +72,7 @@ final class PaymentCell: UITableViewCell {
     }
     
 }
+// MARK: - Setup methods
 
 extension PaymentCell {
     
@@ -87,11 +86,9 @@ extension PaymentCell {
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-           
-        
+            
             paymentLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             paymentLabel.leadingAnchor.constraint(equalTo: circleImageView.leadingAnchor, constant: 22),
-            
             
             circleImageView.centerYAnchor.constraint(equalTo: paymentLabel.centerYAnchor),
             circleImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -103,18 +100,13 @@ extension PaymentCell {
             paymentDetailLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
             paymentDetailLabel.trailingAnchor.constraint(equalTo: chevronImageView.leadingAnchor),
             
-            
-            
             chevronImageView.topAnchor.constraint(equalTo: paymentLabel.topAnchor),
             chevronImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-        
             chevronImageView.heightAnchor.constraint(equalToConstant: 20),
             chevronImageView.widthAnchor.constraint(equalToConstant: 15)
             
         ])
-        
     }
-    
 }
 
 

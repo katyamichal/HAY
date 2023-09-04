@@ -7,14 +7,12 @@
 import UIKit
 
 protocol InspirationTableHeaderDelegate: AnyObject {
-    
-    func inspirationView(_ header: InspirationTableHeader , didSelectInspiration feed: LocaleInspirationFeed)
+    func inspirationView(_ header: InspirationTableHeader, didSelectInspiration feed: LocaleInspirationFeed)
 }
 
 
 final class InspirationTableHeader: UIView {
     
-
     // MARK: - Properties
     
     weak var delegate: InspirationTableHeaderDelegate?
@@ -29,14 +27,13 @@ final class InspirationTableHeader: UIView {
         super.init(frame: frame)
         setupViews()
         setupConstrains()
-        shimmeringView.createGradient()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    
     // MARK: - Constraints to change
     
     private var scrollViewHeight = NSLayoutConstraint()
@@ -46,7 +43,7 @@ final class InspirationTableHeader: UIView {
     private var containerHeight = NSLayoutConstraint()
     
     // MARK: - UI Elements
-
+    
     private let shimmeringView: ShimmeringView = {
         let shimmering = ShimmeringView()
         shimmering.frame = CGRect(x: .zero, y: .zero, width: Layout.width, height: Layout.height / 1.75)
@@ -140,9 +137,7 @@ final class InspirationTableHeader: UIView {
     // MARK: - Setups
     
     private func setupViews() {
-        
         addSubview(shimmeringView)
-        
         addSubview(container)
         addSubview(detailButton)
         container.addSubview(scrollView)
@@ -153,8 +148,6 @@ final class InspirationTableHeader: UIView {
     private func setupConstrains() {
         
         NSLayoutConstraint.activate([
-            
-            
             
             pageControl.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 70),
             pageControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -15),
@@ -174,7 +167,7 @@ final class InspirationTableHeader: UIView {
         ])
         
         // MARK: - Transformable constraints
-
+        
         container.translatesAutoresizingMaskIntoConstraints = false
         
         container.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true

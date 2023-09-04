@@ -8,7 +8,7 @@
 import UIKit
 
 final class DateCell: UITableViewCell {
-
+    
     // MARK: - UI Elements
     
     private let dateLabel: UILabel = {
@@ -30,10 +30,10 @@ final class DateCell: UITableViewCell {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
-   
+        
         collection.register(OrderProductsCollectionCell.self, forCellWithReuseIdentifier: OrderProductsCollectionCell.cellIdentifier)
         
-
+        
         collection.backgroundColor = .clear
         return collection
     }()
@@ -68,15 +68,15 @@ extension DateCell {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
-        dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-        dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 38),
-        
-        productsCollectionView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
-        productsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 38),
-       productsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
-        productsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-        productsCollectionView.heightAnchor.constraint(equalToConstant: 70)
-        
+            dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 38),
+            
+            productsCollectionView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
+            productsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 38),
+            productsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            productsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            productsCollectionView.heightAnchor.constraint(equalToConstant: 70)
+            
         ])
     }
 }

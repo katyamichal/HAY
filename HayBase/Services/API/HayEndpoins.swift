@@ -11,7 +11,8 @@
 //
 //2.2 https://apingweb.com/api/rest/885cf0c6fc07da547594a5b1dcb0667d24/designers
 
-// 3. https://apingweb.com/api/rest/3e968b82afefe30beb86736353d3954122/popular
+// 3. 
+//https://apingweb.com/api/rest/f43525aa631e06f5a8be9cc31c6ddace18/popular
 
 
 import Foundation
@@ -40,7 +41,7 @@ extension HayEndpoints: Endpoint {
             return "/api/rest/885cf0c6fc07da547594a5b1dcb0667d24/designers"
             
         case .popular:
-            return "/api/rest/3e968b82afefe30beb86736353d3954122/popular"
+            return "/api/rest/f43525aa631e06f5a8be9cc31c6ddace18/popular"
             
         default: return ""
         }

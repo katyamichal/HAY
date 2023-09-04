@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HayTabBarController: UITabBarController {
+final class HayTabBarController: UITabBarController {
     
     // MARK: - Controllers for Tab Bar
   
@@ -93,9 +93,9 @@ class HayTabBarController: UITabBarController {
     // MARK: - Setups
     
     private func setupTabBar() {
-        tabBar.tintColor = .systemBrown
-        tabBar.backgroundColor = .hayMain
-        tabBar.barTintColor = .hayMain
+        tabBar.tintColor = Colours.Main.hayAccent
+        tabBar.backgroundColor = Colours.Main.hayBackground
+        tabBar.barTintColor = Colours.Main.hayBackground
         tabBar.unselectedItemTintColor = .black
         
         viewControllers = [nav1, nav2, profileController, nav4]

@@ -67,13 +67,11 @@ private let basketProductArchiver: ProductArchiver = ProductArchiver(productType
         for inspo in inspiration {
 
             let localeInspirationProducts = createLocalProducts(with: inspo.products)
-          //  let mergeProducts = mergeProducts(localProducts: localeInspirationProducts)
 
             let localeInspo = LocaleInspirationFeed(id: inspo.id, collectionName: inspo.collectionName, coverImage: inspo.coverImage, description: inspo.description, images: inspo.images, products: localeInspirationProducts)
 
             localeInspiration.append(localeInspo)
         }
-
         return localeInspiration
     }
   
@@ -107,7 +105,7 @@ private let basketProductArchiver: ProductArchiver = ProductArchiver(productType
         }
         savedProducts = productArchiver.retrieve()
     }
-    
+
     
     func update() {
         defer {

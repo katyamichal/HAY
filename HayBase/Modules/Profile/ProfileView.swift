@@ -9,12 +9,14 @@ import UIKit
 
 enum ProfileSection: CaseIterable {
     case profile
-//    case office
-//    case logout
+    case discount
+    case office
+    case logout
 }
 
 final class ProfileView: UIView {
-    
+    // view model
+    private var infoType: [String] = ["my purchases", "favourite", "hay offices & showrooms", "sustainability", "contact", "privacy notice"]
 
     // MARK: - Inits
 
@@ -39,8 +41,9 @@ final class ProfileView: UIView {
         table.backgroundColor = .clear
         
         table.register(ProfileCell.self)
-//        table.register(OfficeCell.self)
-//        table.register(LogoutCell.self)
+        table.register(DiscountCell.self)
+        table.register(OfficeCell.self)
+        table.register(LogoutCell.self)
         
         return table
     }()
@@ -51,19 +54,15 @@ final class ProfileView: UIView {
 extension ProfileView {
     
     private func setupStyles() {
-        backgroundColor = .hayMain
+        backgroundColor = Colours.Main.hayBackground
     }
-    
-    
+
     private func setupViews() {
         addSubview(tableView)
         
         tableView.dataSource = self
         tableView.delegate = self
-
-        
     }
-    
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -71,7 +70,7 @@ extension ProfileView {
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ])
     }
 }
@@ -89,6 +88,12 @@ extension ProfileView: UITableViewDataSource {
         switch section {
         case .profile:
             return 1
+        case .discount:
+            return 1
+        case .office:
+            return infoType.count
+        case .logout:
+            return 1
         }
     }
     
@@ -98,6 +103,16 @@ extension ProfileView: UITableViewDataSource {
         switch section {
         case .profile:
             let cell = tableView.dequeue(indexPath) as ProfileCell
+            return cell
+        case .discount:
+            let cell = tableView.dequeue(indexPath) as DiscountCell
+            return cell
+        case .office:
+            let cell = tableView.dequeue(indexPath) as OfficeCell
+            cell.update(productInfo: infoType[indexPath.row])
+            return cell
+        case .logout:
+            let cell = tableView.dequeue(indexPath) as LogoutCell
             return cell
         }
     }

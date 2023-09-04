@@ -9,6 +9,7 @@ enum OrderSection: CaseIterable {
     case dateAndProduct
     case receiverInfo
     case payment
+    case total
 }
 
 
@@ -53,15 +54,17 @@ final class OrderView: UIView {
         table.register(DateCell.self)
         table.register(ReceiverCell.self)
         table.register(PaymentCell.self)
+        table.register(TotalCell.self)
         return table
     }()
+    
 }
 // MARK: - Setup methods
 
 extension OrderView {
     
     private func setupStyles() {
-        backgroundColor = .hayMain
+        backgroundColor = Colours.Main.hayBackground
     }
     
     
@@ -105,6 +108,9 @@ extension OrderView: UITableViewDataSource {
             return 1
         case .payment:
             return 1
+            
+        case .total:
+            return 1
         }
     }
     
@@ -123,6 +129,10 @@ extension OrderView: UITableViewDataSource {
             return cell
         case .payment:
             let cell = tableView.dequeue(indexPath) as PaymentCell
+            return cell
+            
+        case .total:
+            let cell = tableView.dequeue(indexPath) as TotalCell
             return cell
         }
     }

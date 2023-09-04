@@ -40,7 +40,7 @@ final class FavouriteView: UIView {
  
         collection.dataSource = self
         collection.register(BasicProductCell.self, forCellWithReuseIdentifier: BasicProductCell.cellIdentifier)
-        collection.backgroundColor = .hayMain
+        collection.backgroundColor = Colours.Main.hayBackground
         return collection
     }()
     
@@ -98,7 +98,7 @@ final class FavouriteView: UIView {
 extension FavouriteView {
     
     private func setupStyles() {
-        self.backgroundColor = .hayMain
+        self.backgroundColor = Colours.Main.hayBackground
     }
     
     private func setupViews() {

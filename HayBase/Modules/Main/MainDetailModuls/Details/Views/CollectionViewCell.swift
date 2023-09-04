@@ -68,7 +68,7 @@ final class InspirationDetailCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .hayMain
+        backgroundColor = .clear
         setupViews()
         setupConstraints()
         setupScrollView()

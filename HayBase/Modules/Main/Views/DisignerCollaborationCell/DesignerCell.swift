@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DesignerCollaborationCell: UITableViewCell {
+final class DesignerCell: UITableViewCell {
     
     private var designer: LocaleDesigner?
     var onLocalProductDidChanged: ((LocaleProduct)->())?
@@ -39,7 +39,7 @@ final class DesignerCollaborationCell: UITableViewCell {
         return label
     }()
     
-    private let collaborationName: UILabel = {
+    private let collectionName: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -82,27 +82,28 @@ final class DesignerCollaborationCell: UITableViewCell {
     }()
     // MARK: - Collection View
     
-     lazy var collectionView: UICollectionView = {
- 
+    lazy var collectionView: UICollectionView = {
+        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: Layout.width * 0.5, height: Layout.width * 0.7)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 16
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-         collection.backgroundColor = .clear
+        collection.backgroundColor = .clear
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.showsHorizontalScrollIndicator = false
         collection.dataSource = self
-         
+        
         collection.register(DesignerProductsCell.self, forCellWithReuseIdentifier: DesignerProductsCell.cellIdentifier)
-       
+        
         return collection
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        backgroundColor = .clear
         setupViews()
         setupConstraints()
     }
@@ -116,7 +117,7 @@ final class DesignerCollaborationCell: UITableViewCell {
     func update(_ designer: LocaleDesigner) {
         
         designerNameLabel.text = designer.designerName.capitalized
-        collaborationName.text = designer.collectionName.capitalized
+        collectionName.text = designer.collectionName.capitalized
         designerImageView.image = UIImage(named: "\(designer.designerImage)")
         
         self.designer = designer
@@ -127,7 +128,7 @@ final class DesignerCollaborationCell: UITableViewCell {
 
 // MARK: - Setup methods
 
-extension DesignerCollaborationCell {
+extension DesignerCell {
     private func setupViews() {
         //1
         contentView.addSubview(containerView)
@@ -138,7 +139,7 @@ extension DesignerCollaborationCell {
         designerStackView.addArrangedSubview(descriptionStackView)
         //3
         descriptionStackView.addArrangedSubview(designerNameLabel)
-        descriptionStackView.addArrangedSubview(collaborationName)
+        descriptionStackView.addArrangedSubview(collectionName)
         //4
         containerView.addSubview(collectionView)
     }
@@ -151,25 +152,25 @@ extension DesignerCollaborationCell {
             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             containerView.heightAnchor.constraint(equalToConstant: 600),
-
-
-          
+            
+            
+            
             headerLabel.topAnchor.constraint(equalTo: containerView.topAnchor),
             headerLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
             headerLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-
-       
+            
+            
             designerStackView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20),
             designerStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             designerStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-
-     
+            
+            
             collectionView.topAnchor.constraint(equalTo: designerStackView.bottomAnchor, constant: -25),
             collectionView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
             collectionView.leadingAnchor.constraint(equalTo: designerStackView.leadingAnchor, constant: 30),
             collectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-
-     
+            
+            
             designerImageView.widthAnchor.constraint(equalToConstant: Layout.width * 0.65),
             designerImageView.heightAnchor.constraint(equalToConstant: Layout.width * 0.7),
         ])
@@ -178,25 +179,26 @@ extension DesignerCollaborationCell {
 
 // MARK: - Collection Data Source
 
-extension DesignerCollaborationCell: UICollectionViewDataSource {
+extension DesignerCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return designer?.products.count ?? 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DesignerProductsCell.cellIdentifier, for: indexPath) as? DesignerProductsCell else {
             fatalError()
         }
         
         guard let products = designer?.products, !products.isEmpty,
-            let product = designer?.products[indexPath.item] else {return cell}
+              let product = designer?.products[indexPath.item] else {return cell}
         cell.update(product)
         cell.likeButton.onLikeButtonTapped = { isLiked, product in
             self.onLocalProductDidChanged?(product)
         }
         return cell
-     
+        
     }
 }
 

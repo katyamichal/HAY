@@ -43,6 +43,7 @@ final class ProductCell: UITableViewCell {
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.dataSource = self
         collection.register(ProductCollectionCell.self, forCellWithReuseIdentifier: ProductCollectionCell.cellIdentifier)
+        collection.register(LoadingCollectionCell.self, forCellWithReuseIdentifier: LoadingCollectionCell.cellIdentifier)
         collection.backgroundColor = .clear
         return collection
     }()
@@ -52,6 +53,7 @@ final class ProductCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        backgroundColor = .clear
         setupViews()
         setupConstraints()
     }
@@ -106,22 +108,32 @@ extension ProductCell {
 extension ProductCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return products.count
+        
+        return products.count == 0 ? 3 : products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionCell.cellIdentifier, for: indexPath) as? ProductCollectionCell else {
-            fatalError("Product Collection Cell")
+        if products.isEmpty {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoadingCollectionCell.cellIdentifier, for: indexPath) as? LoadingCollectionCell else {
+                fatalError("")
+            }
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionCell.cellIdentifier, for: indexPath) as? ProductCollectionCell else {
+                fatalError("Product Collection Cell")
+            }
+            
+            cell.likeButton.onLikeButtonTapped = { isLiked, product in
+                self.onLocalProductDidChanged?(product)
+            }
+            
+            let product = products[indexPath.item]
+            cell.update(product)
+            
+            return cell
         }
         
-        cell.likeButton.onLikeButtonTapped = { isLiked, product in
-            self.onLocalProductDidChanged?(product)
-        }
-        
-        let product = products[indexPath.item]
-        cell.update(product)
-        
-        return cell
+      
     }
 }
