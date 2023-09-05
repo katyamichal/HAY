@@ -11,6 +11,7 @@ final class DesignerCell: UITableViewCell {
     
     private var designer: LocaleDesigner?
     var onLocalProductDidChanged: ((LocaleProduct)->())?
+    var onDidSelectDesignerProduct: ((LocaleProduct)->())?
     
     // MARK: - UI Elements
     
@@ -94,6 +95,7 @@ final class DesignerCell: UITableViewCell {
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.showsHorizontalScrollIndicator = false
         collection.dataSource = self
+        collection.delegate = self
         
         collection.register(DesignerProductsCell.self, forCellWithReuseIdentifier: DesignerProductsCell.cellIdentifier)
         
@@ -106,6 +108,7 @@ final class DesignerCell: UITableViewCell {
         backgroundColor = .clear
         setupViews()
         setupConstraints()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -202,3 +205,14 @@ extension DesignerCell: UICollectionViewDataSource {
     }
 }
 
+
+extension DesignerCell: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let designer else { return }
+        let product = designer.products[indexPath.item]
+        onDidSelectDesignerProduct?(product)
+        
+    }
+}

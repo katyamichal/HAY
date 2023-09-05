@@ -161,7 +161,11 @@
                     "product_name": "bernard chair",
                     "description": "With the objective of creating a new and affordable design classic with a modern appeal to last future generations, Shane Schneck's Bernard explores the easy-chair genre within a contemporary context. The juxtaposition of a solid-wood frame with a visually light cover creates a unique relationship between the two components, resulting in a comfortable and durable chair with a distinctive design language. The frame is crafted in solid oak or beech with different finishes, and the slip-on cover is available in leather or industrial-strength marine canvas.",
                     "price": 990,
-                    "image": "bernard"
+                    "image": "bernard",
+                    "image_collection": ["ssc"],
+                    "material": "FRAME: Deep black Water-based lacquered Solid oak. GLIDER: Felt gliders",
+                    "size": "H73 x W77 x L62",
+                    "colour": "black"
 
                 },
                 {
@@ -169,7 +173,11 @@
                     "product_name": "tamoto bed",
                     "description": "Developed for HAY by Shane Schneck, Tamoto Bed is designed with multifunctionality in mind, which makes it easy and intuitive to integrate into a modern lifestyle. Tamoto is influenced by the draping quality of kimono sleeves, which inspired Shane's innovative use of folding fabric over the bed's frame. The soft, draped headboard is counterbalanced by the generously dimensioned steel tubing frame, creating a contemporary and comfortable bed-sofa hybrid that is not intended exclusively for sleeping, but also as a foundation for reading, working, or watching TV and other activities. With a flat-packed, easy-to-assemble design, removable headboard cover and recyclable materials, functionality has been factored in every step of the design process.",
                     "price": 2840,
-                    "image": "tamoto-bed"
+                    "image": "tamoto-bed",
+                    "image_collection": ["sp-tamoto-bed", "sp-tamoto bed2"],
+                    "material": "mint turquoise powder coated Steel, plastic gliders",
+                    "size": "W140 x L200",
+                    "colour": "mint"
           
                 },
                 
@@ -178,16 +186,24 @@
                     "product_name": "bowler table",
                     "description": "Shane Schneck's Bowler Table is a compact side table that is ideal for small spaces. The single tube that extends upwards creates a defined profile, which doubles as a functional handle too. The stem, handle and tray are made in powder coated steel, with a solid granite base that provides stability, yet it is still lightweight enough to move around. Bowler comes flat packed and is easy to assemble, making it suitable for all kinds of domestic and corporate environments.",
                     "price": 1040,
-                    "image": "bowler-table"
+                    "image": "bowler-table",
+                    "image_collection": ["ssc2", "sp-bowler"],
+                    "material": "TABLETOP: Pale brown Powder coated Steel. GLIDER: None",
+                    "size": "H70 x W36 x L36",
+                    "colour": "brown"
               
                 },
                 
                 {
                     "id": 841,
-                    "product_name": "porters",
+                    "product_name": "pair of porters",
                     "description": "Porter is an ingenious wooden kitchen roll holder that allows you to put kitchen roll on a straight rod and lock it in place by twisting the top of the rod, which also doubles as a handle. Available in oiled oak and black in two wood variants – oak made from leftover wood production or ash.",
                     "price": 220,
-                    "image": "porter"
+                    "image": "porter",
+                    "image_collection": ["sp-porter"],
+                    "material": "oiled oak",
+                    "size": "H36 x W13 x L13",
+                    "colour": "black and oiled oak"
                     
                 },
                 
@@ -196,7 +212,11 @@
                     "product_name": "cap slim-gold",
                     "description": "With its slim, elegant form and smooth touch, the Cap bottle opener turns a simple everyday task into a pleasure. The two versions are made of durable zinc alloy, with the thinner one coated in gold and the wider one in anthracite.",
                     "price": 130,
-                    "image": "cap"
+                    "image": "cap",
+                    "image_collection": ["ssc3"],
+                    "material": "zinc alloy",
+                    "size": "H0 x W13 x L4",
+                    "colour": "gold"
 
                 },
                 
@@ -205,7 +225,11 @@
                     "product_name": "tool box",
                     "description": "The handy and practical plastic toolbox is designed by Shane Schneck with extra compartments at the sides and top of the handle to optimise storage space.",
                     "price": 140,
-                    "image": "tool-box"
+                    "image": "tool-box",
+                    "image_collection": ["ssc4", "sp-tool-box"],
+                    "material": "plastic",
+                    "size": "H14 x W21 x L30",
+                    "colour": "grey"
           
                 },
                 
@@ -214,7 +238,11 @@
                     "product_name": "butler",
                     "description": "Sometimes we all need an extra hand around the house. Enter the Butler, a versatile new step-ladder designed by Shane Schneck for HAY, whose clever design and thoughtful features make it an ideal household tool for numerous contexts. Crafted in solid oak with contemporary detailing, its larger lower step enables it to be used a side table, stool, or even a bedside bench.",
                     "price": 730,
-                    "image": "butler"
+                    "image": "butler",
+                    "image_collection": ["sp-butler", "sp-butler2"],
+                    "material": "SHELL: Oiled Solid oak. FRAME: oiled solid oak",
+                    "size": "H49 x W50 x L42",
+                    "colour": "oak"
               
                 }
             ]

@@ -12,10 +12,11 @@ import Foundation
 
 final class MainViewModel {
     
-   private let service: HayServiceable
+    private let service: HayServiceable
     
-   private let productArchiver: ProductArchiver = ProductArchiver(productType: .favourite)
-private let basketProductArchiver: ProductArchiver = ProductArchiver(productType: .basket)
+    private let productArchiver: ProductArchiver = ProductArchiver(productType: .favourite)
+    
+    private let basketProductArchiver: ProductArchiver = ProductArchiver(productType: .basket)
     
     private var savedProducts: [LocaleProduct]? = []
     private var basketProducts: [LocaleProduct]? = []
@@ -59,22 +60,22 @@ private let basketProductArchiver: ProductArchiver = ProductArchiver(productType
     // MARK: - Inspiration View Model
     
     private var inspiration: [InspirationFeed] = []
-
+    
     var localInspiration: [LocaleInspirationFeed] {
-
+        
         var localeInspiration: [LocaleInspirationFeed] = []
-
+        
         for inspo in inspiration {
-
+            
             let localeInspirationProducts = createLocalProducts(with: inspo.products)
-
+            
             let localeInspo = LocaleInspirationFeed(id: inspo.id, collectionName: inspo.collectionName, coverImage: inspo.coverImage, description: inspo.description, images: inspo.images, products: localeInspirationProducts)
-
+            
             localeInspiration.append(localeInspo)
         }
         return localeInspiration
     }
-  
+    
     // MARK: - Property Observer
     
     // Подписки - Property wrapper + closure
@@ -105,7 +106,7 @@ private let basketProductArchiver: ProductArchiver = ProductArchiver(productType
         }
         savedProducts = productArchiver.retrieve()
     }
-
+    
     
     func update() {
         defer {
@@ -123,7 +124,9 @@ private let basketProductArchiver: ProductArchiver = ProductArchiver(productType
         
     }
     
-   func fetchModels() {
+    // MARK: - Fetching Data
+    
+    func fetchModels() {
         
         Task {
             do {
@@ -141,6 +144,8 @@ private let basketProductArchiver: ProductArchiver = ProductArchiver(productType
             }
         }
     }
+    
+    
     // MARK: - Create Products
     
     private func createLocalProducts(with products: [Product]) -> [LocaleProduct] {
@@ -168,7 +173,7 @@ private let basketProductArchiver: ProductArchiver = ProductArchiver(productType
             if let index = merged.firstIndex(where: { $0.id == product.id }) {
                 merged[index].isInCart = product.isInCart
             }
-        }        
+        }
         return merged
     }
 }

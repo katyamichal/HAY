@@ -18,7 +18,8 @@ protocol MainTableViewDelegate: AnyObject {
 
 enum ProductSection: CaseIterable {
     case popular
-    case designer
+    case designer1
+    case designer2
 }
 
 
@@ -39,8 +40,8 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
     var viewModel: MainViewModel? {
         didSet {
             self.reloadData()
-            guard let inspiration = viewModel?.localInspiration, !inspiration.isEmpty else { return }
             
+            guard let inspiration = viewModel?.localInspiration, !inspiration.isEmpty else { return }
             self.tableHeader.update(with: inspiration)
         }
     }
@@ -91,13 +92,13 @@ extension MainTableView: UITableViewDataSource {
         let section = ProductSection.allCases[section]
         
         switch section {
-        case .popular, .designer:
+        case .popular, .designer1, .designer2:
             return 1
   
         }
     }
     
-    
+    #warning("Clean up")
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let section = ProductSection.allCases[indexPath.section]
@@ -108,16 +109,16 @@ extension MainTableView: UITableViewDataSource {
             let cell = tableView.dequeue(indexPath) as ProductCell
             let products = viewModel?.popularLocaleProduct ?? []
             cell.update(products)
-            
-            cell.collectionView.delegate = self
-          
             cell.onLocalProductDidChanged = { product in
                 self.selectionDelegate?.didChangeLocalProduct(product: product)
+            }
+            cell.onDidSelectedSegmentProduct = { product in
+                self.selectionDelegate?.didSelectProduct(product: product)
             }
             
             return cell
             
-        case .designer:
+        case .designer1:
             
             guard let designers = viewModel?.localDesigners, !designers.isEmpty else {
                 let cell = tableView.dequeue(indexPath) as LoadingDesignerCell
@@ -125,10 +126,29 @@ extension MainTableView: UITableViewDataSource {
             }
             
             let cell = tableView.dequeue(indexPath) as DesignerCell
-            cell.update(designers[indexPath.row])
-            cell.collectionView.delegate = self
+            cell.update(designers[0])
             cell.onLocalProductDidChanged = { product in
                 self.selectionDelegate?.didChangeLocalProduct(product: product)
+            }
+            cell.onDidSelectDesignerProduct = { product in
+                self.selectionDelegate?.didSelectProduct(product: product)
+            }
+            return cell
+            
+        case .designer2:
+            guard let designers = viewModel?.localDesigners, !designers.isEmpty else {
+                let cell = tableView.dequeue(indexPath) as LoadingDesignerCell
+                return cell
+            }
+            
+            let cell = tableView.dequeue(indexPath) as DesignerCell
+            cell.update(designers[1])
+            cell.onLocalProductDidChanged = { product in
+                self.selectionDelegate?.didChangeLocalProduct(product: product)
+            }
+            
+            cell.onDidSelectDesignerProduct = { product in
+                self.selectionDelegate?.didSelectProduct(product: product)
             }
             return cell
         }
@@ -146,39 +166,40 @@ extension MainTableView: UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let sections = ProductSection.allCases[indexPath.section]
         switch sections {
         case .popular:
             break
-        case .designer:
+        case .designer1, .designer2:
             guard let designers = viewModel?.localDesigners else {return}
-            let selected = designers[indexPath.item]
+            let selected = designers[indexPath.section - 1]
             selectionDelegate?.didSelectDesignerCell(designer: selected)
         }
     }
 }
 // MARK: - Popular Product Collection Delegate
 
-extension MainTableView: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        let section = collectionView.cellForItem(at: indexPath)
-           
-        switch section {
-        case section as ProductCollectionCell:
-            guard let products = viewModel?.popularLocaleProduct else {return}
-            let product = products[indexPath.item]
-            selectionDelegate?.didSelectProduct(product: product)
-        case section as DesignerProductsCell:
-            // here not sure
-            guard let designer = viewModel?.localDesigners[indexPath.section]
-            else {return}
-            let product = designer.products[indexPath.item]
-            selectionDelegate?.didSelectProduct(product: product)
-        default:
-            break
-        }
-    }
-}
+//extension MainTableView: UICollectionViewDelegate {
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//
+//        let section = collectionView.cellForItem(at: indexPath)
+//
+//        print(indexPath.section)
+//
+//        switch section {
+//
+//        case section as ProductCollectionCell:
+//            guard let products = viewModel?.popularLocaleProduct else {return}
+//            let product = products[indexPath.item]
+//            selectionDelegate?.didSelectProduct(product: product)
+////        case section as DesignerProductsCell:
+////            guard let designer = viewModel?.localDesigners[1]
+////            else {return}
+////            let product = designer.products[indexPath.item]
+////            selectionDelegate?.didSelectProduct(product: product)
+//        default:
+//           break
+//        }
+//    }
+//}

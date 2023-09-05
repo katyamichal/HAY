@@ -364,8 +364,8 @@
             filePath = "HayBase/Modules/Main/ViewModel/MainViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "localInspiration"
             landmarkType = "24">
          </BreakpointContent>
@@ -380,8 +380,8 @@
             filePath = "HayBase/Modules/Main/ViewModel/MainViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "localDesigners"
             landmarkType = "24">
          </BreakpointContent>
