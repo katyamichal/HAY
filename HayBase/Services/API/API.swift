@@ -8,43 +8,42 @@
 import Foundation
 
 protocol API {
-    func performRequest<HayT: Decodable>(endpoint: Endpoint, responseModel: HayT.Type) async -> Result<HayT, RequestProcessorError>
+    func performRequest<HayT: Decodable>(endpoint: Endpoint, responseModel: HayT.Type) async  throws -> HayT
 }
 
 extension API {
-    func performRequest<HayT: Decodable>(endpoint: Endpoint, responseModel: HayT.Type) async -> Result<HayT, RequestProcessorError> {
+    func performRequest<HayT: Decodable>(endpoint: Endpoint, responseModel: HayT.Type) async  throws -> HayT {
         var urlComponents = URLComponents()
         urlComponents.scheme = endpoint.scheme
         urlComponents.host = endpoint.host
         urlComponents.path = endpoint.path
         
         guard let url = urlComponents.url else {
-            return .failure(RequestProcessorError.failToCreateURL)
+            throw RequestProcessorError.failToCreateURL
         }
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
-        //request.allHTTPHeaderFields = endpoint.header
         
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let response = response as? HTTPURLResponse else {
-                return .failure(RequestProcessorError.unexpectedResponse(response))
+                throw RequestProcessorError.unexpectedResponse(response)
             }
             
             switch response.statusCode {
             case 200..<300:
                 guard let decodedResponse = try? JSONDecoder().decode(HayT.self, from: data) else {
-                    return .failure(.unableToDecode)
+                    throw RequestProcessorError.unableToDecode
                 }
-                return .success(decodedResponse)
+                return decodedResponse
             case 401:
-                return .failure(.unauthorized)
+                throw RequestProcessorError.unauthorized
             default:
-                return .failure(.statusCode(response.statusCode))
+                throw RequestProcessorError.statusCode(response.statusCode)
             }
             
         } catch {
-            return .failure(.unknown)
+            throw RequestProcessorError.unknown
         }
     }
 }

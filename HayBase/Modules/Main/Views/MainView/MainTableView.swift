@@ -8,16 +8,19 @@
 import UIKit
 
 
-enum ProductSection: CaseIterable {
-    case popular
-    case designer
-}
-
 protocol MainTableViewDelegate: AnyObject {
     func didSelectProduct(product: LocaleProduct)
     func didSelectDesignerCell(designer: LocaleDesigner)
     func didChangeLocalProduct(product: LocaleProduct)
 }
+
+
+
+enum ProductSection: CaseIterable {
+    case popular
+    case designer
+}
+
 
 final class MainTableView: UITableView, UIScrollViewDelegate {
     
@@ -25,15 +28,14 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
 
     weak var selectionDelegate: MainTableViewDelegate?
    
+    
     // MARK: - Header
 
     let tableHeader = InspirationTableHeader()
      
+    
     // MARK: - View Model
 
-//    func update(_ viewModel: MainViewModel) {
-//        self.viewModel = viewModel
-//    }
     var viewModel: MainViewModel? {
         didSet {
             self.reloadData()
@@ -42,13 +44,15 @@ final class MainTableView: UITableView, UIScrollViewDelegate {
             self.tableHeader.update(with: inspiration)
         }
     }
+    
+    
     // MARK: - Inits
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
         
-        self.backgroundColor = Colours.Main.hayBackground
+        self.backgroundColor = .clear
         
         self.translatesAutoresizingMaskIntoConstraints = false
         self.delegate = self
@@ -87,10 +91,9 @@ extension MainTableView: UITableViewDataSource {
         let section = ProductSection.allCases[section]
         
         switch section {
-        case .popular:
+        case .popular, .designer:
             return 1
-        case .designer:
-            return viewModel?.localDesigners.count ?? 1
+  
         }
     }
     

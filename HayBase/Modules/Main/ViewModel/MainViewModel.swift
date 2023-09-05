@@ -8,7 +8,7 @@
 import Foundation
 
 
-//TODO: - Separate View Models
+//TODO: - to write an alert in case of bad network or some error
 
 final class MainViewModel {
     
@@ -123,46 +123,23 @@ private let basketProductArchiver: ProductArchiver = ProductArchiver(productType
         
     }
     
-    @MainActor func fetchModels()  {
-#warning("create a task group")
+   func fetchModels() {
         
         Task {
-            
-            let result = await service.getInspiration()
-            switch result {
-            case .success(let inspiration):
-                self.inspiration = inspiration.inspiration
+            do {
+                async let inspirationResult = try service.getInspiration()
+                async let desingnersResult = try service.getDesigners()
+                async let popularResult = try service.getPopularProduct()
+                
+                self.inspiration = try await inspirationResult.inspiration
+                self.designers = try await desingnersResult.designers
+                self.popularProduct = try await popularResult.products
+                
                 isUpdated = true
-            case .failure(let error):
-                print("***Error to fetch inspitation feed: \(error.localizedDescription)")
+            } catch {
+                print(error.localizedDescription)
             }
         }
-        
-        Task {
-            
-            let result = await service.getDesigners()
-            switch result {
-            case .success(let designerResponse):
-                self.designers = designerResponse.designers
-                isUpdated = true
-            case .failure(let error):
-                print("***Error to fetch designer feed: \(error.localizedDescription)")
-            }
-        }
-        
-        Task {
-            
-            let result = await service.getPopularProduct()
-            switch result {
-            case .success(let popularProduct):
-                self.popularProduct = popularProduct.products
-                isUpdated = true
-            case .failure(let error):
-                print("***Error to fetch popular product: \(error.localizedDescription)")
-            }
-            
-        }
-        
     }
     // MARK: - Create Products
     

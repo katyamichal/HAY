@@ -31,6 +31,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         /// inittial fetching
+        
         fetchData()
         
         ///delegates
@@ -48,14 +49,15 @@ final class MainViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
     }
     
-     private func fetchData() {
-        mainViewModel.fetchModels()
-        
-        mainViewModel.onUpdatedModel =  {
-            
-            self.mainView.mainTableView.viewModel = self.mainViewModel
-          //  self.mainView.mainTableView.update(self.mainViewModel)
+    private func fetchData() {
+        defer {
+            mainViewModel.onUpdatedModel =  { [weak self] in
+                DispatchQueue.main.async {
+                    self?.mainView.mainTableView.viewModel = self?.mainViewModel
+                }
+            }
         }
+        mainViewModel.fetchModels()
     }
 }
 // MARK: - Delegate methods
@@ -78,7 +80,7 @@ extension MainViewController: MainTableViewDelegate {
     }
     
     
-    #warning("finish")
+ 
     func didSelectDesignerCell(designer: LocaleDesigner) {}
     
    /// shows detail view for single product

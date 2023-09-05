@@ -32,7 +32,7 @@ class ShimmeringView: UIView {
     // MARK: - <#Section Heading#>
 
     private func commonInit() {
-        shimmeringLayer.colors = [Colours.Gradient.gradientLightGrey.cgColor, Colours.Gradient.gradientSilverGrey.cgColor]
+        shimmeringLayer.colors = [Colours.Gradient.gradientSilverGrey.cgColor, Colours.Gradient.gradientSilverGrey.cgColor]
         layer.addSublayer(shimmeringLayer)
     }
     

@@ -12,8 +12,9 @@ final class LoadingDesignerCell: UITableViewCell {
     
     // MARK: - UI Elements
     
-    private let shimmeringView: ShimmeringView = {
-        let view = ShimmeringView()
+    private let shimmeringView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Colours.Gradient.gradientSilverGrey.withAlphaComponent(0.5)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

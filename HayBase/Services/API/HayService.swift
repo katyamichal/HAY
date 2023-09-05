@@ -11,11 +11,11 @@ import Foundation
 
 protocol HayServiceable {
     
-    func getInspiration() async -> Result<Inspiration, RequestProcessorError>
+    func getInspiration() async throws -> Inspiration
     
-    func getDesigners() async -> Result<DesignerResponse, RequestProcessorError>
+    func getDesigners() async throws -> DesignerResponse
     
-    func getPopularProduct() async -> Result<PopularProduct, RequestProcessorError>
+    func getPopularProduct() async throws -> PopularProduct
     
    
     
@@ -23,16 +23,16 @@ protocol HayServiceable {
 
 struct HayService: API, HayServiceable {
     
-    func getPopularProduct() async -> Result<PopularProduct, RequestProcessorError> {
-        return await performRequest(endpoint: HayEndpoints.popular, responseModel: PopularProduct.self)
+    func getPopularProduct() async throws -> PopularProduct {
+        return try await performRequest(endpoint: HayEndpoints.popular, responseModel: PopularProduct.self)
     }
     
-    func getDesigners() async -> Result<DesignerResponse, RequestProcessorError> {
-        return await performRequest(endpoint: HayEndpoints.designers, responseModel: DesignerResponse.self)
+    func getDesigners() async throws -> DesignerResponse{
+        return try await performRequest(endpoint: HayEndpoints.designers, responseModel: DesignerResponse.self)
     }
     
-    func getInspiration() async -> Result<Inspiration, RequestProcessorError> {
-        return await performRequest(endpoint: HayEndpoints.inspiration, responseModel: Inspiration.self)
+    func getInspiration() async throws -> Inspiration {
+        return try await performRequest(endpoint: HayEndpoints.inspiration, responseModel: Inspiration.self)
     }
 
 }

@@ -18,7 +18,7 @@ enum Colours {
     }
     
     enum Gradient {
-        static let gradientSilverGrey = UIColor.rgba(red: 200, green: 211, blue: 214, alpha: 1)
+        static let gradientSilverGrey = UIColor.rgba(red: 218, green: 220, blue: 225, alpha: 1)
         
         static let gradientLightGrey = UIColor.rgba(red: 252, green: 250, blue: 251, alpha: 1)
     }
